@@ -42,8 +42,10 @@ onLogin(){
                     <div className='Sign_in_to_your_account'>
                       Sign in to your account
                     </div>
-                    <input type = 'text' className='field_outline' style={{marginTop:'34px'}}/>
-                    <input type = 'text' className='field_outline' style={{marginTop:'13.9px'}}/>
+                    <input type = 'text' className='field_outline' style={{marginTop:'34px'}}
+                    placeHolder = 'User name' defaultValue = 'alice' id="username"/>
+                    <input type = 'password' className='field_outline' style={{marginTop:'13.9px'}}
+                    placeHolder = 'Password' defaultValue = 'wonderland' id="pwd"/>
                     <div style={{marginTop:'19.9px'}}>
                       <div style={{float:'left',marginRight:'10px'}}>
                         <input type='checkbox'/>
@@ -52,7 +54,8 @@ onLogin(){
                         <div className=''>Keep me signed in</div>
                       </div>
                     </div>
-                    <div className='button_background' style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+                    <div className='button_background' style={{display:'flex',alignItems:'center',justifyContent:'center'}}
+                    tabIndex="1" onClick = {this.onLogin}>
                         SIGN IN
                     </div>
                   </div>

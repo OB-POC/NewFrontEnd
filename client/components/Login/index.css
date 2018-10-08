@@ -5,7 +5,7 @@
   }
 
 .logo_open_bank {
-    
+
     font-family: Montserrat;
     font-size: 40px;
     font-weight: 600;
@@ -29,7 +29,7 @@
   }
 
   .Sign_in_to_your_account {
-    
+
     font-family: OpenSans;
     font-size: 19.8px;
     font-weight: 300;
@@ -47,7 +47,7 @@
     border-radius: 2.2px;
     background-color: #e5e9ed;
     border: solid 0.6px rgba(208, 208, 208, 0.5);
-    
+
     font-family: Lato;
     font-size: 15.4px;
     font-weight: normal;
@@ -62,7 +62,7 @@
 
 
   .keep_me_signed_in {
-    
+
     font-family: Lato;
     font-size: 13.1px;
     font-weight: normal;
@@ -80,7 +80,7 @@
     height: 53.8px;
     border-radius: 2.2px;
     background-color: #c62745;
-     
+
     font-family: OpenSans;
     font-size: 16.5px;
     font-weight: 300;
@@ -93,6 +93,5 @@
   }
 
   .sign_in {
-   
+
   }
-  
