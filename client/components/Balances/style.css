@@ -4,3 +4,78 @@
     border-radius: 6px;
     background-image: linear-gradient(292deg, #022120, #006a4d, #006a4d);
   }
+
+  .paper {
+    width: 416px;
+    height: 450px;
+    border-radius: 6px;
+    background-color: #ffffff;
+  }
+
+  .outer-layer{
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .outer-layer2{
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .credit-accounts {
+    width: 169px;
+    height: 33px;
+    font-family: OpenSans;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+  }
+
+  .line {
+    border-right: solid 0.4px #979797;
+    width: 3px;
+    height: 45px;
+    margin-top : 10px;
+    margin-left: 15px;
+  }
+
+  .line-1 {
+    border-right: solid 0.4px #979797;
+    width: 3px;
+    height: 45px;
+    margin-top : 5px;
+    margin-left: 15px;
+  }
+
+  .img-credit{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .name-credit {
+    margin-top: 20px;
+    margin-left: 30px;
+    font-weight: 750
+  }
+
+  .amount-credit{
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  .payout-button{
+    width: 260px;
+    height: 65px;
+    border-radius: 3px;
+    background-color: #c62745;
+    box-shadow: 0 10px 24px 0 rgba(142, 42, 61, 0.47);
+    font-family: OpenSans;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+  }
