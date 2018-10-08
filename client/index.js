@@ -7,12 +7,11 @@ import Balance from './components/Balances';
 import Login from './components/Login'
 
 render(
-<MuiThemeProvider>    
+<MuiThemeProvider>
 <HashRouter>
     <div>
+        <Route path='/Home' component={Home} />
         <Route exact path='/' component={Login} />
- 
 
     </div>
-</HashRouter>
-</MuiThemeProvider>, document.getElementById('root'));
+</HashRouter>, document.getElementById('root'));
