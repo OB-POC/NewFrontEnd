@@ -1,0 +1,98 @@
+.llyods_login {
+    width: 100%;
+    height: 100%;
+    background-color: #006a4d;
+  }
+
+.logo_open_bank {
+    
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    padding-top: 77px;
+    padding-left: 140px
+
+  }
+
+  .Login_Background {
+    width: 421.7px;
+    height: 413.4px;
+    border-radius: 5.5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .Sign_in_to_your_account {
+    
+    font-family: OpenSans;
+    font-size: 19.8px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.7px;
+    text-align: left;
+    color: #444444;
+  }
+
+  .field_outline {
+    width: 332.2px;
+    height: 55.1px;
+    border-radius: 2.2px;
+    background-color: #e5e9ed;
+    border: solid 0.6px rgba(208, 208, 208, 0.5);
+    
+    font-family: Lato;
+    font-size: 15.4px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #787e8c;
+    padding: 17.6px 22px 17.6px 22px
+  }
+
+
+  .keep_me_signed_in {
+    
+    font-family: Lato;
+    font-size: 13.1px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #787e8c;
+  }
+
+    .button_background {
+    margin-top: 36px;
+    width: 332.2px;
+    height: 53.8px;
+    border-radius: 2.2px;
+    background-color: #c62745;
+     
+    font-family: OpenSans;
+    font-size: 16.5px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.1px;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  .sign_in {
+   
+  }
+  
