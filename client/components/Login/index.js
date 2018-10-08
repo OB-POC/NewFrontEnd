@@ -27,6 +27,12 @@ onLogin(){
   })
 
 }
+keyPress(event){
+  if (event.key == 'Enter'){
+     // How would I trigger the button that is in the render? I have this so far.
+     this.onLogin();
+   }
+}
     render(){
         return(
             <div className='llyods_login'>
@@ -43,9 +49,9 @@ onLogin(){
                       Sign in to your account
                     </div>
                     <input type = 'text' className='field_outline' style={{marginTop:'34px'}}
-                    placeHolder = 'User name' defaultValue = 'alice' id="username"/>
+                    placeHolder = 'User name' defaultValue = 'alice' id="username" autofocus="true" onKeyPress={this.keyPress.bind(this)}/>
                     <input type = 'password' className='field_outline' style={{marginTop:'13.9px'}}
-                    placeHolder = 'Password' defaultValue = 'wonderland' id="pwd"/>
+                    placeHolder = 'Password' defaultValue = 'wonderland' id="pwd" onKeyPress={this.keyPress.bind(this)}/>
                     <div style={{marginTop:'19.9px'}}>
                       <div style={{float:'left',marginRight:'10px'}}>
                         <input type='checkbox'/>
