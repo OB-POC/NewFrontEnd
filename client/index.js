@@ -4,15 +4,14 @@ import {HashRouter, Route} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Balance from './components/Balances';
 
-
+import Login from './components/Login'
 
 render(
-<MuiThemeProvider>    
+<MuiThemeProvider>
 <HashRouter>
     <div>
-        <Route exact path='/' component={Balance} />
- 
+        <Route path='/Home' component={Home} />
+        <Route exact path='/' component={Login} />
 
     </div>
-</HashRouter>
-</MuiThemeProvider>, document.getElementById('root'));
+</HashRouter>, document.getElementById('root'));
