@@ -8,12 +8,15 @@ export default class Header extends React.Component{
     super(props);
 
   }
-
+  obClick(){
+    this.props.history.push('/home')
+  }
     render(){
         return(
             <div>
               <div className = 'Rectangle-2' style = {{display:'flex',justifyContent:'space-between'}}>
-                <div style = {{padding:"20px"}}>
+                <div style = {{padding:"20px", cursor: 'pointer'}}
+                tabIndex = '1' onClick = {this.obClick.bind(this)}>
                   <span className = 'OPEN-BANK'>OPEN BANKING</span>
                 </div>
                 <div style= {{display:"flex",paddingRight:'50px'}}>
@@ -30,7 +33,7 @@ export default class Header extends React.Component{
                 </div>
               </div>
             </div>
-            
+
         );
     }
 }

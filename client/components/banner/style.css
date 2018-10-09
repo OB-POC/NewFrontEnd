@@ -72,7 +72,7 @@
   font-weight: 600;
   letter-spacing: 1.7px;
   font-family: Open Sans
- 
+
 }
 
 .Rectangle-4:active{
@@ -85,4 +85,8 @@
 .title, .Rectangle-3 {
   width: 100%;
   margin: 0 15px;
+}
+
+.banner-1 {
+  background-size: 94%;
 }

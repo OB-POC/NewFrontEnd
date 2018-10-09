@@ -4,10 +4,9 @@ import './style.css';
 export default class Rel extends React.Component{
   constructor(props){
     super(props);
-
   }
   yesClick(){
-    this.props.history.push('payout');
+    this.props.history.push('./payout')
   }
     render(){
         return(
@@ -16,7 +15,7 @@ export default class Rel extends React.Component{
               <p className = 'My-financials'>My financials</p>
             </div>
             <div className = 'banner-1' style={{display:'flex' ,backgroundImage: 'url("../../../../images/Banners/img-banner.png")',backgroundRepeat:'no-repeat',padding:'11px'}}>
-          
+
                 <div  style = {{display:'flex',width : '179px',flexDirection:'column',borderRight :'2px solid rgba(255, 255, 255, .5)',paddingRight :'11%'}}>
                 <span className = 'Savings-accounts' style ={{whiteSpace: 'nowrap',display: 'block'}}>Debit Accounts</span>
                 <span className = 'layer'>{this.props.accSumary.noOfDebitAccounts}</span>
@@ -30,11 +29,12 @@ export default class Rel extends React.Component{
                 <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableCreditBalance}</span>
                 </div>
                 <div  style = {{display:'flex',flexDirection:'column',paddingLeft :'11%',width:'377px'}}>
-                <span className = 'Want-to-reduce-your'>Want to reduce your credit outstanding balance by £ 4301?</span>
+                <span className = 'Want-to-reduce-your'>Want to reduce your credit outstanding balance by &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 £ {this.props.accSumary.savingsOnBestMatch} ?</span>
                   <div className = 'Rectangle-4' style = {{padding:"16px 45px 16px 36px",
                   display:'flex',marginTop:'16px',cursor:'pointer'}}
                    onClick = {this.yesClick.bind(this)} tabIndex = '1'>
-                    <span className = 'YES' >YES</span><i style = {{ color:'white'}} class="fas fa-arrow-right"></i>
+                    <span className = 'YES' >YES</span><i style = {{ color:'white'}} className="fas fa-arrow-right"></i>
                   </div>
                 </div>
               </div>
