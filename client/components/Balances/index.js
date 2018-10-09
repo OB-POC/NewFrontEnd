@@ -8,13 +8,8 @@ export default class Balance extends React.Component{
     render(){
         return(
             <div>
-                <div className='container banner'>
-                    <div className='row'>
-
-                    </div>
-                </div>
-                <div className='row'>
-                <Paper className='paper' zDepth={2}>
+                <div style={{display:'flex',marginLeft:'65px'}}>
+                <Paper className='paper' zDepth={2} style = {{padding:'15px'}}>
                    <div className='credit-accounts'>Credit accounts</div>
                    <div className='outer-layer' style={{display:'flex'}}>
                    <div className='img-credit'><img src='../../../../images/card_img1.jpg' /></div>
