@@ -14,7 +14,10 @@
     "setupTestFrameworkScriptFile": "./client/__tests__/setup/setupTests.js",
     "testPathIgnorePatterns": [
       "./client/__tests__/setup/"
-    ]
+    ],
+    "globals": {
+      "NODE_ENV": "DEV"
+    }
   },
   "author": "priyanka",
   "license": "ISC",
