@@ -1,27 +1,32 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import ToolTip from 'react-portal-tooltip'
 
 import './style.css';
 
 
 export default class Balance extends React.Component{
 
-    componentWillMount(){
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip({
-            title: function() {
-                var element = $( this );
-                if ( element.is( ".outer-layer" ) ) {
-                    return ("<img style='height:110px,width:175px,margin-left:22px' src='images/card_img1.jpg'/></div>div class='col-4' style='padding-top:30px,padding-left:55px'><div style='display:flex,flex-direction:row,margin-right:22px'><div style='display:flex,flexDirection:column'><div class='bank'>Banks</div><div class='JP_Morgan_Chase'>JP Morgan Chase</div><div class='bank' style='margin-top:15px'>Credit limit</div><div class='JP_Morgan_Chase'>£ 3000</div><div class='bank' style='margin-top:15px'>Available credit</div><div class='JP_Morgan_Chase'>£ 1200</div></div></div> </div><div class='col-4' style='padding-top:30px,padding-left:22px,padding-right:22px'><div style='display:flex,flex-direction:row'><div style='display:flex,flex-direction:column'><div class='bank'>Minimum due balance</div><div class='JP_Morgan_Chase'>£ 30</div><div class='bank' style='margin-top:15px'>Due date</div><div class='JP_Morgan_Chase' style='color:#ff5d64'>Thursday, Oct 11, 2018</div></div></div></div></div></div>"
-                      );
-                }
-            }, html: true ,placement: "top"});
-        });
-     }
-     payoutClick(){
-       this.props.history.push('payout')
-     }
+  constructor(){
+    super()
+    this.state = {
+      isTooltipActive: false
+    }
+    this.showTooltip = this.showTooltip.bind(this);
+    this.hideTooltip = this.hideTooltip.bind(this);
+  }
+
+  showTooltip() {
+      this.setState({isTooltipActive: true})
+  }
+  hideTooltip() {
+      this.setState({isTooltipActive: false})
+  }
+
+
     render(){
+      const context = this;
+      const contextState = this.state;
       var credData = this.props.creditData.map(function (data,i) {
         var accData = data.accounts.map(function (data1,j) {
           return(
@@ -42,7 +47,38 @@ export default class Balance extends React.Component{
         )
         })
         return(
-          <div className='outer-layer' style={{display:'flex'}}>
+          <div className='outer-layer' id="outer-layer" style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this)} onMouseLeave={context.hideTooltip.bind(this)}>
+                    <ToolTip active={contextState.isTooltipActive} position="top" arrow="left" parent="#outer-layer">
+                    <div className='tooltip_background'>
+                   <div className='row'>
+                       <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
+                           <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+                       </div>
+                       <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
+                           <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
+                               <div style={{display:'flex',flexDirection:'column'}}>
+                                   <div className='bank'><small>Banks</small></div>
+                                   <div className='JP_Morgan_Chase'>JP Morgan Chase</div>
+                                   <div className='bank' style={{marginTop:'15px'}}><small>Credit limit</small></div>
+                                   <div className='JP_Morgan_Chase'>£ 3000</div>
+                                   <div className='bank' style={{marginTop:'15px'}}><small>Available credit</small></div>
+                                   <div className='JP_Morgan_Chase'>£ 1200</div>
+                               </div>
+                           </div>
+                       </div>
+                       <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px',paddingRight:'22px'}}>
+                           <div style={{display:'flex',flexDirection:'row'}}>
+                               <div style={{display:'flex',flexDirection:'column'}}>
+                                   <div className='bank'>Minimum due balance</div>
+                                   <div className='JP_Morgan_Chase'>£ 30</div>
+                                   <div className='bank' style={{marginTop:'15px'}}>Due date</div>
+                                   <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>Thursday, Oct 11, 2018</div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+          </ToolTip>
           <div className='img-credit'><img src='../../../../images/card_img1.jpg' /></div>
           <div className='detail-credit'>
                <p className='credit'>{data.bankName}<br/>
@@ -88,7 +124,7 @@ export default class Balance extends React.Component{
         )
       })
         return(
-            <div>
+            <div className="conatiner-fluid">
                 <div style={{display:'flex'}}>
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='credit-accounts'>Credit accounts</div>

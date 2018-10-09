@@ -19,15 +19,38 @@
     margin-bottom: 10px;
   }
 
-  /* .tooltip-inner {
-   height: 200px;
-   width: 500px
-} */
+  .tooltip_background {
+    width: 100%;
+    height: 222px;
+    background-color: #ffffff;
+    
+  }
 
-.tooltip-arrow{
-  color: #fff;
-}
+  .bank {
+  
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9b9b9b;
+  }
 
+  .JP_Morgan_Chase {
+    
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+  }
 
   .outer-layer2{
     margin-top: 15px;
@@ -35,9 +58,7 @@
   }
 
   .credit-accounts {
-    width: 169px;
-    height: 33px;
-    font-family: OpenSans;
+    font-family: Open Sans;
     font-size: 24px;
     font-weight: 300;
     font-style: normal;
@@ -86,7 +107,7 @@
     border-radius: 3px;
     background-color: #c62745;
     box-shadow: 0 10px 24px 0 rgba(142, 42, 61, 0.47);
-    font-family: OpenSans;
+    font-family: Open Sans;
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
