@@ -1,0 +1,90 @@
+.Oval {
+    width: 66px;
+    height: 66px;
+    background-color: #006a4d;
+}
+
+.Center{
+    margin: 0 auto;
+    text-align: left;
+    width: 800px;
+}
+
+.Shape {
+    width: 35px;
+    height: 24px;
+    border: solid 5px #ffffff;
+}
+
+.back_groud_panel
+{
+    padding-left: 7%;
+    position: relative;
+    
+}
+
+.bgimg{
+    position: relative;
+    margin-left: -3%;
+}
+
+.lbgcard{
+    position: absolute;
+    left: 16%;
+    top: 57%;
+}
+
+.switch-button {
+    width: 319px;
+    height: 65px;
+    border-radius: 3px;
+    background-color: #66980c;
+    box-shadow: 0 9px 19px 0 rgba(43, 63, 8, 0.38);
+    position: absolute;
+    left: 13%;
+    top: 76%;
+    color: white;
+  }
+
+  #switch-msg
+  {
+    float: left;
+    padding-left: 3%;
+  }
+
+  #right-arrow
+  {
+    float: right;
+    padding-right: 7%;
+  }
+
+  #banner
+  {
+      position: relative;
+  }
+
+  #banner-img
+  {
+      position: relative;
+  }
+
+  #lable
+  {
+      position: absolute;
+      top: 34%;
+      left:17%;
+      color :white;
+  }
+
+  #msg
+  {
+      position: absolute;
+      top: 37%;
+      left: 13%;
+      width: 35%;
+  }
+
+
+
+
+
