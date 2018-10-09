@@ -43,7 +43,7 @@ export default class Rel extends React.Component{
                 <Sidebar/>
               <div className='row' style = {{backgroundColor:"#f5f6fa",width:"100%"}}>
                 <div className='col-9' >
-                <Banner accSumary = {this.state.accSumary}/>
+                <Banner accSumary = {this.state.accSumary} history = {this.props.history}/>
                 <Balance creditData = {this.state.creditData} debitData = {this.state.debitData}/>
                 </div>
                 <div className='col-3'>

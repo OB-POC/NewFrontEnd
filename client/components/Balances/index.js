@@ -5,12 +5,26 @@ import './style.css';
 
 
 export default class Balance extends React.Component{
+
+    componentWillMount(){
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip({
+            title: function() {
+                var element = $( this );
+                if ( element.is( ".outer-layer" ) ) {
+                    return ("<img style='height:110px,width:175px,margin-left:22px' src='images/card_img1.jpg'/></div>div class='col-4' style='padding-top:30px,padding-left:55px'><div style='display:flex,flex-direction:row,margin-right:22px'><div style='display:flex,flexDirection:column'><div class='bank'>Banks</div><div class='JP_Morgan_Chase'>JP Morgan Chase</div><div class='bank' style='margin-top:15px'>Credit limit</div><div class='JP_Morgan_Chase'>£ 3000</div><div class='bank' style='margin-top:15px'>Available credit</div><div class='JP_Morgan_Chase'>£ 1200</div></div></div> </div><div class='col-4' style='padding-top:30px,padding-left:22px,padding-right:22px'><div style='display:flex,flex-direction:row'><div style='display:flex,flex-direction:column'><div class='bank'>Minimum due balance</div><div class='JP_Morgan_Chase'>£ 30</div><div class='bank' style='margin-top:15px'>Due date</div><div class='JP_Morgan_Chase' style='color:#ff5d64'>Thursday, Oct 11, 2018</div></div></div></div></div></div>"
+                      );
+                }           
+            }, html: true ,placement: "top"});
+        });
+     }
+
     render(){
       var credData = this.props.creditData.map(function (data,i) {
         var accData = data.accounts.map(function (data1,j) {
           return(
             <div>
-            <b className='credit'>{data1.apr} % APR</b><br/>
+            <b className='credit'>{data1.apr||data1.interestRate} % APR</b><br/>
             <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> {(new Date(data1.dueDate).getDate() - new Date().getDate())} days</small>
             </div>
           )
