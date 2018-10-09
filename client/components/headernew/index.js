@@ -23,9 +23,9 @@ export default class Header extends React.Component{
               <div style= {{padding:"15px"}}>
               <img className = "img_user" src = 'images/img-u.png' />
               </div>
-              <div style= {{padding:"17px",paddingLeft:'0'}}>
-              <span className = 'Alice-Salas'>{this.props.username}</span>
-              </div>
+              <div style= {{padding:"17px",paddingLeft:'0',display:'flex'}}>
+              <span className = 'Alice-Salas' style = {{paddingRight:'18px'}}>{this.props.username}</span>
+              <i class="fas fa-caret-down"></i>
               </div>
               </div>
             </div>

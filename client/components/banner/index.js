@@ -19,7 +19,7 @@ export default class Rel extends React.Component{
                 <span className = 'Credit-Accounts' style ={{whiteSpace: 'nowrap'}}>Credit Accounts</span>
                 <span className = 'layer'>{this.props.accSumary.noOfCreditAccounts}</span>
                 </div>
-                <div  style = {{display:'flex',flexDirection:'column',paddingLeft :'11%'}}>
+                <div  style = {{display:'flex',flexDirection:'column',paddingLeft :'11%',width:'258px'}}>
                 <span className = 'Savings-accounts'  style ={{whiteSpace: 'nowrap'}}>Debit Balance</span>
                 <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableDebitBalance}</span>
                 <span className = 'Credit-Accounts'  style ={{whiteSpace: 'nowrap'}}>Credit outstanding</span>

@@ -73,13 +73,13 @@ export default class Balance extends React.Component{
       })
         return(
             <div>
-                <div style={{display:'flex',marginLeft:'65px'}}>
-                <Paper className='paper' zDepth={2} style = {{padding:'15px'}}>
+                <div style={{display:'flex'}}>
+                <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='credit-accounts'>Credit accounts</div>
                    {credData}
                    <center><button className='btn payout-button'>PAYOUT PLAN <i className='fas fa-arrow-right fa-lg'></i></button></center>
                 </Paper>
-                <Paper className='paper' zDepth={2}>
+                <Paper className='paper' zDepth={2}style = {{marginLeft:'0px',marginRight:'0px',padding:'20px',width: '50%'}}>
                 <div className='credit-accounts'>Debit accounts</div>
                    {debitData}
                 </Paper>
