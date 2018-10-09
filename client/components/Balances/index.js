@@ -18,11 +18,11 @@ export default class Balance extends React.Component{
   payoutClick(){
     this.props.history.push('payout')
   }
-  showTooltip() {
-      this.setState({isTooltipActive: true})
+  showTooltip(i) {
+      this.setState({tooltipId:i})
   }
-  hideTooltip() {
-      this.setState({isTooltipActive: false})
+  hideTooltip(i) {
+      this.setState({tooltipId: 100})
   }
 
 
@@ -33,6 +33,69 @@ export default class Balance extends React.Component{
         var accData = data.accounts.map(function (data1,j) {
           return(
             <div>
+            {data1.accountType == 'M' ?
+            <ToolTip active={contextState.tooltipId == i+'c'} position="top" arrow="left" parent="#outer-layer">
+            <div className='tooltip_background'>
+           <div className='row'>
+               <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
+                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+               </div>
+               <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
+                   <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
+                       <div style={{display:'flex',flexDirection:'column'}}>
+                           <div className='bank'><small>Banks</small></div>
+                           <div className='JP_Morgan_Chase'>{data.bankName}</div>
+                           <div className='bank' style={{marginTop:'15px'}}><small>Remaining Full Term</small></div>
+                           <div className='JP_Morgan_Chase'>{data1.remainingFullTerm}</div>
+                       </div>
+                   </div>
+               </div>
+               <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px',paddingRight:'22px'}}>
+                   <div style={{display:'flex',flexDirection:'row'}}>
+                       <div style={{display:'flex',flexDirection:'column'}}>
+                           <div className='bank'>Minimum Monthly Payment</div>
+                           <div className='JP_Morgan_Chase'>£ {data1.minMonthlyPayment}</div>
+                           <div className='bank' style={{marginTop:'15px'}}>Due date</div>
+                           <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>{new Date(data1.dueDate).toDateString()}</div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           </div>
+        </ToolTip>:
+        <ToolTip active={contextState.tooltipId == i+'c'} position="top" arrow="left" parent="#outer-layer">
+        <div className='tooltip_background'>
+       <div className='row'>
+           <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
+               <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+           </div>
+           <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
+               <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
+                   <div style={{display:'flex',flexDirection:'column'}}>
+                       <div className='bank'><small>Banks</small></div>
+                       <div className='JP_Morgan_Chase'>{data.bankName}</div>
+                       <div className='bank' style={{marginTop:'15px'}}><small>Credit limit</small></div>
+                       <div className='JP_Morgan_Chase'>£ {data1.creditLimit}</div>
+                       <div className='bank' style={{marginTop:'15px'}}><small>Available credit</small></div>
+                       <div className='JP_Morgan_Chase'>£ {data1.availableCredit}</div>
+                   </div>
+               </div>
+           </div>
+           <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px',paddingRight:'22px'}}>
+               <div style={{display:'flex',flexDirection:'row'}}>
+                   <div style={{display:'flex',flexDirection:'column'}}>
+                       <div className='bank'>Minimum due balance</div>
+                       <div className='JP_Morgan_Chase'>£ {data1.minBalanceDue||data1.minMonthlyPayment}</div>
+                       <div className='bank' style={{marginTop:'15px'}}>Due date</div>
+                       <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>{new Date(data1.dueDate).toDateString()}</div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       </div>
+    </ToolTip>
+            }
+
             <b className='credit'>{data1.apr||data1.interestRate} % APR</b><br/>
             <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> {(new Date(data1.dueDate).getDate() - new Date().getDate())} days</small>
             </div>
@@ -49,38 +112,7 @@ export default class Balance extends React.Component{
         )
         })
         return(
-          <div className='outer-layer' id="outer-layer" style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this)} onMouseLeave={context.hideTooltip.bind(this)}>
-                    <ToolTip active={contextState.isTooltipActive} position="top" arrow="left" parent="#outer-layer">
-                    <div className='tooltip_background'>
-                   <div className='row'>
-                       <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
-                           <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
-                       </div>
-                       <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
-                           <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
-                               <div style={{display:'flex',flexDirection:'column'}}>
-                                   <div className='bank'><small>Banks</small></div>
-                                   <div className='JP_Morgan_Chase'>JP Morgan Chase</div>
-                                   <div className='bank' style={{marginTop:'15px'}}><small>Credit limit</small></div>
-                                   <div className='JP_Morgan_Chase'>£ 3000</div>
-                                   <div className='bank' style={{marginTop:'15px'}}><small>Available credit</small></div>
-                                   <div className='JP_Morgan_Chase'>£ 1200</div>
-                               </div>
-                           </div>
-                       </div>
-                       <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px',paddingRight:'22px'}}>
-                           <div style={{display:'flex',flexDirection:'row'}}>
-                               <div style={{display:'flex',flexDirection:'column'}}>
-                                   <div className='bank'>Minimum due balance</div>
-                                   <div className='JP_Morgan_Chase'>£ 30</div>
-                                   <div className='bank' style={{marginTop:'15px'}}>Due date</div>
-                                   <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>Thursday, Oct 11, 2018</div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-          </ToolTip>
+          <div className='outer-layer' id="outer-layer" style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this, i+'c')} onMouseLeave={context.hideTooltip.bind(this)}>
           <div className='img-credit'><img src='../../../../images/card_img1.jpg' /></div>
           <div className='detail-credit'>
                <p className='credit'>{data.bankName}<br/>
@@ -95,9 +127,39 @@ export default class Balance extends React.Component{
       })
       var debitData = this.props.debitData.map(function (data,i) {
         var accData = data.accounts.map(function (data1,j) {
-          console.log(data1);
           return(
+            <div>
+            <ToolTip active={contextState.tooltipId == i+'d'} position="top" arrow="left" parent="#outer-layer">
+            <div className='tooltip_background'>
+           <div className='row'>
+               <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
+                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+               </div>
+               <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
+                   <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
+                       <div style={{display:'flex',flexDirection:'column'}}>
+                           <div className='bank'><small>Banks</small></div>
+                           <div className='JP_Morgan_Chase'>{data.bankName}</div>
+                           <div className='bank' style={{marginTop:'15px'}}><small>Standing Installments</small></div>
+                           <div className='JP_Morgan_Chase'>£ {data1.standingInst}</div>
+                           <div className='bank' style={{marginTop:'15px'}}><small>Min. Balance</small></div>
+                           <div className='JP_Morgan_Chase'>£ {data1.minBalance}</div>
+                       </div>
+                   </div>
+               </div>
+               <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px',paddingRight:'22px'}}>
+                   <div style={{display:'flex',flexDirection:'row'}}>
+                       <div style={{display:'flex',flexDirection:'column'}}>
+                           <div className='bank'>Available Balance</div>
+                           <div className='JP_Morgan_Chase'>£ {data1.availableBalance}</div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           </div>
+        </ToolTip>
             <b className='credit'>{data1.interestRate}% AER</b>
+            </div>
           )
         })
         var accType = data.accounts.map(function (data2, k) {
@@ -112,7 +174,7 @@ export default class Balance extends React.Component{
         )
         })
         return(
-          <div className='outer-layer2' style={{display:'flex'}}>
+          <div className='outer-layer2' style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this, i+'d')} onMouseLeave={context.hideTooltip.bind(this)}>
              <div className='img-credit'><img src='../../../../images/card_img2.jpg' /></div>
              <div className='detail-credit'>
                   <p className='credit'>{data.bankName}<br/>
