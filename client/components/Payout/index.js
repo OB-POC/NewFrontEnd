@@ -3,6 +3,8 @@ import './style.css';
 import Header from '../headernew'
 import Sidebar from '../sidebar'
 import Services from '../../services'
+import ReactLoading from 'react-loading'
+
 
 export default class Rel extends React.Component{
   constructor(props){
@@ -10,8 +12,8 @@ export default class Rel extends React.Component{
     this.state = {
       payOutData: {creditDebitMatch: []},
       username: '',
-      lines : []
-
+      lines : [],
+      load: true
     }
   }
   componentWillMount() {
@@ -25,20 +27,27 @@ export default class Rel extends React.Component{
   componentDidMount(){
     var username =
     this.setState({
-      username: sessionStorage.getItem("username")
+      username: sessionStorage.getItem("username"),
+      load: false
     })
-    var payOutData = this.state.payOutData
-    var lines = this.state.lines
-    payOutData.creditDebitMatch.map(function(data,i){
 
-      let lineVar = new LeaderLine(document.getElementById('element-'+i),document.getElementById('element-target-'+i),{path:'straight',color:'#4a4a4a'})
-
-      lines.push(lineVar)
-    })
-    this.setState({lines:lines})
-
+    setTimeout(this.loader.bind(this),2000)
   }
+  loader(){
+    this.setState({
+      load: true
+    },function(){
+      var payOutData = this.state.payOutData
+      var lines = this.state.lines
+      payOutData.creditDebitMatch.map(function(data,i){
 
+        let lineVar = new LeaderLine(document.getElementById('element-'+i),document.getElementById('element-target-'+i),{path:'straight',color:'#4a4a4a'})
+
+        lines.push(lineVar)
+      })
+      this.setState({lines:lines})
+    })
+  }
   componentWillUnmount(){
     var lines = this.state.lines
     lines.map(function(data,i){
@@ -110,42 +119,8 @@ export default class Rel extends React.Component{
             </div>
         )
       })
-      // var payFrom = this.state.payOutData.creditDebitMatch.map(function (data, i) {
-      //   console.log(data);
-      //   senders = data.sender
-      //   return(
-      //     <div className='outer_layer_payout' style={{marginTop:'17px',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',width:'310px'}}>
-      //     <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
-      //       <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
-      //       <div className='detail_credit'>
-      //           <p className=''>{data.bankName}<br/>
-      //             <div>
-      //               <b className=''>{data.interestRate||data.apr} % APR</b><br/>
-      //             </div>
-      //           </p>
-      //       </div>
-      //       <div className='name_credit_payout'><p></p></div>
-      //       <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data.totalBalanceDue}</b></h5></div>
-      //     </div>
-      //     </div>
-      //   )
-      // })
-      // var sendTo = senders.map(function (data, i) {
-      //   return(
-      //     <div className='outer_layer_payout' style={{marginTop:'17px',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',width:'310px'}}>
-      //     <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
-      //       <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
-      //       <div className='detail_credit'>
-      //           <p className=''>{data.bankName}<br/>
-      //           </p>
-      //       </div>
-      //       <div className='name_credit_payout'><p></p></div>
-      //       <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data.contributingAmount}</b></h5></div>
-      //     </div>
-      //     </div>
-      //   )
-      // })
         return(
+          this.state.load ?
             <div  className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.username}/>
               <div style = {{display:"flex"}}>
@@ -193,6 +168,9 @@ export default class Rel extends React.Component{
 
                 </div>
               </div>
+            </div>:
+            <div>
+            <center><ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} /></center>
             </div>
         );
     }
