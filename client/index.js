@@ -11,9 +11,7 @@ render(
 <MuiThemeProvider>
 <HashRouter>
     <div>
-        <Route path='/Home' component={Home} />
         <Route exact path='/' component={Login} />
-
     </div>
 </HashRouter>
 </MuiThemeProvider>, document.getElementById('root'));
