@@ -31,7 +31,7 @@ export default class Balance extends React.Component{
         var accData = data.accounts.map(function (data1,j) {
           return(
             <div>
-            <b className='credit'>{data1.apr} % APR</b><br/>
+            <b className='credit'>{data1.apr||data1.interestRate} % APR</b><br/>
             <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> {(new Date(data1.dueDate).getDate() - new Date().getDate())} days</small>
             </div>
           )
@@ -129,7 +129,12 @@ export default class Balance extends React.Component{
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='credit-accounts'>Credit accounts</div>
                    {credData}
-                   <center><button className='btn payout-button'>PAYOUT PLAN <i className='fas fa-arrow-right fa-lg'></i></button></center>
+                   <center>
+                   <button className='btn payout-button' onClick = {this.payoutClick.bind(this)}>
+                   PAYOUT PLAN
+                   <i className='fas fa-arrow-right fa-lg'></i>
+                   </button>
+                   </center>
                 </Paper>
                 <Paper className='paper' zDepth={2}style = {{marginLeft:'0px',marginRight:'0px',padding:'20px',width: '50%'}}>
                 <div className='credit-accounts'>Debit accounts</div>

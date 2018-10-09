@@ -43,8 +43,9 @@ export default class Rel extends React.Component{
                 <Sidebar/>
               <div className='row' style = {{backgroundColor:"#f5f6fa",width:"100%"}}>
                 <div className='col-9' >
-                <Banner accSumary = {this.state.accSumary}/>
-                <Balance creditData = {this.state.creditData} debitData = {this.state.debitData}/>
+                <Banner accSumary = {this.state.accSumary} history = {this.props.history}/>
+                <Balance creditData = {this.state.creditData} history = {this.props.history}
+                debitData = {this.state.debitData}/>
                 </div>
                 <div className='col-3'>
                 <img style = {{height:'700px',width:'260px',paddingTop:'16%',marginTop:'18%'}} src='images/image-ad@3x.png'/>
