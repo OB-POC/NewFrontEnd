@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack -w",
-    "build": "webpack -p",
+    "build": "webpack -p --env.NODE_ENV=PRO",
     "serve": "node server.js",
     "test": "echo \"NO TEST SPECIFIED\""
   },
