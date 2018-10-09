@@ -102,13 +102,11 @@
   }
 
   .payout-button{
-    width: 260px;
-    height: 65px;
-    border-radius: 3px;
-    background-color: #c62745;
-    box-shadow: 0 10px 24px 0 rgba(142, 42, 61, 0.47);
-    font-family: Open Sans;
-    font-size: 20px;
-    font-weight: bold;
-    color: #ffffff;
+      width: 255px;
+      height: 57px;
+      border-radius: 3px;
+      color: #ffffff;
+      font-weight: 600;
+      background-color: #66980c;
+      box-shadow: 0 9px 19px 0 rgba(43, 63, 8, 0.38);
   }

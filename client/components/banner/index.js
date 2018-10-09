@@ -13,9 +13,9 @@ export default class Rel extends React.Component{
         return(
           <div>
             <p className = 'My-financials' style = {{marginLeft:'60px',marginTop:'38px'}}>My financials</p>
-            <div className = 'Rectangle-3'>
-              <div  style = {{display:'flex'}}>
-                <div  style = {{display:'flex',width : '179px',flexDirection:'column',borderRight :'2px solid rgba(255, 255, 255, .5)',paddingRight :'11%'}}>
+            <div className = 'banner-1' style={{display:'flex' ,backgroundImage: 'url("images/Banners/img-banner.png")',backgroundRepeat:'no-repeat',marginLeft:'48px',padding:'12px'}}>
+         
+                <div  style = {{display:'flex',width : '179px',flexDirection:'column',borderRight :'2px solid rgba(255, 255, 255, .5)',paddingRight :'12%'}}>
                 <span className = 'Savings-accounts' style ={{whiteSpace: 'nowrap',display: 'block'}}>Debit Accounts</span>
                 <span className = 'layer'>{this.props.accSumary.noOfDebitAccounts}</span>
                 <span className = 'Credit-Accounts' style ={{whiteSpace: 'nowrap'}}>Credit Accounts</span>
@@ -36,7 +36,7 @@ export default class Rel extends React.Component{
                   </div>
                 </div>
               </div>
-            </div>
+
           </div>
         );
     }

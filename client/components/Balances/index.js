@@ -23,6 +23,9 @@ export default class Balance extends React.Component{
       this.setState({isTooltipActive: false})
   }
 
+  payoutClick(){
+    this.props.history.push('payout')
+  }
 
     render(){
       const context = this;
@@ -79,7 +82,7 @@ export default class Balance extends React.Component{
                    </div>
                </div>
           </ToolTip>
-          <div className='img-credit'><img src='../../../../images/card_img1.jpg' /></div>
+          <div className='img-credit'><img src={'../../../../images/cards/Credit/'+data.bankName+'.png'} /></div>
           <div className='detail-credit'>
                <p className='credit'>{data.bankName}<br/>
                {accData}
@@ -93,7 +96,6 @@ export default class Balance extends React.Component{
       })
       var debitData = this.props.debitData.map(function (data,i) {
         var accData = data.accounts.map(function (data1,j) {
-          console.log(data1);
           return(
             <b className='credit'>{data1.interestRate}% AER</b>
           )
@@ -111,7 +113,7 @@ export default class Balance extends React.Component{
         })
         return(
           <div className='outer-layer2' style={{display:'flex'}}>
-             <div className='img-credit'><img src='../../../../images/card_img2.jpg' /></div>
+             <div className='img-credit'><img src={'../../../../images/cards/debit/'+data.bankName+'.png'} /></div>
              <div className='detail-credit'>
                   <p className='credit'>{data.bankName}<br/>
                   {accData}
@@ -126,19 +128,19 @@ export default class Balance extends React.Component{
         return(
             <div className="conatiner-fluid">
                 <div style={{display:'flex'}}>
-                <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
+                <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '46%'}}>
+                <div className='credit-accounts'>Debit accounts</div>
+                   {debitData}
+                </Paper>
+                <Paper className='paper' zDepth={2} style = {{marginLeft:'0px',marginRight:'0px',padding:'20px',width: '46%'}}>
                    <div className='credit-accounts'>Credit accounts</div>
                    {credData}
                    <center>
                    <button className='btn payout-button' onClick = {this.payoutClick.bind(this)}>
-                   PAYOUT PLAN
-                   <i className='fas fa-arrow-right fa-lg'></i>
+                   OPTIMIZE  
+                   <i className='fas fa-arrow-right fa-lg' style={{marginLeft:'100px'}}></i>
                    </button>
                    </center>
-                </Paper>
-                <Paper className='paper' zDepth={2}style = {{marginLeft:'0px',marginRight:'0px',padding:'20px',width: '50%'}}>
-                <div className='credit-accounts'>Debit accounts</div>
-                   {debitData}
                 </Paper>
                 </div>
             </div>
