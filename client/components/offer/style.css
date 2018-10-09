@@ -25,24 +25,24 @@
 
 .bgimg{
     position: relative;
-    margin-left: -3%;
 }
 
 .lbgcard{
     position: absolute;
-    left: 22%;
-    bottom: -20%;
+    left: 8%;
+    bottom: 11%;
+    width: 16vw;
 }
 
 .switch-button {
-    width: 319px;
+    width: 23vw;
     height: 65px;
     border-radius: 3px;
     background-color: #66980c;
     box-shadow: 0 9px 19px 0 rgba(43, 63, 8, 0.38);
     position: absolute;
-    left: 19%;
-    top: 108%;
+    left: 4%;
+    top: 73%;
     color: white;
   }
 
@@ -63,6 +63,10 @@
       position: relative;
   }
 
+  #banner img {
+      width: 100%;
+  }
+
   #banner-img
   {
       position: relative;
@@ -79,9 +83,25 @@
   #msg
   {
       position: absolute;
-      top: 68%;
-      left: 15%;
-      width: 35%;
+      top: 10%;
+      left: 5%;
+      width: 37%;
+  }
+
+  #bg {
+      position: relative;
+  }
+
+  .container {
+    margin-top: 7%;
+  }
+
+  .back_groud_panal {
+      width: 100%;
+  }
+
+  .back_groud_panal img:nth-child(1) {
+      width: 77vw;
   }
 
 

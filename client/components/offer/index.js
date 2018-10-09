@@ -43,7 +43,7 @@ export default class Offerings extends React.Component{
             <div style = {{display:"flex"}}>
            <Sidebar/>
            <div style={{backgroundColor:"#f5f6fa",width:'100%',}}>
-            <div className="container" style={{marginTop:'120px',marginLeft:'70px'}}>
+            <div className="container">
                 <div id="banner" className="row" >
                     <img src="images/img-banner.png" id="banner-img"/>
                     <h4 id="lable">Your payment is complete!</h4>

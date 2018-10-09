@@ -169,16 +169,18 @@
     padding-left: 0;
   }
   .optimize-btt > div:first-child {
-    width: 100%;
+    width: 60%;
+    line-height: 55px;
     display: inline-block;
     font-size: 16px;
     position: relative;
+    float: left;
     bottom: 2px;
-
-
   }
+  
   .optimize-btt > div:nth-child(2) {
     width: 40%;
+    line-height: 50px;
     display: inline-block;
 
   }
