@@ -219,7 +219,7 @@ export default class Balance extends React.Component{
                    <div className='credit-accounts'>Credit accounts</div>
                    {credData}
                    <center id = 'outer-layer'>
-                    <button className='btn payout-button optimize-btt' onClick = {this.payoutClick.bind(this)}>
+                    <button className='btn payout-button optimize-btt optimizeBtn' onClick = {this.payoutClick.bind(this)}>
                       <div className="btn-text-wrapper">
                         <div className="btn-text">OPTIMIZE</div>
                         <div className="btn-arrow">
