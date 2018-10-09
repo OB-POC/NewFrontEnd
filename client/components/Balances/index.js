@@ -10,7 +10,6 @@ export default class Balance extends React.Component{
   constructor(){
     super()
     this.state = {
-      isTooltipActive: false
     }
     this.showTooltip = this.showTooltip.bind(this);
     this.hideTooltip = this.hideTooltip.bind(this);
@@ -19,6 +18,7 @@ export default class Balance extends React.Component{
     this.props.history.push('payout')
   }
   showTooltip(i) {
+    console.log("showTooltip",i);
       this.setState({tooltipId:i})
   }
   hideTooltip(i) {
@@ -115,7 +115,8 @@ export default class Balance extends React.Component{
         )
         })
         return(
-          <div className='outer-layer row' style={{display:'flex'}}>
+          <div className='outer-layer row' style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this, i+'c')} onMouseLeave={context.hideTooltip.bind(this)}
+          tabIndex = "1">
           <div className="col-9">
           <div className='img-credit'><img src={'../../../../images/cards/Credit/'+data.bankName+'.png'} /></div>
           <div className='detail-credit'>
@@ -134,6 +135,7 @@ export default class Balance extends React.Component{
       })
       var debitData = this.props.debitData.map(function (data,i) {
         var accData = data.accounts.map(function (data1,j) {
+          console.log(contextState.tooltipId == i+'d' , "contextState.tooltipId");
           return(
             <div>
             <ToolTip active={contextState.tooltipId == i+'d'} position="top" arrow="left" parent="#outer-layer">
@@ -181,7 +183,9 @@ export default class Balance extends React.Component{
         )
         })
         return(
-        <div className='outer-layer2 row' style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this, i+'d')} onMouseLeave={context.hideTooltip.bind(this)}>
+        <div className='outer-layer2 row' style={{display:'flex'}}
+        onMouseEnter={context.showTooltip.bind(this, i+'d')}
+        onMouseLeave={context.hideTooltip.bind(this)} tabIndex = "1">
           <div className = 'col-9'>
           <div className='img-credit'><img src={'../../../../images/cards/debit/'+data.bankName+'.png'} /></div>
              <div className='detail-credit'>
@@ -200,15 +204,15 @@ export default class Balance extends React.Component{
       })
         return(
             <div className="balance-wrapper">
-                <div style={{display:'flex'}}>
+                <div style={{display:'flex'}} >
                 <Paper className='paper' zDepth={2}style = {{marginLeft:'0px',marginRight:'0px',padding:'20px',width: '50%'}}>
-                <div className='credit-accounts'>Debit accounts</div>
+                <div className='credit-accounts'  >Debit accounts</div>
                    {debitData}
                 </Paper>
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='credit-accounts'>Credit accounts</div>
                    {credData}
-                   <center>
+                   <center id = 'outer-layer'>
                     <button className='btn payout-button optimize-btt' onClick = {this.payoutClick.bind(this)}>
                       <div>OPTIMIZE</div>
                       <div>
