@@ -37,7 +37,7 @@ export default class Rel extends React.Component{
   }
     render(){
         return(
-            <div  className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
+            <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username}/>
               <div style = {{display:"flex"}}>
                 <Sidebar/>
@@ -47,7 +47,7 @@ export default class Rel extends React.Component{
                 <Balance creditData = {this.state.creditData} debitData = {this.state.debitData}/>
                 </div>
                 <div className='col-3'>
-                <img style = {{height:'670px',width:'260px',paddingTop:'16%',marginTop:'18%'}} src='images/image-ad@3x.png'/>
+                <img style = {{height:'700px',width:'260px',paddingTop:'16%',marginTop:'18%'}} src='images/image-ad@3x.png'/>
                 </div>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 .My-financials {
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-size: 40px;
   font-weight: 300;
   font-style: normal;
@@ -18,7 +18,7 @@
 }
 .Savings-accounts {
   opacity: 0.66;
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -31,7 +31,7 @@
 .layer {
   padding-top: 5px;
   padding-bottom: 5px;
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-size: 35px;
   font-weight: normal;
   font-style: normal;
@@ -43,7 +43,7 @@
 }
 .Credit-Accounts {
   opacity: 0.66;
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -55,7 +55,7 @@
   margin-top: 19px;
 }
 .Want-to-reduce-your {
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -74,7 +74,7 @@
 .YES {
   width: 47px;
   height: 22px;
-  font-family: OpenSans;
+  font-family: Open Sans;
   font-size: 16px;
   font-weight: bold;
   font-style: normal;
