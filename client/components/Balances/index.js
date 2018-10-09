@@ -10,7 +10,7 @@ export default class Balance extends React.Component{
         var accData = data.accounts.map(function (data1,j) {
           return(
             <div>
-            <b className='credit'>{data1.apr} % APR</b><br/>
+            <b className='credit'>{data1.apr||data1.interestRate} % APR</b><br/>
             <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> {(new Date(data1.dueDate).getDate() - new Date().getDate())} days</small>
             </div>
           )
