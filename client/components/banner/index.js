@@ -4,10 +4,9 @@ import './style.css';
 export default class Rel extends React.Component{
   constructor(props){
     super(props);
-
   }
   yesClick(){
-    this.props.history.push('payout');
+    this.props.history.push('./payout')
   }
     render(){
         return(

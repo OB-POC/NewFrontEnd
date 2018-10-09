@@ -60,7 +60,8 @@ keyPress(event){
                         <div className=''>Keep me signed in</div>
                       </div>
                     </div>
-                    <div className='button_background' style={{display:'flex',alignItems:'center',justifyContent:'center'}}
+                    <div className='button_background' style={{display:'flex',alignItems:'center',
+                    justifyContent:'center', cursor: 'pointer'}}
                     tabIndex="1" onClick = {this.onLogin}>
                         SIGN IN
                     </div>
