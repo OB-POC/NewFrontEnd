@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { HashRouter as Router } from 'react-router-dom'
 import Header from '../headernew'
-import Sidebar from '../Sidebar'
+import Sidebar from '../sidebar'
 import Banner from '../banner'
 import Balance from '../Balances'
 import Services from '../../services'

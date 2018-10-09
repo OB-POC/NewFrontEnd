@@ -19,6 +19,16 @@
     margin-bottom: 10px;
   }
 
+  /* .tooltip-inner {
+   height: 200px;
+   width: 500px
+} */
+
+.tooltip-arrow{
+  color: #fff;
+}
+
+
   .outer-layer2{
     margin-top: 15px;
     margin-bottom: 30px;
