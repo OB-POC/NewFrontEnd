@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import Header from '../headernew'
-import Sidebar from '../Sidebar'
+import Sidebar from '../sidebar'
 import Services from '../../services'
 
 export default class Rel extends React.Component{

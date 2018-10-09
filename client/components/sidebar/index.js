@@ -1,7 +1,5 @@
 import React from 'react';
 import './style.css';
-import { HashRouter as Router } from 'react-router-dom'
-
 
 export default class Header extends React.Component{
   constructor(props){
