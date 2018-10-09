@@ -6,7 +6,9 @@ export default class Rel extends React.Component{
     super(props);
 
   }
-
+  yesClick(){
+    this.props.history.push('payout');
+  }
     render(){
         return(
           <div className="row">
@@ -29,7 +31,9 @@ export default class Rel extends React.Component{
                 </div>
                 <div  style = {{display:'flex',flexDirection:'column',paddingLeft :'11%',width:'377px'}}>
                 <span className = 'Want-to-reduce-your'>Want to reduce your credit outstanding balance by £ 4301?</span>
-                  <div className = 'Rectangle-4' style = {{padding:"16px 45px 16px 36px",display:'flex',marginTop:'16px',cursor:'pointer'}}>
+                  <div className = 'Rectangle-4' style = {{padding:"16px 45px 16px 36px",
+                  display:'flex',marginTop:'16px',cursor:'pointer'}}
+                   onClick = {this.yesClick.bind(this)} tabIndex = '1'>
                     <span className = 'YES' >YES</span><i style = {{ color:'white'}} class="fas fa-arrow-right"></i>
                   </div>
                 </div>
