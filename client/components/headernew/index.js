@@ -11,7 +11,7 @@ export default class Header extends React.Component{
 
     render(){
         return(
-            <div >
+            <div>
               <div className = 'Rectangle-2' style = {{display:'flex',justifyContent:'space-between'}}>
               <div style = {{padding:"20px"}}>
               <span className = 'OPEN-BANK'>OPEN BANKING</span>
@@ -24,7 +24,7 @@ export default class Header extends React.Component{
               <img className = "img_user" src = 'images/img-u.png' />
               </div>
               <div style= {{padding:"17px",paddingLeft:'0'}}>
-              <span className = 'Alice-Salas'>Alice Salas</span>
+              <span className = 'Alice-Salas'>{this.props.username}</span>
               </div>
               </div>
               </div>

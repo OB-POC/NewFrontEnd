@@ -18,7 +18,7 @@ onLogin(){
     if(response.authenticated){
       sessionStorage.setItem("username",username)
       sessionStorage.setItem("token",response.token)
-      this.props.history.push("/accounts")
+      this.props.history.push("/home")
     }else {
       console.error("not authourised");
     }

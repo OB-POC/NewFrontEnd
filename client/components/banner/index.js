@@ -15,15 +15,15 @@ export default class Rel extends React.Component{
               <div  style = {{display:'flex'}}>
                 <div  style = {{display:'flex',width : '179px',flexDirection:'column',borderRight :'2px solid rgba(255, 255, 255, .5)',paddingRight :'11%'}}>
                 <span className = 'Savings-accounts' style ={{whiteSpace: 'nowrap',display: 'block'}}>Debit Accounts</span>
-                <span className = 'layer'>4</span>
+                <span className = 'layer'>{this.props.accSumary.noOfDebitAccounts}</span>
                 <span className = 'Credit-Accounts' style ={{whiteSpace: 'nowrap'}}>Credit Accounts</span>
-                <span className = 'layer'>3</span>
+                <span className = 'layer'>{this.props.accSumary.noOfCreditAccounts}</span>
                 </div>
                 <div  style = {{display:'flex',flexDirection:'column',paddingLeft :'11%'}}>
                 <span className = 'Savings-accounts'  style ={{whiteSpace: 'nowrap'}}>Debit Balance</span>
-                <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ 15,200.13</span>
+                <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableDebitBalance}</span>
                 <span className = 'Credit-Accounts'  style ={{whiteSpace: 'nowrap'}}>Credit outstanding</span>
-                <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ 7,288.29</span>
+                <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableCreditBalance}</span>
                 </div>
                 <div  style = {{display:'flex',flexDirection:'column',paddingLeft :'11%',width:'377px'}}>
                 <span className = 'Want-to-reduce-your'>Want to reduce your credit outstanding balance by £ 4301?</span>
