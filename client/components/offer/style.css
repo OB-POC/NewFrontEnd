@@ -30,8 +30,8 @@
 
 .lbgcard{
     position: absolute;
-    left: 16%;
-    top: 57%;
+    left: 22%;
+    bottom: -20%;
 }
 
 .switch-button {
@@ -41,8 +41,8 @@
     background-color: #66980c;
     box-shadow: 0 9px 19px 0 rgba(43, 63, 8, 0.38);
     position: absolute;
-    left: 13%;
-    top: 76%;
+    left: 19%;
+    top: 108%;
     color: white;
   }
 
@@ -79,8 +79,8 @@
   #msg
   {
       position: absolute;
-      top: 37%;
-      left: 13%;
+      top: 68%;
+      left: 15%;
       width: 35%;
   }
 

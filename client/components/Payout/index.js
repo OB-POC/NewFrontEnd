@@ -26,6 +26,11 @@ export default class Rel extends React.Component{
       username: sessionStorage.getItem("username")
     })
   }
+
+  handlePayment() {
+    this.props.history.push('/offerings');
+  }
+  
     render(){
         return(
             <div  className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
@@ -111,7 +116,7 @@ export default class Rel extends React.Component{
                       </div>
                       <br/>
                       <center>
-                      <button className='btn payout-button optimize-btt'>
+                      <button className='btn payout-button optimize-btt' onClick={this.handlePayment.bind(this)}>
                       <div>AGREE & PAY</div>
                       <div>
                         <i style = {{width: '26px',height: '18.3px'}} className='fas fa-arrow-right'></i>
