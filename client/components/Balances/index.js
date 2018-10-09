@@ -10,7 +10,7 @@ export default class Balance extends React.Component{
         var accData = data.accounts.map(function (data1,j) {
           return(
             <div>
-            <b className='credit'>{data1.apr} % APR</b><br/>
+            <b>{data1.apr}% APR</b>
             <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> {(new Date(data1.dueDate).getDate() - new Date().getDate())} days</small>
             </div>
           )
@@ -26,16 +26,21 @@ export default class Balance extends React.Component{
         )
         })
         return(
-          <div className='outer-layer' style={{display:'flex'}}>
-          <div className='img-credit'><img src='../../../../images/card_img1.jpg' /></div>
-          <div className='detail-credit'>
-               <p className='credit'>{data.bankName}<br/>
-               {accData}
-               </p>
+          <div className='outer-layer row' style={{display:'flex'}}>
+          <div className="col-9">
+            <div className='img-credit'><img src='../../../../images/card_img1.jpg' /></div>
+            <div className='detail-credit'>
+                 <p className='credit'>
+                  <div className="bankName">{data.bankName}</div>
+                 {accData}
+                 </p>
+            </div>
+            {creditType}
+            <div className='line'></div>
           </div>
-          {creditType}
-          <div className='line'></div>
-          {out}
+          <div className="col-3">
+            {out}
+          </div>
           </div>
         )
       })
@@ -43,7 +48,7 @@ export default class Balance extends React.Component{
         var accData = data.accounts.map(function (data1,j) {
           console.log(data1);
           return(
-            <b className='credit'>{data1.interestRate}% AER</b>
+            <b>{data1.interestRate}% AER</b>
           )
         })
         var accType = data.accounts.map(function (data2, k) {
@@ -58,7 +63,8 @@ export default class Balance extends React.Component{
         )
         })
         return(
-          <div className='outer-layer2' style={{display:'flex'}}>
+          <div className='outer-layer2 row' style={{display:'flex'}}>
+            <div className = 'col-9'>
              <div className='img-credit'><img src='../../../../images/card_img2.jpg' /></div>
              <div className='detail-credit'>
                   <p className='credit'>{data.bankName}<br/>
@@ -67,22 +73,33 @@ export default class Balance extends React.Component{
                  </div>
                  {accType}
                  <div className='line-1'></div>
+                 </div>
+                 <div className="col-3">
                  {bal}
+                 </div>
              </div>
         )
       })
         return(
             <div>
-                <div style={{display:'flex'}}>
-                <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
-                   <div className='credit-accounts'>Credit accounts</div>
-                   {credData}
-                   <center><button className='btn payout-button'>PAYOUT PLAN <i className='fas fa-arrow-right fa-lg'></i></button></center>
-                </Paper>
+                <div className="balance-wrapper" style={{display:'flex'}}>
                 <Paper className='paper' zDepth={2}style = {{marginLeft:'0px',marginRight:'0px',padding:'20px',width: '50%'}}>
                 <div className='credit-accounts'>Debit accounts</div>
                    {debitData}
                 </Paper>
+                <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
+                   <div className='credit-accounts'>Credit accounts</div>
+                   {credData}
+                   <center>
+                    <button className='btn payout-button optimize-btt'>
+                      <div>OPTIMIZE</div>
+                      <div>
+                        <i style = {{width: '26px',height: '18.3px'}} className='fas fa-arrow-right'></i>
+                      </div>
+                    </button>
+                  </center>
+                </Paper>
+
                 </div>
             </div>
         )
