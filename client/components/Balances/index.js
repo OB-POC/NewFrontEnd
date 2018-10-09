@@ -18,6 +18,13 @@ export default class Balance extends React.Component{
             }, html: true ,placement: "top"});
         });
      }
+     
+     payoutPlan(){
+       console.log('payout push')
+      this.props.history.push('payout');
+    }
+
+
 
     render(){
       var credData = this.props.creditData.map(function (data,i) {
@@ -41,7 +48,7 @@ export default class Balance extends React.Component{
         })
         return(
           <div className='outer-layer' style={{display:'flex'}}>
-          <div className='img-credit'><img src='../../../../images/card_img1.jpg' /></div>
+          <div className='img-credit'><img src='images/card_img1.jpg' /></div>
           <div className='detail-credit'>
                <p className='credit'>{data.bankName}<br/>
                {accData}
@@ -73,7 +80,7 @@ export default class Balance extends React.Component{
         })
         return(
           <div className='outer-layer2' style={{display:'flex'}}>
-             <div className='img-credit'><img src='../../../../images/card_img2.jpg' /></div>
+             <div className='img-credit'><img src='images/card_img2.jpg' /></div>
              <div className='detail-credit'>
                   <p className='credit'>{data.bankName}<br/>
                   {accData}
@@ -91,7 +98,7 @@ export default class Balance extends React.Component{
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='credit-accounts'>Credit accounts</div>
                    {credData}
-                   <center><button className='btn payout-button'>PAYOUT PLAN <i className='fas fa-arrow-right fa-lg'></i></button></center>
+                   <center><button className='btn payout-button' onClick = {this.payoutPlan.bind(this)}>PAYOUT PLAN <i className='fas fa-arrow-right fa-lg'></i></button></center>
                 </Paper>
                 <Paper className='paper' zDepth={2}style = {{marginLeft:'0px',marginRight:'0px',padding:'20px',width: '50%'}}>
                 <div className='credit-accounts'>Debit accounts</div>
