@@ -4,10 +4,9 @@ import './style.css';
 export default class Rel extends React.Component{
   constructor(props){
     super(props);
-
   }
   yesClick(){
-    this.props.history.push('payout');
+    this.props.history.push('./payout')
   }
     render(){
         return(
@@ -30,7 +29,8 @@ export default class Rel extends React.Component{
                 <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableCreditBalance}</span>
                 </div>
                 <div  style = {{display:'flex',flexDirection:'column',paddingLeft :'11%',width:'377px'}}>
-                <span className = 'Want-to-reduce-your'>Want to reduce your credit outstanding balance by £ 4301?</span>
+                <span className = 'Want-to-reduce-your'>Want to reduce your credit outstanding balance by &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 £ {this.props.accSumary.savingsOnBestMatch} ?</span>
                   <div className = 'Rectangle-4' style = {{padding:"16px 45px 16px 36px",
                   display:'flex',marginTop:'16px',cursor:'pointer'}}
                    onClick = {this.yesClick.bind(this)} tabIndex = '1'>

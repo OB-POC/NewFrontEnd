@@ -3,13 +3,15 @@ import './style.css';
 import Header from '../headernew'
 import Sidebar from '../sidebar'
 import Services from '../../services'
+import ReactLoading from 'react-loading'
 
 export default class Rel extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       payOutData: {},
-      username: ''
+      username: '',
+      load: false
     }
   }
   componentWillMount() {
@@ -25,16 +27,23 @@ export default class Rel extends React.Component{
     this.setState({
       username: sessionStorage.getItem("username")
     })
+    setTimeout(this.loader.bind(this),2000)
   }
-
+  loader(){
+    this.props.history.push('./payout')
+    this.setState({
+      load: true
+    })
+  }
   handlePayment() {
     this.props.history.push('/offerings');
   }
-  
+
     render(){
         return(
+            this.state.load ?
             <div  className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
-              <Header username = {this.state.username}/>
+              <Header username = {this.state.username} history = {this.props.history}/>
               <div style = {{display:"flex"}}>
                 <Sidebar/>
                 <div  style = {{backgroundColor:"#f5f6fa",width:"100%",paddingBottom:'30px'}}>
@@ -93,7 +102,7 @@ export default class Rel extends React.Component{
                           <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> 2500</b></h5></div>
                         </div>
                       </div>
-                     
+
                       <div className='outer_layer_payout2 col-xs-4' id="element-2" style={{marginTop:'4%',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',height:'77px'}}>
                         <div style={{display:'flex',paddingTop:'15px',paddingRight:'14px'}}>
                           <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
@@ -124,9 +133,12 @@ export default class Rel extends React.Component{
                     </button></center>
                     <br/>
                   </div>
-                 
+
                 </div>
-              </div>              
+              </div>
+            </div>:
+            <div>
+            <center><ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} /></center>
             </div>
         );
     }
