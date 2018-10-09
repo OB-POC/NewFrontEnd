@@ -126,10 +126,10 @@ export default class Rel extends React.Component{
               <div style = {{display:"flex"}}>
                 <Sidebar/>
                 <div  style = {{backgroundColor:"#f5f6fa",width:"100%",paddingBottom:'30px'}}>
-                  <div className='Recommended_for_you' style={{marginLeft:'70px',marginTop:'38px'}}>
+                  <div className='Recommended_for_you'>
                   Recommended for you
                   </div>
-                  <div style={{marginTop:'17px',marginLeft:'70px'}}>
+                  <div className="headerImg">
                     <div style={{backgroundImage:'url("images/img-recommendations.png")',backgroundRepeat:'no-repeat',height:'170px',width:'1160px'}}>
                       <div style={{paddingTop:'29px',paddingLeft:'195px'}}>
                         <div className='heading_text'>
