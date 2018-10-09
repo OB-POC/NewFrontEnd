@@ -11,8 +11,10 @@ export default class Rel extends React.Component{
   }
     render(){
         return(
-          <div>
-            <p className = 'My-financials' style = {{marginLeft:'60px',marginTop:'38px'}}>My financials</p>
+          <div className="row">
+            <div className="title">
+              <p className = 'My-financials'>My financials</p>
+            </div>
             <div className = 'Rectangle-3'>
               <div  style = {{display:'flex'}}>
                 <div  style = {{display:'flex',width : '179px',flexDirection:'column',borderRight :'2px solid rgba(255, 255, 255, .5)',paddingRight :'11%'}}>
