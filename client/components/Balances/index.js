@@ -58,8 +58,8 @@ export default class Balance extends React.Component{
                <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px',paddingRight:'22px'}}>
                    <div style={{display:'flex',flexDirection:'row'}}>
                        <div style={{display:'flex',flexDirection:'column'}}>
-                           <div className='bank'>Minimum Monthly Payment</div>
-                           <div className='JP_Morgan_Chase'>£ {data1.minMonthlyPayment}</div>
+                           <div className='bank'>Total Balance Due</div>
+                           <div className='JP_Morgan_Chase'>£ {data1.totalBalanceDue}</div>
                            <div className='bank' style={{marginTop:'15px'}}>Due date</div>
                            <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>{new Date(data1.dueDate).toDateString()}</div>
                        </div>
@@ -113,7 +113,7 @@ export default class Balance extends React.Component{
         })
         var out = data.accounts.map(function (data2, k) {
           return (
-          <div key={k} className='amount-credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data2.totalBalanceDue}</b></h5></div>
+          <div key={k} className='amount-credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data2.minMonthlyPayment}</b></h5></div>
         )
         })
         return(
