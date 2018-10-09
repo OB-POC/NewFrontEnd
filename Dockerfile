@@ -9,5 +9,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 3004
-CMD [ "npm", "build" ]
+CMD [ "npm","run", "build" ]
 CMD [ "npm", "run", "serve" ]
