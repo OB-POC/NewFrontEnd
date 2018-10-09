@@ -18,7 +18,6 @@ export default class Balance extends React.Component{
     this.props.history.push('payout')
   }
   showTooltip(i) {
-    console.log("showTooltip",i);
       this.setState({tooltipId:i})
   }
   hideTooltip(i) {
@@ -33,15 +32,18 @@ export default class Balance extends React.Component{
       const context = this;
       const contextState = this.state;
       var credData = this.props.creditData.map(function (data,i) {
+        var tooltipRelId = `c${i}`;
+        var tooltipRelIdHash = `#c${i}`;
         var accData = data.accounts.map(function (data1,j) {
           return(
-            <div>
+            <div key={j}>
+            <div id={tooltipRelId}></div>
             {data1.accountType == 'M' ?
-            <ToolTip active={contextState.tooltipId == i+'c'} position="top" arrow="left" parent="#outer-layer">
+            <ToolTip active={contextState.tooltipId == i+'c'} position="top" arrow="left" parent={tooltipRelIdHash}>
             <div className='tooltip_background'>
            <div className='row'>
                <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
-                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src={'../../../../images/cards/Credit/'+data.bankName+'.png'}/>
                </div>
                <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
                    <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
@@ -66,11 +68,11 @@ export default class Balance extends React.Component{
            </div>
            </div>
         </ToolTip>:
-        <ToolTip active={contextState.tooltipId == i+'c'} position="top" arrow="left" parent="#outer-layer">
+        <ToolTip active={contextState.tooltipId == i+'c'} position="top" arrow="left" parent={tooltipRelIdHash}>
         <div className='tooltip_background'>
        <div className='row'>
            <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
-               <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+               <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src={'../../../../images/cards/Credit/'+data.bankName+'.png'}/>
            </div>
            <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
                <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
@@ -99,33 +101,34 @@ export default class Balance extends React.Component{
     </ToolTip>
             }
 
-            <b className='credit'>{data1.apr||data1.interestRate} % APR</b><br/>
+            <b className='credit'>{data1.apr||data1.interestRate} % APR</b>
             <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> {(new Date(data1.dueDate).getDate() - new Date().getDate())} days</small>
             </div>
           )
         })
         var creditType = data.accounts.map(function (data2, k) {
           return (
-          <div className='name-credit'><p>{data2.accountType}</p></div>
+          <div key={k} className='name-credit'><p>{data2.accountType}</p></div>
         )
         })
         var out = data.accounts.map(function (data2, k) {
           return (
-          <div className='amount-credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data2.totalBalanceDue}</b></h5></div>
+          <div key={k} className='amount-credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data2.totalBalanceDue}</b></h5></div>
         )
         })
         return(
-          <div className='outer-layer row' style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this, i+'c')} onMouseLeave={context.hideTooltip.bind(this)}
+          <div key={i} className='outer-layer row' style={{display:'flex'}} onMouseEnter={context.showTooltip.bind(this, i+'c')} onMouseLeave={context.hideTooltip.bind(this)}
           tabIndex = "1">
           <div className="col-9">
           <div className='img-credit'><img src={'../../../../images/cards/Credit/'+data.bankName+'.png'} /></div>
           <div className='detail-credit'>
-               <p className='credit'>{data.bankName}<br/>
+               <div className='credit'>{data.bankName}
+               <div id={tooltipRelId}></div>
                {accData}
-               </p>
+               </div>
             </div>
             {creditType}
-            <div className='line'></div>
+            <div className='line' id = {tooltipRelId}></div>
           </div>
           <div className="col-3">
             {out}
@@ -134,15 +137,17 @@ export default class Balance extends React.Component{
         )
       })
       var debitData = this.props.debitData.map(function (data,i) {
-        var accData = data.accounts.map(function (data1,j) {
-          console.log(contextState.tooltipId == i+'d' , "contextState.tooltipId");
+        var tooltipRelId = `d${i}`;
+        var tooltipRelIdHash = `#d${i}`;
+        var accData = data.accounts.map(function (data1, j) {
           return(
-            <div>
-            <ToolTip active={contextState.tooltipId == i+'d'} position="top" arrow="left" parent="#outer-layer">
+            <div key={j}>
+            <div id={tooltipRelId}></div>
+            <ToolTip active={contextState.tooltipId == i+'d'} position="top" arrow="left" parent={tooltipRelIdHash}>
             <div className='tooltip_background'>
            <div className='row'>
                <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
-                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src={'../../../../images/cards/debit/'+data.bankName+'.png'}/>
                </div>
                <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
                    <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
@@ -174,27 +179,28 @@ export default class Balance extends React.Component{
         var accType = data.accounts.map(function (data2, k) {
 
           return (
-            <div className='name-credit'><p>{data2.accountType}</p></div>
+            <div key={k} className='name-credit'><p>{data2.accountType}</p></div>
         )
         })
         var bal = data.accounts.map(function (data2, k) {
           return (
-            <div className='amount-credit'><h5><b style={{color:'#4a4a4a'}}><span>&#163;</span>{data2.balance}</b></h5></div>
+            <div key={k} className='amount-credit'><h5><b style={{color:'#4a4a4a'}}><span>&#163;</span>{data2.balance}</b></h5></div>
         )
         })
         return(
-        <div className='outer-layer2 row' style={{display:'flex'}}
+        <div key={i} className='outer-layer2 row' style={{display:'flex'}}
         onMouseEnter={context.showTooltip.bind(this, i+'d')}
         onMouseLeave={context.hideTooltip.bind(this)} tabIndex = "1">
           <div className = 'col-9'>
           <div className='img-credit'><img src={'../../../../images/cards/debit/'+data.bankName+'.png'} /></div>
              <div className='detail-credit'>
-                  <p className='credit'>{data.bankName}<br/>
+                  <div className='credit'>{data.bankName}
+                  <div id={tooltipRelId}></div>
                   {accData}
-                  </p>
+                  </div>
                  </div>
                  {accType}
-                 <div className='line-1'></div>
+                 <div className='line-1' ></div>
                  </div>
                  <div className="col-3">
                  {bal}
@@ -214,14 +220,15 @@ export default class Balance extends React.Component{
                    {credData}
                    <center id = 'outer-layer'>
                     <button className='btn payout-button optimize-btt' onClick = {this.payoutClick.bind(this)}>
-                      <div>OPTIMIZE</div>
-                      <div>
-                        <i style = {{width: '26px',height: '18.3px'}} className='fas fa-arrow-right'></i>
+                      <div className="btn-text-wrapper">
+                        <div className="btn-text">OPTIMIZE</div>
+                        <div className="btn-arrow">
+                          <i className='fas fa-arrow-right'></i>
+                        </div>
                       </div>
                     </button>
                   </center>
                 </Paper>
-
                 </div>
             </div>
         )
