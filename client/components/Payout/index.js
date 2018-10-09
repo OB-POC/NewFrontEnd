@@ -26,13 +26,18 @@ export default class Rel extends React.Component{
       username: sessionStorage.getItem("username")
     })
   }
+
+  handlePayment() {
+    this.props.history.push('/offerings');
+  }
+  
     render(){
         return(
             <div  className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.username}/>
               <div style = {{display:"flex"}}>
                 <Sidebar/>
-                <div  style = {{backgroundColor:"#f5f6fa",width:"100%"}}>
+                <div  style = {{backgroundColor:"#f5f6fa",width:"100%",paddingBottom:'30px'}}>
                   <div className='Recommended_for_you' style={{marginLeft:'70px',marginTop:'38px'}}>
                   Recommended for you
                   </div>
@@ -60,8 +65,9 @@ export default class Rel extends React.Component{
                           <p className='main_section_heading_text'>Outstanding balance</p>
                         </div>
                       </div>
-                      <div className='Line' style={{marginLeft:'48px',marginRight:'105px'}}/>
-                      <div className='outer_layer_payout' style={{marginTop:'17px',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',width:'310px'}}>
+                    <div className='Line' style={{marginLeft:'48px',marginRight:'105px'}}/>
+                    <div className='row'>
+                      <div className='outer_layer_payout col-xs-4' id="element-1" style={{marginTop:'17px',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',width:'310px'}}>
                         <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
                           <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
                           <div className='detail_credit'>
@@ -87,7 +93,38 @@ export default class Rel extends React.Component{
                           <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> 2500</b></h5></div>
                         </div>
                       </div>
+                     
+                      <div className='outer_layer_payout2 col-xs-4' id="element-2" style={{marginTop:'4%',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',height:'77px'}}>
+                        <div style={{display:'flex',paddingTop:'15px',paddingRight:'14px'}}>
+                          <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
+                          <div className='detail_credit'>
+                              <p className=''>Halifax<br/>
+                                <div>
+                                  <b className=''>0.2 % APR</b><br/>
+                                </div>
+                              </p>
+                          </div>
+                          <div className='name_credit_payout'><p></p></div>
+                          <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> 2500</b></h5></div>
+                        </div>
+                      </div>
+                      <div className='outer_layer_payout2 col-xs-4' style={{marginTop:'4%',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',height:'77px',width:'160px'}}>
+                        <div style={{display:'flex',paddingTop:'15px',paddingRight:'14px'}}>
+                        <div className='amount_credit'><h5><b style={{color:'#ff5d64',marginLeft:'34px'}}><span>&#163;</span> 2500</b></h5></div>
+                        </div>
+                      </div>
+                      </div>
+                      <br/>
+                      <center>
+                      <button className='btn payout-button optimize-btt' onClick={this.handlePayment.bind(this)}>
+                      <div>AGREE & PAY</div>
+                      <div>
+                        <i style = {{width: '26px',height: '18.3px'}} className='fas fa-arrow-right'></i>
+                      </div>
+                    </button></center>
+                    <br/>
                   </div>
+                 
                 </div>
               </div>              
             </div>
