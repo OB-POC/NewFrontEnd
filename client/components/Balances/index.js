@@ -15,7 +15,9 @@ export default class Balance extends React.Component{
     this.showTooltip = this.showTooltip.bind(this);
     this.hideTooltip = this.hideTooltip.bind(this);
   }
-
+  payoutClick(){
+    this.props.history.push('payout')
+  }
   showTooltip() {
       this.setState({isTooltipActive: true})
   }
