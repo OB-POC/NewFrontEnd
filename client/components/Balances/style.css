@@ -53,8 +53,8 @@
   }
 
   .outer-layer2{
-    margin-top: 15px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 25px;
   }
 
   .credit-accounts {
@@ -73,8 +73,6 @@
     border-right: solid 0.4px #979797;
     width: 3px;
     height: 45px;
-    margin-top : 10px;
-    margin-left: 15px;
   }
 
   .line-1 {
@@ -82,31 +80,116 @@
     width: 3px;
     height: 45px;
     margin-top : 5px;
-    margin-left: 15px;
   }
 
   .img-credit{
-    margin-left: 15px;
-    margin-right: 15px;
+    width: 30%;
+  }
+
+  .detail-credit {
+    width: 50%;
   }
 
   .name-credit {
-    margin-top: 20px;
-    margin-left: 30px;
-    font-weight: 750
+    font-weight: 750;
+    width: 13%;
+    height: 50px;
   }
 
-  .amount-credit{
-    margin-left: 15px;
-    margin-top: 20px;
+  .name-credit p {
+    margin: 0;
+    text-align: right;
+    font-size: 15px;
+  }
+
+  .name-credit p,
+  .amount-credit b {
+    line-height: 55px;
+  }
+
+  .amount-credit span {
+    padding-right: 3px;
+  }
+
+  .line,
+  .line-1 {
+    width: 7%;
+  }
+
+  .img-credit,
+  .detail-credit,
+  .name-credit,
+  .line,
+  .line-1{
+    display: inline-block;
+    float: left;
+  }
+  .credit{
+    font-size: 1vw;
+    padding: 3%;
+    padding-left: 5%;
+  }
+
+  .detail-credit small {
+    font-size: 10px;
+    padding: 0;
+  }
+
+  .detail-credit b {
+    width: 100%;
+    display: block;
+  }
+
+  .detail-credit div {
+    line-height: 15px;
+  }
+
+  .bankName {
+    padding-bottom: 5px;
   }
 
   .payout-button{
-      width: 255px;
-      height: 57px;
-      border-radius: 3px;
-      color: #ffffff;
-      font-weight: 600;
-      background-color: #66980c;
-      box-shadow: 0 9px 19px 0 rgba(43, 63, 8, 0.38);
+    width: 260px;
+    height: 65px;
+    border-radius: 3px;
+    background-color: #c62745;
+
+  }
+
+  .balance-wrapper > div:first-child {
+    margin-right: 3% !important;
+  }
+
+  .balance-wrapper > div:nth-child(2) {
+    margin: 3% 0 0 3% !important;
+  }
+
+  .outer-layer2 .col-3,
+  .outer-layer .col-3 {
+    padding-left: 0;
+  }
+  .optimize-btt > div:first-child {
+    width: 60%;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    bottom: 2px;
+    
+
+  }
+  .optimize-btt > div:nth-child(2) {
+    width: 40%;
+    display: inline-block;
+
+  }
+  .optimize-btt {
+    width: 266px;
+    height: 65px;
+    border-radius: 3px;
+    background-color: #66980c;
+    box-shadow: 0 9px 19px 0 rgba(43, 63, 8, 0.38);
+    font-family: Open Sans;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
   }

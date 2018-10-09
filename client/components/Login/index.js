@@ -2,7 +2,7 @@ import React from 'react';
 import services from '../../services'
 import './index.css'
 
-export default class PayOutPlan extends React.Component{
+export default class Login extends React.Component{
   constructor(props){
     super(props);
     this.onLogin = this.onLogin.bind(this)

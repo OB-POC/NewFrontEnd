@@ -25,7 +25,7 @@ export default class Header extends React.Component{
                   </div>
                   <div style= {{padding:"17px",paddingLeft:'0',display:'flex'}}>
                     <span className = 'Alice-Salas' style = {{paddingRight:'18px'}}>{this.props.username}</span>
-                    <i class="fas fa-caret-down"></i>
+                    <i className="fas fa-caret-down" style={{paddingTop:'3px'}}></i>
                   </div>
                 </div>
               </div>

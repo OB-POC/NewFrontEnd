@@ -41,14 +41,14 @@ export default class Rel extends React.Component{
               <Header username = {this.state.accSumary.username}/>
               <div style = {{display:"flex"}}>
                 <Sidebar/>
-              <div className='row' style = {{backgroundColor:"#f5f6fa",width:"100%"}}>
+              <div className='row main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%"}}>
                 <div className='col-9' >
                 <Banner accSumary = {this.state.accSumary} history = {this.props.history}/>
                 <Balance creditData = {this.state.creditData} history = {this.props.history}
                 debitData = {this.state.debitData}/>
                 </div>
                 <div className='col-3'>
-                <img style = {{height:'700px',width:'260px',paddingTop:'16%',marginTop:'18%'}} src='images/image-ad@3x.png'/>
+                <img style = {{height:'677px',width:'260px',paddingTop:'11px',marginTop:'18%'}} src='images/image-ad@3x.png'/>
                 </div>
                 </div>
               </div>

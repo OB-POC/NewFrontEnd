@@ -9,7 +9,6 @@
   text-align: left;
   color: #000000;
 }
-
 .Savings-accounts {
   opacity: 0.66;
   font-family: Open Sans;
@@ -81,4 +80,9 @@
 }
 .Rectangle-4:hover{
   background-color: #5d8a0c;
+}
+
+.title, .Rectangle-3 {
+  width: 100%;
+  margin: 0 15px;
 }

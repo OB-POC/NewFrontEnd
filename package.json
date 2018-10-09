@@ -7,7 +7,14 @@
     "start": "webpack -w --env.NODE_ENV=DEV",
     "build": "webpack -p --env.NODE_ENV=PRO",
     "serve": "node server.js",
-    "test": "echo \"NO TEST SPECIFIED\""
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./client/__tests__/setup/setupTests.js",
+    "testPathIgnorePatterns": [
+      "./client/__tests__/setup/"
+    ]
   },
   "author": "priyanka",
   "license": "ISC",
@@ -37,6 +44,8 @@
   "devDependencies": {
     "@babel/preset-stage-2": "^7.0.0",
     "babel-jest": "^23.6.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-stage-2": "^6.24.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.3.4",
