@@ -62,5 +62,15 @@ offeringCall: function(queryData,successCb,errorCb) {
     success : successCb,
     error : errorCb
   })
+},
+totalBalancesCall: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"GET",
+    url : config.accountUrl+"/totalBalances",
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
 }
 }
