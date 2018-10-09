@@ -1,4 +1,5 @@
 
+let NODE_ENV = NODE_ENV || ""
 module.exports = NODE_ENV == "PRO" ? {
     loginUrl: 'http://localhost:8082/authService',
     accountUrl: 'http://localhost:8082/accountsService',
