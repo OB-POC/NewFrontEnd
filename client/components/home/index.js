@@ -25,7 +25,7 @@ export default class Rel extends React.Component{
                 <Balance/>
                 </div>
                 <div className='col-3'>
-                <img style = {{height:'670px',width:'260px',paddingTop:'20%',marginTop:'18%'}} src='images/image-ad@3x.png'/>
+                <img style = {{height:'670px',width:'260px',paddingTop:'16%',marginTop:'18%'}} src='images/image-ad@3x.png'/>
                 </div>
                 </div>
               </div>
