@@ -49,9 +49,9 @@ keyPress(event){
                       Sign in to your account
                     </div>
                     <input type = 'text' className='field_outline' style={{marginTop:'34px'}}
-                    placeHolder = 'User name' defaultValue = 'alice' id="username" autofocus="true" onKeyPress={this.keyPress.bind(this)}/>
+                    placeholder = 'User name' defaultValue = 'alice' id="username" autoFocus={true} onKeyPress={this.keyPress.bind(this)}/>
                     <input type = 'password' className='field_outline' style={{marginTop:'13.9px'}}
-                    placeHolder = 'Password' defaultValue = 'wonderland' id="pwd" onKeyPress={this.keyPress.bind(this)}/>
+                    placeholder = 'Password' defaultValue = 'wonderland' id="pwd" onKeyPress={this.keyPress.bind(this)}/>
                     <div style={{marginTop:'19.9px'}}>
                       <div style={{float:'left',marginRight:'10px'}}>
                         <input type='checkbox'/>

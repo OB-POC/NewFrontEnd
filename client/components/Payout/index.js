@@ -38,10 +38,10 @@ export default class Rel extends React.Component{
               <div style = {{display:"flex"}}>
                 <Sidebar/>
                 <div  style = {{backgroundColor:"#f5f6fa",width:"100%",paddingBottom:'30px'}}>
-                  <div className='Recommended_for_you' style={{marginLeft:'70px',marginTop:'38px'}}>
+                  <div className='Recommended_for_you'>
                   Recommended for you
                   </div>
-                  <div style={{marginTop:'17px',marginLeft:'70px'}}>
+                  <div className="headerImg">
                     <div style={{backgroundImage:'url("images/img-recommendations.png")',backgroundRepeat:'no-repeat',height:'170px',width:'1160px'}}>
                       <div style={{paddingTop:'29px',paddingLeft:'195px'}}>
                         <div className='heading_text'>
@@ -71,11 +71,11 @@ export default class Rel extends React.Component{
                         <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
                           <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
                           <div className='detail_credit'>
-                              <p className=''>Halifax<br/>
+                              <div className=''>Halifax<br/>
                                 <div>
                                   <b className=''>0.2 % APR</b><br/>
                                 </div>
-                              </p>
+                              </div>
                           </div>
                           <div className='name_credit_payout'><p></p></div>
                           <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> 2500</b></h5></div>
@@ -83,11 +83,11 @@ export default class Rel extends React.Component{
                         <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
                           <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
                           <div className='detail_credit'>
-                              <p className=''>Halifax<br/>
+                              <div className=''>Halifax<br/>
                                 <div>
                                   <b className=''>0.2 % APR</b><br/>
                                 </div>
-                              </p>
+                              </div>
                           </div>
                           <div className='name_credit_payout'><p></p></div>
                           <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> 2500</b></h5></div>
@@ -98,11 +98,11 @@ export default class Rel extends React.Component{
                         <div style={{display:'flex',paddingTop:'15px',paddingRight:'14px'}}>
                           <div className='img_credit_payout'><img src='images/card_img1.jpg' /></div>
                           <div className='detail_credit'>
-                              <p className=''>Halifax<br/>
+                              <div className=''>Halifax<br/>
                                 <div>
                                   <b className=''>0.2 % APR</b><br/>
                                 </div>
-                              </p>
+                              </div>
                           </div>
                           <div className='name_credit_payout'><p></p></div>
                           <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> 2500</b></h5></div>
