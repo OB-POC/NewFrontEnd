@@ -1,4 +1,3 @@
-console.log(NODE_ENV);
 
 module.exports = NODE_ENV == "PRO" ? {
     loginUrl: 'http://localhost:8082/authService',
