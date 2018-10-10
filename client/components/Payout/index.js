@@ -129,7 +129,7 @@ export default class Rel extends React.Component{
         return(
           this.state.load ?
             <div  className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
-              <Header username = {this.state.username}/>
+              <Header history = {this.props.history} username = {this.state.username}/>
               <div style = {{display:"flex"}}>
                 <Sidebar/>
                 <div  style = {{backgroundColor:"#f5f6fa",width:"100%",paddingBottom:'30px'}}>

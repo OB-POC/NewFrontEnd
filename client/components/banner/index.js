@@ -9,6 +9,7 @@ export default class Rel extends React.Component{
     this.props.history.push('./payout')
   }
     render(){
+      console.log(this.props.accSumary, 'accSumary');
         return(
           <div>
             <div className="title">

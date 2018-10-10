@@ -6,10 +6,17 @@ import { HashRouter as Router } from 'react-router-dom'
 export default class Header extends React.Component{
   constructor(props){
     super(props);
+    if(!sessionStorage.getItem('token'))
+      this.props.history.push('/')
+    this.onLogoutClick = this.onLogoutClick.bind(this)
 
   }
   obClick(){
     this.props.history.push('/home')
+  }
+  onLogoutClick(){
+    sessionStorage.clear();
+    this.props.history.push("/")
   }
     render(){
         return(
@@ -31,8 +38,8 @@ export default class Header extends React.Component{
                     <span className = 'Alice-Salas' style = {{paddingRight:'18px'}}>{this.props.username}</span>
                     <i className="fas fa-caret-down" style={{paddingTop:'3px'}}></i>
                   </div>
-                  
-                  <i className="fas fa-sign-out-alt logout" style= {{padding:'20px',color:'rgb(216, 217, 222)'}}></i>
+
+                  <i className="fas fa-sign-out-alt logout" style= {{padding:'20px',color:'rgb(216, 217, 222)'}} onClick = {this.onLogoutClick}></i>
                 </div>
               </div>
             </div>

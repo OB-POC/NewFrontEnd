@@ -178,9 +178,10 @@ export default class Balance extends React.Component{
           )
         })
         var accType = data.accounts.map(function (data2, k) {
+          console.log(data2, "data2");
 
           return (
-            <div key={k} className='name-credit'><p>{data2.accountType}</p></div>
+            <div key={k} className='name-credit'><p>{data2.accountType}{data2.aaccountType}</p></div>
         )
         })
         var bal = data.accounts.map(function (data2, k) {
