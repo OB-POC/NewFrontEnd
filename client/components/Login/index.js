@@ -35,7 +35,7 @@ keyPress(event){
 }
     render(){
         return(
-            <div className='llyods_login'>
+            <div className='llyods_login container-fluid'>
               <div className='logo_open_bank'>
                 OPEN BANKING
               </div>
