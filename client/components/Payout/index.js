@@ -79,11 +79,11 @@ export default class Rel extends React.Component{
               <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
                 <div className='img_credit_payout'><img src={'../../../../images/cards/debit/'+data.bankName+'.png'} /></div>
                 <div className='detail_credit'>
-                    <p className=''>{data.bankName}<br/>
+                    <div className=''>{data.bankName}<br/>
                       <div>
                         <b className=''> % APR</b><br/>
                       </div>
-                    </p>
+                    </div>
                 </div>
                 <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> {data.contributingAmount}</b></h5></div>
               </div>
@@ -99,11 +99,11 @@ export default class Rel extends React.Component{
                 <div id={"element-target-"+i} style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
                   <div className='img_credit_payout'><img src={'../../../../images/cards/Credit/'+data.bankName+'.png'} /></div>
                   <div className='detail_credit'>
-                      <p className=''>{data.bankName}<br/>
+                      <div className=''>{data.bankName}<br/>
                         <div>
                           <b className=''>{data.interestRate} % APR</b><br/>
                         </div>
-                      </p>
+                      </div>
                   </div>
                   <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> {data.totalBalanceDue}</b></h5></div>
                 </div>
