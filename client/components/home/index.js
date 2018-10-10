@@ -38,7 +38,7 @@ export default class Rel extends React.Component{
     render(){
         return(
             <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
-              <Header username = {this.state.accSumary.username}/>
+              <Header username = {this.state.accSumary.username} history = {this.props.history}/>
               <div style = {{display:"flex"}}>
                 <Sidebar/>
               <div className='row main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%"}}>

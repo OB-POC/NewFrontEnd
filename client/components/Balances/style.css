@@ -23,11 +23,11 @@
     width: 100%;
     height: 222px;
     background-color: #ffffff;
-    
+
   }
 
   .bank {
-  
+
     font-family: 'Open Sans';
     font-size: 12px;
     font-weight: normal;
@@ -40,7 +40,7 @@
   }
 
   .JP_Morgan_Chase {
-    
+
     font-family: 'Open Sans';
     font-size: 14px;
     font-weight: normal;
@@ -170,15 +170,21 @@
   }
   .optimize-btt > div:first-child {
     width: 60%;
+    line-height: 55px;
     display: inline-block;
     font-size: 16px;
     position: relative;
+    float: left;
     bottom: 2px;
-    
-
   }
+
+  .optimizeBtn > div {
+    width: 100% !important;
+  }
+  
   .optimize-btt > div:nth-child(2) {
     width: 40%;
+    line-height: 50px;
     display: inline-block;
 
   }
@@ -192,4 +198,37 @@
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
+  }
+
+  .detail-credit b {
+    padding-left: 0;
+  }
+
+  .payout-button div {
+    float: left;
+  }
+
+  .btn-text-wrapper {
+    width: inherit;
+    height: inherit;
+  }
+
+  .btn-text {
+    width: 60%;
+    line-height: 55px;
+    text-align: right;
+    padding-right: 7%;
+  }
+
+  .btn-arrow {
+    width: 40%;
+    line-height: 55px;
+  }
+
+  .btn-arrow i {
+    font-size: 21px;
+    width: 100%;
+    position: absolute;
+    left: 53px;
+    line-height: 55px;
   }
