@@ -41,7 +41,7 @@ export default class Balance extends React.Component{
             <div className='tooltip_background'>
            <div className='row'>
                <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
-                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src={'../../../../images/cards/Credit/'+data.bankName+'.png'}/>
                </div>
                <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
                    <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
@@ -70,7 +70,7 @@ export default class Balance extends React.Component{
         <div className='tooltip_background'>
        <div className='row'>
            <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
-               <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+               <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src={'../../../../images/cards/Credit/'+data.bankName+'.png'}/>
            </div>
            <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
                <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
@@ -142,7 +142,7 @@ export default class Balance extends React.Component{
             <div className='tooltip_background'>
            <div className='row'>
                <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px'}}>
-                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src='../../../../images/card_img1.jpg'/>
+                   <img style={{height:'110px',width:'175px',marginLeft:'22px'}} src={'../../../../images/cards/debit/'+data.bankName+'.png'}/>
                </div>
                <div className='col-4' style={{paddingTop:'20px',paddingLeft:'55px'}}>
                    <div style={{display:'flex',flexDirection:'row',marginRight:'22px'}}>
