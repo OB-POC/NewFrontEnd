@@ -64,24 +64,24 @@ export default class Rel extends React.Component{
       let senders1 = []
 
       let payFrom1  = this.state.payOutData.creditDebitMatch.map(function (data, i) {
-        if(data.clearedTotalDue==false){
-          var totalContributedAmount = data.senders.reduce(function(accumulator,currentValue){
-            return accumulator+parseInt(currentValue.contributingAmount);
-          }, 0)
+        // if(data.clearedTotalDue==false){
+        //   var totalContributedAmount = data.senders.reduce(function(accumulator,currentValue){
+        //     return accumulator+parseInt(currentValue.contributingAmount);
+        //   }, 0)
 
-          var outStandingBal = parseInt(data.totalBalanceDue) - totalContributedAmount
+        //   var outStandingBal = parseInt(data.totalBalanceDue) - totalContributedAmount
 
-        }
-
+        // }
+        console.log(data)
         senders1 = data.senders.map(function(data,i){
 
           return(
-              <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
+              <div key = {i} style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
                 <div className='img_credit_payout'><img src={'../../../../images/cards/debit/'+data.bankName+'.png'} /></div>
                 <div className='detail_credit'>
                     <div className=''>{data.bankName}<br/>
                       <div>
-                        <b className=''> % APR</b><br/>
+                        <b className=''>{data.interestRate} % AER</b><br/>
                       </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ export default class Rel extends React.Component{
           )
         })
         return(
-          <div className='row'>
+          <div className='row' style={{flex:'display',alignItems:'center'}} key = {i}>
             <div className='col-xs-4 outer_layer_payout' id={"element-"+i} style={{marginTop:'17px',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',width:'310px'}}>
               {senders1}
             </div>
@@ -101,7 +101,7 @@ export default class Rel extends React.Component{
                   <div className='detail_credit'>
                       <div className=''>{data.bankName}<br/>
                         <div>
-                          <b className=''>{data.interestRate} % APR</b><br/>
+                          <b className=''>{data.interestRate || data.apr} % APR</b><br/>
                         </div>
                       </div>
                   </div>
@@ -112,7 +112,7 @@ export default class Rel extends React.Component{
             <div className='col-xs-4' >
               <div className='outer_layer_payout' style={{marginTop:'8%',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',height:'77px',width:'160px'}}>
                 <div style={{display:'flex',paddingTop:'15px',paddingRight:'14px'}}>
-                <div className='amount_credit'><h5><b style={{color:'#ff5d64',marginLeft:'34px'}}><span>&#163;</span> {data.clearedTotalDue?0:outStandingBal }</b></h5></div>
+                <div className='amount_credit'><h5><b style={{color:'#ff5d64',marginLeft:'34px'}}><span>&#163;</span> {data.totalOutstandingBalance}</b></h5></div>
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ export default class Rel extends React.Component{
                           <p className='main_section_heading_text'>Outstanding balance</p>
                         </div>
                       </div>
-                    <div className='Line' style={{marginLeft:'48px',marginRight:'105px'}}/>
+                    <div className='Line' style={{marginLeft:'35px',marginRight:'105px'}}/>
                       {payFrom1}
                       <br/>
                       <center>
