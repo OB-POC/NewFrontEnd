@@ -113,7 +113,8 @@ export default class Balance extends React.Component{
         })
         var out = data.accounts.map(function (data2, k) {
           return (
-          <div key={k} className='amount-credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data2.minMonthlyPayment}</b></h5></div>
+
+          <div key={k} className='amount-credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data2.minMonthlyPayment || data2.totalBalanceDue}</b></h5></div>
         )
         })
         return(
