@@ -41,7 +41,7 @@ keyPress(event){
               </div>
               <div className='row' style={{paddingBottom:'20px'}}>
                 <div className='col-7'>
-                  <img style = {{height:'626px',width:'768px',paddingTop:'49px',paddingLeft:'38px'}} src = 'images/il-login-page.png' />
+                  <img style = {{width:'768px',paddingTop:'49px',paddingLeft:'38px'}} src = 'images/il-login-page.png' />
                 </div>
                 <div className='col-5' style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
                   <div className='Login_Background' style={{paddingTop:'49px',paddingLeft:'38px'}}>
