@@ -36,6 +36,7 @@ export default class Rel extends React.Component{
       })
   }
     render(){
+      console.log(this.props.history);
         return(
             <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
