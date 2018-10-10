@@ -37,7 +37,7 @@ keyPress(event){
         return(
             <div className='llyods_login container-fluid'>
               <div className='logo_open_bank'>
-                OPEN BANKING
+              <span>OPTIMA</span><small style={{marginLeft:'6px',paddingTop:'10px',fontSize:'16px'}}><i>Pay Less, Save More</i></small>
               </div>
               <div className='row' style={{paddingBottom:'20px'}}>
                 <div className='col-7'>

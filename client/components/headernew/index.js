@@ -17,7 +17,8 @@ export default class Header extends React.Component{
               <div className = 'Rectangle-2' style = {{display:'flex',justifyContent:'space-between'}}>
                 <div style = {{padding:"20px", cursor: 'pointer'}}
                 tabIndex = '1' onClick = {this.obClick.bind(this)}>
-                  <span className = 'OPEN-BANK'>OPEN BANKING</span>
+                  <span className = 'OPEN-BANK'>OPTIMA</span>
+                  <small style={{marginLeft:'5px',paddingTop:'10px'}}><i>Pay Less, Save More</i></small>
                 </div>
                 <div style= {{display:"flex",paddingRight:'50px'}}>
                   <div style= {{padding:"15px",borderRight:'solid 0.5px #979797'}}>
