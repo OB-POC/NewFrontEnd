@@ -30,6 +30,8 @@ export default class Header extends React.Component{
                     <span className = 'Alice-Salas' style = {{paddingRight:'18px'}}>{this.props.username}</span>
                     <i className="fas fa-caret-down" style={{paddingTop:'3px'}}></i>
                   </div>
+                  
+                  <i className="fas fa-sign-out-alt logout" style= {{padding:'20px',color:'rgb(216, 217, 222)'}}></i>
                 </div>
               </div>
             </div>

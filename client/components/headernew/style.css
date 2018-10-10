@@ -45,3 +45,8 @@
   height: 35px;
   object-fit: contain;
 }
+
+
+.logout{
+  cursor: pointer;
+}
