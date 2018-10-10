@@ -178,9 +178,10 @@ export default class Balance extends React.Component{
           )
         })
         var accType = data.accounts.map(function (data2, k) {
+          console.log(data2, "data2");
 
           return (
-            <div key={k} className='name-credit'><p>{data2.accountType}</p></div>
+            <div key={k} className='name-credit'><p>{data2.accountType}{data2.aaccountType}</p></div>
         )
         })
         var bal = data.accounts.map(function (data2, k) {
@@ -217,7 +218,7 @@ export default class Balance extends React.Component{
                    {debitData}
                 </Paper>
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
-                   <div className='credit-accounts'>Credit accounts</div>
+                   <div className='credit-accounts' style = {{paddingBotttom:'23px'}}>Credit accounts</div>
                    {credData}
                    <center id = 'outer-layer'>
                     <button className='btn payout-button optimize-btt optimizeBtn' onClick = {this.payoutClick.bind(this)}>

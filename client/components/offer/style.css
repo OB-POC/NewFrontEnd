@@ -28,7 +28,7 @@
 }
 
 .lbgcard{
-    position: absolute;
+    position: relative;
     left: 8%;
     bottom: 11%;
     width: 16vw;
@@ -82,10 +82,10 @@
 
   #msg
   {
-      position: absolute;
       top: 10%;
       left: 5%;
       width: 37%;
+      padding-top : 25px
   }
 
   #bg {
@@ -100,9 +100,7 @@
       width: 100%;
   }
 
-  .back_groud_panal img:nth-child(1) {
-      width: 77vw;
-  }
+  
 
 
 

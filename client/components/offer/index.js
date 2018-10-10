@@ -71,7 +71,7 @@ export default class Offerings extends React.Component{
       }
 
     render(){
-
+        console.log(this.state.cardData)
       return(
           this.state.load ?
             <div>
@@ -88,14 +88,20 @@ export default class Offerings extends React.Component{
                 :null
               }
                 <div id="bg" className="back_groud_panal">
-                    <img src="images/img-imge-bg.png" className="bgimg"/>
                     <h5 id="msg">Want to enjoy an annual savings of <span>&#163;</span>{this.state.cardData.savingsOnBestMatch}?
-                        Switch to LBG-Club Lloyds Saver Account at a new {this.state.cardData.aer?'AER':'APR'} of {this.state.cardData.aer?this.state.cardData.aer:this.state.cardData.apr}%. </h5>
-                    <img src="images/ic-card-copy.png" className="lbgcard"/>
+                        Switch to LBG - {this.state.cardData.cardTitle.replace('LBG -','')} at an {this.state.cardData.aer?'AER':'APR'} of {this.state.cardData.aer?this.state.cardData.aer:this.state.cardData.apr}%. </h5>
+                       
+                       {this.state.cardData.typeLeftOut =='credit'?
+                        <img src = 'images/credit.png' style = {{width: '100%',paddingTop : '25px'}}/>:
+                        <img src = 'images/capture.png' style = {{width: '100%',paddingTop : '25px'}}/>
+                       }
+                    <div style={{position:'relative',paddingTop : '25px'}}>
+                    <img style= {{width: '18vw'}} src="images/ic-card-copy.png" className="lbgcard"/>
                     <button className='switch-button' style = {{cursor: 'pointer'}} onClick={this.notify.bind(this)}>
                         <span id="switch-msg">Switch Now</span>
                         <i id="right-arrow" className='fas fa-arrow-right fa-lg'></i>
                     </button>
+                    </div>
                 </div>
 
             </div>
