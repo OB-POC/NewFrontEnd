@@ -147,7 +147,7 @@ export default class Rel extends React.Component{
                           <p className='main_section_heading_text'>Pay from</p>
                         </div>
                         <div className='col-4' style={{margin:'auto'}}>
-                          <p className='main_section_heading_text'>Current outstanding amount</p>
+                          <p className='main_section_heading_text'>Current Statement outstanding Amount</p>
                         </div>
                         <div className='col-4' style={{margin:'auto'}}>
                           <p className='main_section_heading_text'>Outstanding balance</p>
