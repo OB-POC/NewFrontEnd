@@ -28,7 +28,7 @@ export default class Rel extends React.Component{
                 <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableCreditBalance}</span>
                 </div>
                 <div  style = {{display:'flex',flexDirection:'column'}}>
-                <span className = 'Want-to-reduce-your'>Want to reduce your credit outstanding balance by £ 4301?</span>
+                <span className = 'Want-to-reduce-your' style={{paddingRight:'30px'}}>{'Want to reduce your credit outstanding balance by £'+this.props.accSumary.savingsOnBestMatch+' ?'}</span>
                   <div className = 'Rectangle-4' style = {{padding:"16px 45px 16px 36px",
                   display:'flex',marginTop:'16px',cursor:'pointer'}}
                    onClick = {this.yesClick.bind(this)} tabIndex = '1'>

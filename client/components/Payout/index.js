@@ -62,7 +62,14 @@ export default class Rel extends React.Component{
     render(){
       var senders = []
       let senders1 = []
-
+      console.log(this.state.payOutData)
+      let aerLeftOut = this.state.payOutData.aerLeftOut
+      let aprLeftOut = this.state.payOutData.aprLeftOut
+      let bankleftOut = this.state.payOutData.bankleftOut
+      let bankLeftOut = this.state.payOutData.bankLeftOut
+      let totalAvailableBalance = this.state.payOutData.totalAvailableBalance == undefined ? this.state.payOutData.totalAvailableBalance : this.state.payOutData.totalAvailableBalance.replace('-','')  
+      let typeLeftOut = this.state.payOutData.typeLeftOut
+      console.log('bankleftOut',bankleftOut,this.state.payOutData.bankleftOut)
       let payFrom1  = this.state.payOutData.creditDebitMatch.map(function (data, i) {
         // if(data.clearedTotalDue==false){
         //   var totalContributedAmount = data.senders.reduce(function(accumulator,currentValue){
@@ -133,10 +140,10 @@ export default class Rel extends React.Component{
                     <div style={{backgroundImage:'url("images/img-recommendations.png")',backgroundRepeat:'no-repeat',height:'170px',width:'1160px'}}>
                       <div style={{paddingTop:'29px',paddingLeft:'195px'}}>
                         <div className='heading_text'>
-                          Hey Alice
+                          Hey {sessionStorage.getItem('username').charAt(0).toUpperCase()+sessionStorage.getItem('username').substr(1)}
                         </div>
                         <div style={{width:'609px'}} className='heading_text'>
-                          We have listed the best pay-off options for you. Your available balance in Barclays £4600 & AER at present is 0.25%
+                          We have listed the best pay-off options for you. {typeLeftOut=='debit'?'Your available balance in '+bankleftOut+ ' is £ '+totalAvailableBalance+ ' & AER at present is '+aerLeftOut+'%.':'Your outstanding balance in '+bankLeftOut+ ' is £ '+totalAvailableBalance+ ' & APR at present is '+aprLeftOut+'%.'}
                         </div>
                       </div>
                     </div>
