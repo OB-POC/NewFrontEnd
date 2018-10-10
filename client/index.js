@@ -10,7 +10,7 @@ import Payout from './components/Payout';
 render(
 <MuiThemeProvider>
 <HashRouter>
-    <div>
+    <div >
     <Route exact path='/' component={Login} />
     <Route exact path='/home' component={Home} />
     <Route exact path='/payout' component={Payout} />
