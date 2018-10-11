@@ -67,7 +67,7 @@ export default class Rel extends React.Component{
       let aprLeftOut = this.state.payOutData.aprLeftOut
       let bankleftOut = this.state.payOutData.bankleftOut
       let bankLeftOut = this.state.payOutData.bankLeftOut
-      let totalAvailableBalance = this.state.payOutData.totalAvailableBalance == undefined ? this.state.payOutData.totalAvailableBalance : this.state.payOutData.totalAvailableBalance.replace('-','')  
+      let totalAvailableBalance = this.state.payOutData.totalAvailableBalance == undefined ? this.state.payOutData.totalAvailableBalance : this.state.payOutData.totalAvailableBalance.replace('-','')
       let typeLeftOut = this.state.payOutData.typeLeftOut
       console.log('bankleftOut',bankleftOut,this.state.payOutData.bankleftOut)
       let payFrom1  = this.state.payOutData.creditDebitMatch.map(function (data, i) {
@@ -154,7 +154,7 @@ export default class Rel extends React.Component{
                           <p className='main_section_heading_text'>Pay from</p>
                         </div>
                         <div className='col-4' style={{margin:'auto'}}>
-                          <p className='main_section_heading_text'>Current Statement outstanding Amount</p>
+                          <p className='main_section_heading_text'>Total Amount Due (Current Statement)</p>
                         </div>
                         <div className='col-4' style={{margin:'auto'}}>
                           <p className='main_section_heading_text'>Outstanding balance</p>
