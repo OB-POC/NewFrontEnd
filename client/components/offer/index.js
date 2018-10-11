@@ -88,9 +88,20 @@ export default class Offerings extends React.Component{
                 :null
               }
                 <div id="bg" className="back_groud_panal">
-                    <h5 id="msg">Want to enjoy an annual savings of <span>&#163;</span>{this.state.cardData.savingsOnBestMatch}?
-                        Switch to LBG - {this.state.cardData.cardTitle.replace('LBG -','')} at an {this.state.cardData.aer?'AER':'APR'} of {this.state.cardData.aer?this.state.cardData.aer:this.state.cardData.apr}%. </h5>
-                       
+                    <h5 id="msg">{this.state.cardData.aer?`Are you hoping to get the best possible return on
+your hard earned
+savings?
+Switch to LGB - Club
+Llyods Saver Account and
+enjoy a high rate of 0.6%
+annual returns on your
+savings ! `:`Save more annually by
+Switching to LBG’s 0%
+Purchase and Balance
+Transfer, with a very low
+Annual Percentage Rate
+of 19.9% !`} </h5>
+
                        {this.state.cardData.typeLeftOut =='credit'?
                         <img src = 'images/credit.png' style = {{width: '100%',paddingTop : '25px'}}/>:
                         <img src = 'images/capture.png' style = {{width: '100%',paddingTop : '25px'}}/>

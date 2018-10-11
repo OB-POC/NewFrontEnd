@@ -58,7 +58,7 @@ export default class Balance extends React.Component{
                <div className='col-4' style={{paddingTop:'30px',paddingLeft:'22px',paddingRight:'22px'}}>
                    <div style={{display:'flex',flexDirection:'row'}}>
                        <div style={{display:'flex',flexDirection:'column'}}>
-                           <div className='bank'>Principal Balance Due</div>
+                           <div className='bank'>Principal Due</div>
                            <div className='JP_Morgan_Chase'>£ {data1.totalBalanceDue}</div>
                            <div className='bank' style={{marginTop:'15px'}}>Due date</div>
                            <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>{new Date(data1.dueDate).toDateString()}</div>

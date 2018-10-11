@@ -143,7 +143,13 @@ export default class Rel extends React.Component{
                           Hey {sessionStorage.getItem('username').charAt(0).toUpperCase()+sessionStorage.getItem('username').substr(1)}
                         </div>
                         <div style={{width:'609px'}} className='heading_text'>
-                          We have listed the best pay-off options for you. {typeLeftOut=='debit'?'Your available balance in '+bankleftOut+ ' is £ '+totalAvailableBalance+ ' & AER at present is '+aerLeftOut+'%.':'Your outstanding balance in '+bankLeftOut+ ' is £ '+totalAvailableBalance+ ' & APR at present is '+aprLeftOut+'%.'}
+                          Here are our "Smart
+Recommendations" to
+pay-off your credit dues !
+Choose this option to be
+free from any additional
+charges on your Credit
+Cards. '
                         </div>
                       </div>
                     </div>
