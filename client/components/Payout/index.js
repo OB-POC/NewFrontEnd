@@ -103,7 +103,7 @@ export default class Rel extends React.Component{
           )
         })
         return(
-          <div className='row' style={{flex:'display',alignItems:'center'}} key = {i}>
+          <div className='row' style={{flex:'display',alignItems:'center',paddingLeft:'7%'}} key = {i}>
             <div className='col-xs-4 outer_layer_payout' id={"element-"+i} style={{marginTop:'17px',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',width:'310px'}}>
               {senders1}
             </div>
@@ -161,23 +161,25 @@ export default class Rel extends React.Component{
                     </div>
                   </div>
                   <div className='main_section' style={{marginTop:'17px',marginLeft:'70px'}}>
-                      <div className='row' style={{marginTop:'33px',marginLeft:'48px',marginRight:'105px'}}>
-                        <div className='col-4' style={{margin:'auto'}}>
+                      <div className='row' style={{marginTop:'33px',marginLeft:'48px',marginRight:'105px',paddingLeft:'7%',}}>
+                        <div className='col-4' style={{margin:'auto',paddingLeft:'7%'}}>
                           <p className='main_section_heading_text'>Pay from</p>
                         </div>
-                        <div className='col-4' style={{margin:'auto'}}>
-                          <p className='main_section_heading_text'>Total Amount Due (Current Statement)</p>
+                        <div className='col-4' style={{margin:'auto',paddingLeft:'7%'}}>
+                          <p className='main_section_heading_text'>Total Amount Due <br/>(Current Statement)</p>
                         </div>
-                        <div className='col-4' style={{margin:'auto'}}>
+                        <div className='col-4' style={{margin:'auto',paddingLeft:'10%'}}>
                           <p className='main_section_heading_text'>Outstanding balance</p>
                         </div>
                       </div>
-                    <div className='Line' style={{marginLeft:'35px',marginRight:'105px'}}/>
+                    <div className='Line' style={{marginLeft:'9%',marginRight:'12%'}}/>
                       {payFrom1}
                       <br/>
                       <div className='inner_banner'>
                         <div className='heading_text' style={{padding:'25px'}}>
-                        You will be saving £ {this.state.accSumary.savingsOnBestMatch} more by following the recommended payout plan.
+                        <center>
+                          Your potential savings will be £ {this.state.accSumary.savingsOnBestMatch} annually by following the recommended payout plan.
+                        </center>
                         </div>
                       </div>
                       <center>

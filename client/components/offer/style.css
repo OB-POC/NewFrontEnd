@@ -99,6 +99,12 @@
       width: 100%;
   }
 
+  .inner_banner_1{
+    min-height: 70;
+    background-color: #006a4d;
+    margin: 40px 10px 20px 10px;
+    border-radius: 4px;
+  }
   
 
 
