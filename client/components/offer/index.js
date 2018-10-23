@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../headernew';
 import Sidebar from '../sidebar';
 import ReactLoading from 'react-loading'
-import { ToastContainer, toast, Slide, Zoom, Flip, Bounce } from 'react-toastify';
+import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import services from '../../services'
 import './style.css';

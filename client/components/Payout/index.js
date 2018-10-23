@@ -25,7 +25,6 @@ export default class Rel extends React.Component{
      })
   }
   componentDidMount(){
-    var username =
     this.setState({
       username: sessionStorage.getItem("username"),
       load: false
@@ -60,15 +59,15 @@ export default class Rel extends React.Component{
   }
 
     render(){
-      var senders = []
+     
       let senders1 = []
       console.log(this.state.payOutData)
-      let aerLeftOut = this.state.payOutData.aerLeftOut
-      let aprLeftOut = this.state.payOutData.aprLeftOut
+      // let aerLeftOut = this.state.payOutData.aerLeftOut
+      // let aprLeftOut = this.state.payOutData.aprLeftOut
       let bankleftOut = this.state.payOutData.bankleftOut
-      let bankLeftOut = this.state.payOutData.bankLeftOut
-      let totalAvailableBalance = this.state.payOutData.totalAvailableBalance == undefined ? this.state.payOutData.totalAvailableBalance : this.state.payOutData.totalAvailableBalance.replace('-','')
-      let typeLeftOut = this.state.payOutData.typeLeftOut
+      // let bankLeftOut = this.state.payOutData.bankLeftOut
+      // let totalAvailableBalance = this.state.payOutData.totalAvailableBalance == undefined ? this.state.payOutData.totalAvailableBalance : this.state.payOutData.totalAvailableBalance.replace('-','')
+      // let typeLeftOut = this.state.payOutData.typeLeftOut
       console.log('bankleftOut',bankleftOut,this.state.payOutData.bankleftOut)
       let payFrom1  = this.state.payOutData.creditDebitMatch.map(function (data, i) {
         // if(data.clearedTotalDue==false){

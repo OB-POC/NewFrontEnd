@@ -24,10 +24,6 @@ export default class Balance extends React.Component{
       this.setState({tooltipId: 100})
   }
 
-  payoutClick(){
-    this.props.history.push('payout')
-  }
-
     render(){
       const context = this;
       const contextState = this.state;
