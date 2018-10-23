@@ -13,11 +13,18 @@ export default class Rel extends React.Component{
       payOutData: {creditDebitMatch: []},
       username: '',
       lines : [],
-      load: true
+      load: true,
+      accSumary : {}
     }
   }
   componentWillMount() {
       var token = sessionStorage.getItem("token");
+      Services.totalBalancesCall(token, function(data){
+          this.setState({accSumary : data});
+          console.log(data)
+     }.bind(this),function(err){
+         console.log(err);
+     })
       Services.payOutCall(token, function(data){
           this.setState({payOutData : data});
           this.componentDidMount()
@@ -144,12 +151,12 @@ export default class Rel extends React.Component{
                         </div>
                         <div style={{width:'609px'}} className='heading_text'>
                           Here are our "Smart
-Recommendations" to
-pay-off your credit dues !
-Choose this option to be
-free from any additional
-charges on your Credit
-Cards. '
+                          Recommendations" to
+                          pay-off your credit dues !
+                          Choose this option to be
+                          free from any additional
+                          charges on your Credit
+                          Cards. '
                         </div>
                       </div>
                     </div>
@@ -169,6 +176,11 @@ Cards. '
                     <div className='Line' style={{marginLeft:'35px',marginRight:'105px'}}/>
                       {payFrom1}
                       <br/>
+                      <div className='inner_banner'>
+                        <div className='heading_text' style={{padding:'25px'}}>
+                        You will be saving £ {this.state.accSumary.savingsOnBestMatch} more by following the recommended payout plan.
+                        </div>
+                      </div>
                       <center>
                       <button className='btn payout-button optimize-btt' onClick={this.handlePayment.bind(this)}>
                       <div>AGREE & PAY</div>

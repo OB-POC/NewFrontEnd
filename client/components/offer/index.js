@@ -52,10 +52,11 @@ export default class Offerings extends React.Component{
       }
 
       notify() {
-        this.setState({
-          load1: true
-        })
-        setTimeout(this.fun.bind(this), 2000)
+          this.setState({
+            load1: true
+          })
+        setTimeout(this.fun.bind(this), 500)
+        //this.fun.bind(this)
       }
       fun(){
         this.setState({
@@ -84,35 +85,45 @@ export default class Offerings extends React.Component{
                     <img src="images/img-banner.png" id="banner-img"/>
                     <h4 id="lable">Your payment is complete!</h4>
                 </div>
-                {this.state.load1 ? <ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} />
-                :null
-              }
+               
                 <div id="bg" className="back_groud_panal">
-                    <h5 id="msg">{this.state.cardData.aer?`Are you hoping to get the best possible return on
-your hard earned
-savings?
-Switch to LGB - Club
-Llyods Saver Account and
-enjoy a high rate of 0.6%
-annual returns on your
-savings ! `:`Save more annually by
-Switching to LBG’s 0%
-Purchase and Balance
-Transfer, with a very low
-Annual Percentage Rate
-of 19.9% !`} </h5>
+                  <div className='row'>
+                    <div className='col-1'/>
+                    <div className='col-6'>
+                        <h5 id="msg">{this.state.cardData.aer?`Are you hoping to get the best possible return on
+                            your hard earned
+                            savings?
+                            Switch to LGB - Club
+                            Llyods Saver Account and
+                            enjoy a high rate of 0.6%
+                            annual returns on your
+                            savings ! `:`Save more annually by
+                            Switching to LBG’s 0%
+                            Purchase and Balance
+                            Transfer, with a very low
+                            Annual Percentage Rate
+                            of 19.9% !`} 
+                        </h5>
+                    </div>
+                    <div className='col-4'>
+                        <div style={{position:'relative'}}>
+                          <img style= {{width: '18vw'}} src="images/ic-card-copy.png" className="lbgcard"/>
+                          <button className='switch-button' style = {{cursor: 'pointer'}} onClick={this.notify.bind(this)}>
+                              <span id="switch-msg">Switch Now</span>
+                              <i id="right-arrow" className='fas fa-arrow-right fa-lg'></i>
+                          </button>
+                        </div>
+                    </div>
+                    <div className = 'col-1'/>
+                  </div>
+                    
+                  
 
                        {this.state.cardData.typeLeftOut =='credit'?
                         <img src = 'images/credit.png' style = {{width: '100%',paddingTop : '25px'}}/>:
                         <img src = 'images/capture.png' style = {{width: '100%',paddingTop : '25px'}}/>
                        }
-                    <div style={{position:'relative',paddingTop : '25px'}}>
-                    <img style= {{width: '18vw'}} src="images/ic-card-copy.png" className="lbgcard"/>
-                    <button className='switch-button' style = {{cursor: 'pointer'}} onClick={this.notify.bind(this)}>
-                        <span id="switch-msg">Switch Now</span>
-                        <i id="right-arrow" className='fas fa-arrow-right fa-lg'></i>
-                    </button>
-                    </div>
+                  
                 </div>
 
             </div>

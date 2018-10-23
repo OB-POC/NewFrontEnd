@@ -20,6 +20,7 @@ export default class Rel extends React.Component{
       var token = sessionStorage.getItem("token");
       Services.totalBalancesCall(token, function(data){
           this.setState({accSumary : data});
+          console.log(data)
      }.bind(this),function(err){
          console.log(err);
      })
