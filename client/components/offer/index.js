@@ -63,7 +63,7 @@ export default class Offerings extends React.Component{
           load1: false
         })
         toast.success(`Your transaction is being processed. You will receive confirmation
-          message wihin 24 hrs. !`, {
+          message within 24 hrs. !`, {
             className: css({
           background: '#006a4d'
         }),
