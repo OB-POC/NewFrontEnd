@@ -63,7 +63,7 @@ export default class Offerings extends React.Component{
           load1: false
         })
         toast.success(`Your transaction is being processed. You will receive confirmation
-          message wihin 24 hrs. !`, {
+          message within 24 hrs. !`, {
             className: css({
           background: '#006a4d'
         }),
@@ -116,13 +116,13 @@ export default class Offerings extends React.Component{
                     </div>
                     <div className = 'col-1'/>
                   </div>
-                  <div className='inner_banner_1'>
+                  {/* <div className='inner_banner_1'>
                         <div className='heading_text' style={{padding:'25px'}}>
                         <center>
                           <strong>Additional savings:</strong> You potential savings will be increased {this.state.cardData.savingsOnOffering}% by switching to llyods account.
                         </center>
                         </div>
-                  </div>
+                  </div> */}
                   
 
                        {this.state.cardData.typeLeftOut =='credit'?

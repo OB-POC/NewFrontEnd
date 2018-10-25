@@ -1,7 +1,8 @@
 .llyods_login {
     width: 100%;
     background-color: #006a4d;
-    height : 100vh;
+    height: 100%;
+    /* height: -webkit-fill-available;z */
   }
 
 .logo_open_bank {

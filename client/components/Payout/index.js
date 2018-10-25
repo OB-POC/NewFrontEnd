@@ -175,13 +175,13 @@ export default class Rel extends React.Component{
                     <div className='Line' style={{marginLeft:'9%',marginRight:'12%'}}/>
                       {payFrom1}
                       <br/>
-                      <div className='inner_banner'>
+                      {/* <div className='inner_banner'>
                         <div className='heading_text' style={{padding:'25px'}}>
                         <center>
                           Your potential savings will be £ {this.state.accSumary.savingsOnBestMatch} annually by following the recommended payout plan.
                         </center>
                         </div>
-                      </div>
+                      </div> */}
                       <center>
                       <button className='btn payout-button optimize-btt' onClick={this.handlePayment.bind(this)}>
                       <div>AGREE & PAY</div>
