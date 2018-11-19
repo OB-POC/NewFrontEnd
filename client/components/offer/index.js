@@ -94,7 +94,7 @@ export default class Offerings extends React.Component{
                             your hard earned
                             savings?
                             Switch to` <strong>LGB - Club
-                            Llyods Saver Account</strong> and
+                            Lloyds Saver Account</strong> and
                             enjoy a high rate of 0.6%
                             annual returns on your
                             savings ! </p>:<p>Save more annually by

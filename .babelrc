@@ -1,9 +1,9 @@
 {
-    "presets": ["env", "react"],
+    "presets": ["next/babel"],
       "plugins": ["transform-es2015-modules-commonjs"],
       "env": {
         "test": {
-          "presets": ["env", "react", "stage-2"],
+          "presets": ["next/babel"],
           "plugins": ["transform-export-extensions"],
           "only": [
             "./**/*.js",
