@@ -69,22 +69,9 @@ export default class Rel extends React.Component{
 
       let senders1 = []
       console.log(this.state.payOutData)
-      // let aerLeftOut = this.state.payOutData.aerLeftOut
-      // let aprLeftOut = this.state.payOutData.aprLeftOut
       let bankleftOut = this.state.payOutData.bankleftOut
-      // let bankLeftOut = this.state.payOutData.bankLeftOut
-      // let totalAvailableBalance = this.state.payOutData.totalAvailableBalance == undefined ? this.state.payOutData.totalAvailableBalance : this.state.payOutData.totalAvailableBalance.replace('-','')
-      // let typeLeftOut = this.state.payOutData.typeLeftOut
       console.log('bankleftOut',bankleftOut,this.state.payOutData.bankleftOut)
       let payFrom1  = this.state.payOutData.creditDebitMatch.map(function (data, i) {
-        // if(data.clearedTotalDue==false){
-        //   var totalContributedAmount = data.senders.reduce(function(accumulator,currentValue){
-        //     return accumulator+parseInt(currentValue.contributingAmount);
-        //   }, 0)
-
-        //   var outStandingBal = parseInt(data.totalBalanceDue) - totalContributedAmount
-
-        // }
         console.log(data)
         senders1 = data.senders.map(function(data,i){
 

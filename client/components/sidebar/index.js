@@ -3,10 +3,6 @@ import {Link} from 'react-router-dom';
 import './style.css';
 
 export default class Header extends React.Component{
-  constructor(props){
-    super(props);
-
-  }
 
     render(){
       console.log(this.props.activeComponent);
