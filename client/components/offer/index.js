@@ -78,14 +78,14 @@ export default class Offerings extends React.Component{
             <div>
                 <Header username = {this.state.username} history = {this.props.history}/>
             <div style = {{display:"flex"}}>
-           <Sidebar/>
+           <Sidebar activeComponent = "home"/>
            <div style={{backgroundColor:"#f5f6fa",width:'100%',}}>
             <div className="container">
                 <div id="banner" className="row" >
                     <img src="images/img-banner.png" id="banner-img"/>
                     <h4 id="lable">Your payments are moved to the standing instructions!</h4>
                 </div>
-               
+
                 <div id="bg" className="back_groud_panal">
                   <div className='row'>
                     <div className='col-1'/>
@@ -102,7 +102,7 @@ export default class Offerings extends React.Component{
                             Purchase and Balance
                             Transfer</strong>, with a very low
                             Annual Percentage Rate
-                            of 19.9% !</p>} 
+                            of 19.9% !</p>}
                         </h5>
                     </div>
                     <div className='col-4'>
@@ -123,13 +123,13 @@ export default class Offerings extends React.Component{
                         </center>
                         </div>
                   </div> */}
-                  
+
 
                        {this.state.cardData.typeLeftOut =='credit'?
                         <img src = 'images/credit.png' style = {{width: '100%',paddingTop : '25px'}}/>:
                         <img src = 'images/capture.png' style = {{width: '100%',paddingTop : '25px'}}/>
                        }
-                  
+
                 </div>
 
             </div>
