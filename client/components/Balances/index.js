@@ -29,6 +29,10 @@ export default class Balance extends React.Component{
       this.setState({tooltipId: 100})
   }
 
+  handleClick() {
+    this.props.history.push('/savings');
+  }
+
     render(){
         let closeGraph = () => this.setState({ showGraph: false });
         const { graphData, showGraph, isCredit } = this.state;
@@ -226,6 +230,18 @@ export default class Balance extends React.Component{
                     </div>
                 </div>
                     {debitData}
+
+                    <center id = 'outer-layer'>
+                    <button className='btn payout-button optimize-btt optimizeBtn' onClick = {this.handleClick.bind(this)}>
+                      <div className="btn-text-wrapper">
+                        <div className="btn-text">OPTIMIZE SAVINGS</div>
+                        <div className="btn-arrow">
+                          <i className='fas fa-arrow-right'></i>
+                        </div>
+                      </div>
+                    </button>
+                  </center>
+
                 </Paper>
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='row credit-accounts' style = {{paddingBotttom:'23px'}}>
