@@ -230,6 +230,7 @@ export default class Balance extends React.Component{
                     </div>
                 </div>
                     {debitData}
+<<<<<<< HEAD
                     <center id = 'outer-layer'>
                     <button className='btn payout-button optimize-btt optimizeBtn' onClick = {this.handleClick.bind(this)}>
                       <div className="btn-text-wrapper">
@@ -240,6 +241,8 @@ export default class Balance extends React.Component{
                       </div>
                     </button>
                   </center>
+=======
+>>>>>>> 2421a87659b0d96434e0e7644e47342fc27b7ed7
                 </Paper>
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='row credit-accounts' style = {{paddingBotttom:'23px'}}>
