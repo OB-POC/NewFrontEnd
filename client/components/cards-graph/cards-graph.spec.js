@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount, shallow, render } from 'enzyme';
-import { expect } from 'chai';
+import chai from 'chai';
+
+const expectChai = chai.expect;
 
 import GraphModal from './';
 const onHide = jest.fn();
@@ -69,41 +71,43 @@ const debitData = [
 ];
 
 describe('<GraphModal> Component', function () {
-    it('should have a GraphModal component', function () {
-      const wrapper = shallow(<GraphModal/>);
-      expect(wrapper.find('GraphModal')).to.have.length(1);
-    });
+    // First testing is meaningless. Same is implemented in balances component - testing
+
+    // it('should have a GraphModal component', function () {
+    //   const wrapper = shallow(<GraphModal/>);
+    //   expectChai(wrapper.find('GraphModal')).to.have.length(1);
+    // });
 
     it('should have two svg icons in the template', function () {
       const wrapper = shallow(<GraphModal/>);
-      expect(wrapper.find('Modal')).to.have.length(1);
-      expect(wrapper.find('ReactFC')).to.have.length(1);
+      expectChai(wrapper.find('Modal')).to.have.length(1);
+      expectChai(wrapper.find('ReactFC')).to.have.length(1);
     });
 
-    it('', function() {
+    it('should call onHide function while closing graph modal', function() {
         const component = shallow(<GraphModal />);
-        component.setProps({onClick: onHide});
+        component.setProps({onHide: onHide});
         component
             .find('Button')
             .simulate('click');
 
-        expect(onHide).toHaveBeenCalled();
+        expect(onHide).toHaveBeenCalled(); // using jest mock functions
     });
 
     it('should have props for data, iscredit, show and onHide', function () {
       const wrapper = shallow(<GraphModal/>);
       wrapper.setProps({ data: creditData, iscredit: true, show: true });
-      expect(wrapper.props().data).to.be.an('array');
-      expect(wrapper.props().iscredit).to.be.a('boolean');
-      expect(wrapper.props().show).to.be.a('boolean');
-      // expect(wrapper.props().onHide).to.be.defined;
+      expectChai(wrapper.props().data).to.be.an('array');
+      expectChai(wrapper.props().iscredit).to.be.a('boolean');
+      expectChai(wrapper.props().show).to.be.a('boolean');
+      // expectChai(wrapper.props().onHide).to.be.defined;
     });
 
     it('should not carry Mortgage value when credit card is viewed', function() {
       const wrapper = shallow(<GraphModal />);
       wrapper.setProps({ data: creditData, iscredit: true });
-      expect(wrapper.state().data).to.have.length(1);
+      expectChai(wrapper.state().data).to.have.length(1);
       wrapper.setProps({ data: debitData, iscredit: false});
-      expect(wrapper.state().data).to.have.length(2);
+      expectChai(wrapper.state().data).to.have.length(2);
     });
 });
