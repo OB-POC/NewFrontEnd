@@ -1,0 +1,23 @@
+.Payment-instructions {
+  font-family: 'Open Sans';
+  font-size: 30px;
+  font-weight: 300;
+  text-align: left;
+  color: #000000;
+}
+.standingInstTable {
+  border: none !important;;
+  border-collapse: collapse !important;
+}
+.standingInstTable thead,tbody tr {
+  border-bottom: 3px solid #f5f6fa !important;;
+}
+
+.standingInstTable thead{
+  font-family: 'Open Sans';
+  color: #181818;
+  opacity: 0.92;
+  font-weight: bold;
+  line-height: 1.71;
+  color: #181818;
+}
