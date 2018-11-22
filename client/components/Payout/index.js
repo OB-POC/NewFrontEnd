@@ -66,7 +66,7 @@ export default class Rel extends React.Component{
   }
 
     render(){
-     
+
       let senders1 = []
       console.log(this.state.payOutData)
       let bankleftOut = this.state.payOutData.bankleftOut
@@ -124,7 +124,7 @@ export default class Rel extends React.Component{
             <div  className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header history = {this.props.history} username = {this.state.username}/>
               <div style = {{display:"flex"}}>
-                <Sidebar/>
+                <Sidebar activeComponent = "wallet"/>
                 <div  style = {{backgroundColor:"#f5f6fa",width:"100%",paddingBottom:'30px'}}>
                   <div className='Recommended_for_you'>
                   Recommended for you

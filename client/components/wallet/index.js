@@ -1,10 +1,11 @@
 import React from 'react';
 import './style.css';
 import { HashRouter as Router } from 'react-router-dom'
+import {CardDeck} from 'reactstrap';
 import Header from '../headernew'
 import Sidebar from '../sidebar'
-import Banner from '../banner'
-import Balance from '../Balances'
+import Banner from './banner'
+import Card from './card'
 import Services from '../../services'
 
 export default class Rel extends React.Component{
@@ -42,15 +43,19 @@ export default class Rel extends React.Component{
             <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
               <div style = {{display:"flex"}}>
-                <Sidebar activeComponent = "home"/>
-              <div className='row main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%"}}>
-                <div className='col-9' >
-                <Banner accSumary = {this.state.accSumary} history = {this.props.history}/>
-                <Balance creditData = {this.state.creditData} history = {this.props.history}
-                debitData = {this.state.debitData}/>
+                <Sidebar activeComponent = "wallet"/>
+              <div className='main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%",paddingBottom:'20px'}}>
+                <div>
+                <h1>My Accounts</h1>
+                <Banner/>
+                <center>
+                <CardDeck style={{margin:'0px'}}>
+                <Card/>
+                <Card/>
+                <Card/>
+</CardDeck></center>
                 </div>
-                <div className='col-3'>
-                <img style = {{height:'677px',width:'260px',paddingTop:'11px',marginTop:'18%'}} src='images/image-ad@3x.png'/>
+                <div>
                 </div>
                 </div>
               </div>

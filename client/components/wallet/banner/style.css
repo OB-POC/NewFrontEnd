@@ -1,0 +1,40 @@
+.My-accounts {
+  width: 226px;
+  height: 55px;
+  font-family: 'Open-Sans';
+  font-size: 40px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+.ill_accounts {
+  width: 607px;
+  height: 151px;
+  object-fit: contain;
+}
+.Total-Balance {
+  opacity: 0.66;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin-bottom: 0px;
+}
+.amount{
+  font-family: "Open Sans";
+  font-size: 35px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}

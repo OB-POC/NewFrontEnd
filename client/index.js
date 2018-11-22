@@ -4,9 +4,10 @@ import {HashRouter, Route} from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Offerings from './components/offer';
 import Home from './components/home';
-import Saving from './components/OptimizeSaving';
 import Login from './components/Login';
 import Payout from './components/Payout';
+import Wallet from './components/Wallet';
+
 
 render(
 <MuiThemeProvider>
@@ -16,7 +17,7 @@ render(
     <Route exact path='/home' component={Home} />
     <Route exact path='/payout' component={Payout} />
     <Route exact path='/offerings' component={Offerings} />
-    <Route exact path='/savings' component={Saving} />
+    <Route exact path='/wallet' component={Wallet} />
     </div>
 </HashRouter>
 </MuiThemeProvider>, document.getElementById('root'));
