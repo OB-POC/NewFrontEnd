@@ -38,7 +38,7 @@ export default class Rel extends React.Component{
       })
   }
     render(){
-        console.log(this.state.accSumary)
+      console.log(this.state.debitData, "Wallet");
         return(
             <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -47,13 +47,16 @@ export default class Rel extends React.Component{
               <div className='main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%",paddingBottom:'20px'}}>
                 <div>
                 <h1>My Accounts</h1>
-                <Banner/>
+                <Banner accSumary = {this.state.accSumary} totalAccounts = {this}/>
                 <center>
                 <CardDeck style={{margin:'0px'}}>
-                <Card/>
-                <Card/>
-                <Card/>
-</CardDeck></center>
+                {this.state.debitData.map((account, i) => {
+                  return(
+                    <Card accounts = {this.state.debitData[i]}/>
+                  )
+                }) }
+                </CardDeck>
+                </center>
                 </div>
                 <div>
                 </div>

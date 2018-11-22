@@ -11,19 +11,21 @@ export default class Rel extends React.Component{
   }
 
     render(){
+      console.log(this.props.accounts, "Accounts");
+      console.log(this.props.accounts.accounts[0].interestRate, "interestRate");
         return(
           <div className='card-style'>
                           <div>
-                            <img src = "./images/img-card.png" style = {{ width: '314px',height: '194px',marginTop:'30px'}}/>
+                            <img src = {"./images/cards/debit/"+this.props.accounts.bankName+"@3x.png"}style = {{ width: '314px',height: '194px',marginTop:'30px'}}/>
                           </div>
                          <div style={{}}>
                              <div className='row' style={{marginTop:'-20px'}}>
                                  <div className='col-6' style={{paddingLeft:'0px'}}>
                                  <div className='bankName'>
-                                     HALIFAX
+                                     {this.props.accounts.bankName}
                                  </div>
                                  <div className='aer_subscript'>
-                                     0.5% AER
+                                     {this.props.accounts.accounts[0].interestRate} % AER
                                  </div>
                                  </div>
                                  <div className='col-6'/>
@@ -34,7 +36,7 @@ export default class Rel extends React.Component{
                                          Available Balance
                                      </div>
                                      <div className='money-font' style={{marginTop:'5px'}}>
-                                         £ 1,900
+                                         £ {this.props.accounts.accounts[0].availableBalance}
                                      </div>
                                  </div>
                                  <div className='col-6' >
@@ -42,7 +44,7 @@ export default class Rel extends React.Component{
                                          Payment instructions
                                      </div>
                                      <div className='money-font' style={{marginTop:'5px'}}>
-                                         £ 1,900
+                                         £ {this.props.accounts.accounts[0].standingInst}
                                      </div>
                                      <span className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span>
                                  </div>
@@ -54,7 +56,7 @@ export default class Rel extends React.Component{
                                          Minimum balance
                                      </div>
                                      <div className='money-font' style={{marginTop:'5px'}}>
-                                         £ 1,900
+                                         £ {this.props.accounts.accounts[0].minBalance}
                                      </div>
                                  </div>
                                  <div className='col-6'>
@@ -62,7 +64,9 @@ export default class Rel extends React.Component{
                                          Unutilized balance
                                      </div>
                                      <div className='money-font' style={{marginTop:'5px'}}>
-                                         £ 1,900
+                                         £ {this.props.accounts.accounts[0].availableBalance -
+                                            this.props.accounts.accounts[0].minBalance -
+                                            this.props.accounts.accounts[0].standingInst}
                                      </div>
                                  </div>
                              </div>
