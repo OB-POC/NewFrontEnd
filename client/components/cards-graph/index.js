@@ -20,14 +20,16 @@ export default class GraphModal extends Component {
         let data = [];
         if(nextProps.data instanceof Array) {
             nextProps.data.map(card => {
+              if (card.accounts[0].accountType !== 'M') {     // filtering out Mortgage data
                 let temp = {};
                 temp['label'] = card.bankName;
                 nextProps.iscredit ?
-                    temp['value'] = +(card.accounts[0].totalBalanceDue).replace(',', '') :
-                    temp['value'] = +(card.accounts[0].availableBalance).replace(',', '');
+                temp['value'] = +(card.accounts[0].totalBalanceDue).replace(',', '') :
+                temp['value'] = +(card.accounts[0].availableBalance).replace(',', '');
                 temp['tooltext'] = `<img src="../../../../images/cards/${nextProps.iscredit?'Credit':'debit'}/${card.bankName}.png" />{br}Bank Name: ${card.bankName}{br}Balance ${nextProps.iscredit?'Due ':''}: ${temp.value}`;
                 data.push(temp);
-            })
+              }
+            });
         }
         this.setState({data});
     }
