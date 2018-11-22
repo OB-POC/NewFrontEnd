@@ -53,7 +53,8 @@ export default class Rel extends React.Component{
                 <Card/>
                 <Card/>
                 <Card/>
-</CardDeck></center>
+                </CardDeck>
+                </center>
                 </div>
                 <div>
                 </div>

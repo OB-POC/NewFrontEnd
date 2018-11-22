@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import { HashRouter as Router } from 'react-router-dom'
-
+import CustomModal from '../transferFundsModal';
 
 export default class Rel extends React.Component{
   constructor(props){
@@ -36,6 +36,7 @@ export default class Rel extends React.Component{
                                      <div className='money-font' style={{marginTop:'5px'}}>
                                          £ 1,900
                                      </div>
+
                                  </div>
                                  <div className='col-6' >
                                      <div className='helper-text'>
@@ -44,7 +45,8 @@ export default class Rel extends React.Component{
                                      <div className='money-font' style={{marginTop:'5px'}}>
                                          £ 1,900
                                      </div>
-                                     <span className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span>
+                                     <CustomModal></CustomModal> 
+                                     {/* <span  className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span> */}
                                  </div>
                              </div>
 
