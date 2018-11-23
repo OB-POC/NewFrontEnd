@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import { HashRouter as Router } from 'react-router-dom'
-
+import StandingInstModal from '../transferFundsModal'
 
 export default class Rel extends React.Component{
   constructor(props){
@@ -12,11 +12,11 @@ export default class Rel extends React.Component{
 
     render(){
       console.log(this.props.accounts, "Accounts");
-      console.log(this.props.accounts.accounts[0].interestRate, "interestRate");
+      console.log(this.props.accounts.accounts[0].standingInstructions, "interestRate");
         return(
           <div className='card-style'>
                           <div>
-                            <img src = {"./images/cards/debit/"+this.props.accounts.bankName+"@3x.png"}style = {{ width: '314px',height: '194px',marginTop:'30px'}}/>
+                            <img src = {"./images/img-card.png"||"./images/cards/debit/"+this.props.accounts.bankName+"@3x.png"}style = {{ width: '314px',height: '194px',marginTop:'30px'}}/>
                           </div>
                          <div style={{}}>
                              <div className='row' style={{marginTop:'-20px'}}>
@@ -38,6 +38,7 @@ export default class Rel extends React.Component{
                                      <div className='money-font' style={{marginTop:'5px'}}>
                                          £ {this.props.accounts.accounts[0].availableBalance}
                                      </div>
+
                                  </div>
                                  <div className='col-6' >
                                      <div className='helper-text'>
@@ -46,7 +47,7 @@ export default class Rel extends React.Component{
                                      <div className='money-font' style={{marginTop:'5px'}}>
                                          £ {this.props.accounts.accounts[0].standingInst}
                                      </div>
-                                     <span className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span>
+                                     <StandingInstModal standingInstructions = {this.props.accounts.accounts[0].standingInstructions} />
                                  </div>
                              </div>
 
@@ -72,15 +73,10 @@ export default class Rel extends React.Component{
                              </div>
 
                         </div>
-                        <div style={{marginBottom:'0px',marginTop:'40px',display:'flex'}}>
-                             <div className='tranfer_merge_button' style={{width:'50%'}}>
+                        <div style={{marginBottom:'0px',marginTop:'40px'}}>
+                             <div className='tranfer_merge_button'>
                              <span className = 'TRANSFER'>
-                                 TRANSFER
-                                 </span>
-                             </div>
-                             <div className='merge_merge_button' style={{width:'50%'}}>
-                             <span className = 'TRANSFER'>
-                                 MERGE
+                                 OPTIMIZE
                                  </span>
                              </div>
                          </div>

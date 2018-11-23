@@ -46,7 +46,7 @@ export default class Rel extends React.Component{
                 <Sidebar activeComponent = "wallet"/>
               <div className='main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%",paddingBottom:'20px'}}>
                 <div>
-                <h1>My Accounts</h1>
+                <h1 style = {{fontWeight: '300',marginTop:'20PX'}}>My Accounts</h1>
                 <Banner accSumary = {this.state.accSumary} totalAccounts = {this}/>
                 <center>
                 <CardDeck style={{margin:'0px'}}>
