@@ -1,0 +1,58 @@
+.optimizingsModal{
+  width: 1145px;
+  height: 788.3px;
+  border-radius: 9px;
+  background-color: #ffffff;
+  margin-left: 4%;
+  margin-top: 20px;
+  padding-left: 200px;
+}
+.optimizingsModalHeader{
+  width: 413px;
+  height: 36px;
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.closeIcon{
+  margin-left: 858px;
+  padding-top: 35px;
+}
+.option{
+  width: 760px;
+  height: 90px;
+  border-radius: 9px;
+  background-color: rgba(196, 198, 205, 0.08);
+  margin-top: 20px;
+}
+.optionHeader{
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  padding-top: 20px;
+  padding-left: 100px;
+}
+.radioStyle{
+  margin-left: 44px;
+  margin-top: -8px;
+}
+.optionMeta{
+  padding-left: 100px;
+  margin-top: -25px;
+  font-family: Open Sans;
+  font-size: 14px;
+  color: #6d6d6d;
+}

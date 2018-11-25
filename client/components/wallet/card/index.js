@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import {Link} from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom'
 import StandingInstModal from '../transferFundsModal'
 
@@ -9,7 +10,9 @@ export default class Rel extends React.Component{
     this.state = {
         }
   }
-
+componentDidMount(){
+  console.log(this.props, "DidMount");
+}
     render(){
       console.log(this.props.accounts, "Accounts");
       console.log(this.props.accounts.accounts[0].standingInstructions, "interestRate");
@@ -33,10 +36,10 @@ export default class Rel extends React.Component{
                              <div className='row' style={{marginTop:'28px'}}>
                                  <div className='col-6' >
                                      <div className='helper-text'>
-                                         Available Balance
+                                         Total Balance
                                      </div>
                                      <div className='money-font' style={{marginTop:'5px'}}>
-                                         £ {this.props.accounts.accounts[0].availableBalance}
+                                         £ {this.props.accounts.accounts[0].balance}
                                      </div>
 
                                  </div>
@@ -65,21 +68,22 @@ export default class Rel extends React.Component{
                                          Unutilized balance
                                      </div>
                                      <div className='money-font' style={{marginTop:'5px'}}>
-                                         £ {this.props.accounts.accounts[0].availableBalance -
-                                            this.props.accounts.accounts[0].minBalance -
-                                            this.props.accounts.accounts[0].standingInst}
+                                         £ {this.props.accounts.accounts[0].availableBalance > 0 ? this.props.accounts.accounts[0].availableBalance : 0}
                                      </div>
                                  </div>
                              </div>
 
                         </div>
+                        <Link to='/optimizings'>
                         <div style={{marginBottom:'0px',marginTop:'40px'}}>
+
                              <div className='tranfer_merge_button'>
                              <span className = 'TRANSFER'>
                                  OPTIMIZE
                                  </span>
                              </div>
                          </div>
+                         </Link>
                      </div>
         );
     }
