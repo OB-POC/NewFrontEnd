@@ -6,6 +6,8 @@ import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 
+import './style.css';
+
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
 export default class GraphModal extends Component {
@@ -14,6 +16,9 @@ export default class GraphModal extends Component {
         this.state = {
             data: []
         }
+    }
+    componentDidMount() {
+      document.getElementsByClassName('camourflage').hidden = true;
     }
 
     componentWillReceiveProps(nextProps) {
@@ -34,7 +39,17 @@ export default class GraphModal extends Component {
         this.setState({data});
     }
 
+    balanceValues() {
+      return this.state.data.map(card => {
+        return(
+          <span> {card.label} : {card.value} </span>
+        );
+      });
+    }
+
     render() {
+      console.log('state - > ', this.state.data);
+
         const chartConfigs = {
             type: 'column2d',
             width: 780,
@@ -59,6 +74,9 @@ export default class GraphModal extends Component {
             >
                 <Modal.Body>
                     <ReactFC {...chartConfigs} />
+                    <div className="visuallyhidden">
+                      {this.balanceValues()}
+                    </div>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.props.onHide}>Close</Button>
