@@ -17,9 +17,6 @@ export default class GraphModal extends Component {
             data: []
         }
     }
-    componentDidMount() {
-      document.getElementsByClassName('camourflage').hidden = true;
-    }
 
     componentWillReceiveProps(nextProps) {
         let data = [];
@@ -40,6 +37,9 @@ export default class GraphModal extends Component {
     }
 
     balanceValues() {
+      /*
+       * returns card balance value to the visuallyhidden div
+       */
       return this.state.data.map(card => {
         return(
           <span> {card.label} : {card.value} </span>
