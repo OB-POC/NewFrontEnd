@@ -17,3 +17,28 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.tooltip-container {
+  height: 50px;
+}
+
+.tooltip-wrapper {
+  width: 130px;
+  padding: 10px;
+  background: #f7f7f7;
+}
+
+.tooltip-wrapper > div {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.sub-title {
+  font-size: 13px;
+  padding-left: 25px;
+}
+
+.label {
+  width: 40px !important;
+  height: 100px !important;
+}
