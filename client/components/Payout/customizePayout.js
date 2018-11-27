@@ -7,7 +7,7 @@ import ReactLoading from 'react-loading'
 import { Dropdown, DropdownMenu, DropdownToggle,DropdownItem } from 'reactstrap';
 
 
-export default class Rel extends React.Component{
+export default class CustomizePayout extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -20,6 +20,7 @@ export default class Rel extends React.Component{
       dropdownOpen: false,
       creditDebitIndexes : [],
       amountEntered : 0,
+      errorMsg:'',//added show validation message- Durga Prasad Das 11-26-2018
       customizedCreditDebitMatch : [],
       allSavingsData : [
         {
@@ -45,6 +46,7 @@ export default class Rel extends React.Component{
           accountType: "SB",
           accountTitle: "Easy Saver",
           contributingAmount: 200,
+          totalAvailableBalance: 2000,
           afterContributingBalance: 0,
           interestRate: 0.25,
           minBalance : 200
@@ -69,11 +71,11 @@ export default class Rel extends React.Component{
       Services.payOutCall(token, function(data){
         let creditDebitIndexes = data.creditDebitMatch.map(function(each,index){
           let dropdownOpen = false
-          
+
           let obj = {
             dropdownOpen : dropdownOpen,
             selectedIndex : 0,
-          
+
           }
           return obj
         })
@@ -93,7 +95,7 @@ export default class Rel extends React.Component{
             creditDebitIndexes : creditDebitIndexes,
             customizedCreditDebitMatch : customizedCreditDebitMatch
           });
-          
+
           this.componentDidMount()
      }.bind(this),function(err){
      })
@@ -130,8 +132,10 @@ export default class Rel extends React.Component{
     this.props.history.push('/offerings');
   }
 
-  handleEdit(i,e){
-    e.preventDefault()
+  handleEdit(i,ci,e){
+      e.preventDefault();
+    console.log(i+'Editable row indexes:'+ci);
+
     this.setState((prevState,props)=>{
       return {
         editablePaymentRow : i
@@ -161,9 +165,22 @@ export default class Rel extends React.Component{
     handleAmountEntered(index,customSenderIndex,e){
       console.log(arguments)
       let amountEntered = e.target.value
+      console.log(amountEntered)
+
+      amountEntered = amountEntered===''?0 :amountEntered;
+      //modified to add validation and rectify the logic - Durga Prasad Das 11-26-2018
       this.setState(function(prevState,props){
-        prevState.customizedCreditDebitMatch[index]['senders'][customSenderIndex].contributingAmount = amountEntered
-        return prevState
+        if(parseInt(prevState.customizedCreditDebitMatch[index]['senders'][customSenderIndex].totalAvailableBalance)>=parseInt(amountEntered))
+          {
+            prevState.customizedCreditDebitMatch[index]['senders'][customSenderIndex].contributingAmount = amountEntered;
+            this.setState({errorMsg:null});
+          }else{
+            prevState.customizedCreditDebitMatch[index]['senders'][customSenderIndex].contributingAmount = prevState.customizedCreditDebitMatch[index]['senders'][customSenderIndex].totalAvailableBalance;
+            this.setState({errorMsg:'Amount cannot exceeded total available balance '+ prevState.customizedCreditDebitMatch[index]['senders'][customSenderIndex].totalAvailableBalance});
+
+          }
+          console.log('available balance::'+prevState.customizedCreditDebitMatch[index]['senders'][customSenderIndex].totalAvailableBalance);
+          return prevState
       })
       // let amountEntered = e.target.value
       // console.log(amountEntered)
@@ -194,8 +211,21 @@ export default class Rel extends React.Component{
       // })
     }
 
+    handleRemoveSavingsCard=(i,ci,e)=>{
+      e.preventDefault()
+      console.log(i+'removing new card'+ci);
+      this.setState(function(prevState,props){
+        let newCustomizedCreditDebitMatch = prevState.customizedCreditDebitMatch
+        newCustomizedCreditDebitMatch[i]['senders'].splice(ci,1);
+
+      return {
+        customizedCreditDebitMatch : newCustomizedCreditDebitMatch
+      }
+      })
+    }
     handleAddNewSavingsCard(i,e){
       e.preventDefault()
+      console.log('adding new card');
       this.setState(function(prevState,props){
         let newCustomizedCreditDebitMatch = prevState.customizedCreditDebitMatch
         //console.log(newCustomizedCreditDebitMatch)
@@ -206,7 +236,10 @@ export default class Rel extends React.Component{
           return (bankIndex == -1)
         })
         console.log(bankObj)
-        newCustomizedCreditDebitMatch[i].senders.push(bankObj)
+        //added condition to check undefined to avoid unhandled exception for adding accounts for payment - Durga Prasad Das 11-27-2018
+        if(bankObj!=undefined){
+          newCustomizedCreditDebitMatch[i].senders.push(bankObj)
+        }
         console.log(newCustomizedCreditDebitMatch)
         return {
           customizedCreditDebitMatch : newCustomizedCreditDebitMatch
@@ -215,7 +248,9 @@ export default class Rel extends React.Component{
     }
 
     toggle(i,e) {
-     // console.log(i)
+     console.log('toggle button clicked::'+i)
+
+
      // console.log(arguments)
       e.preventDefault()
       this.setState(function(prevState,props){
@@ -225,7 +260,7 @@ export default class Rel extends React.Component{
           if(index==i){
             let obj = each
             obj.dropdownOpen = true
-            
+
             return obj
           }else{
             let obj = each
@@ -234,7 +269,7 @@ export default class Rel extends React.Component{
           }
         })
       //  console.log(newCreditDebitIndexes)
-        
+
         return {
           creditDebitIndexes : newCreditDebitIndexes,
         }
@@ -247,7 +282,7 @@ export default class Rel extends React.Component{
       this.setState(function(prevState,props){
         prevState.customizedCreditDebitMatch[mainIndex].senders[senderIndex] = prevState.allSavingsData[accountIndex]
         return {
-          customizedCreditDebitMatch : prevState.customizedCreditDebitMatch 
+          customizedCreditDebitMatch : prevState.customizedCreditDebitMatch
         }
       })
       // this.setState(function(prevState,props){
@@ -283,17 +318,19 @@ export default class Rel extends React.Component{
       let sendersArr = []
      // console.log(payOutData)
       let payoutForm = payOutData.creditDebitMatch.map(function(data,index){
-       
+
         let currentCreditCardInfo = customizedCreditDebitMatch.filter(function(value,index){
-          if(data.bankName==value.bankName){
+
+          console.log(data.bankName+"::::"+value.bankName);
+          if(data.bankName!=undefined && value.bankName!=undefined && data.bankName==value.bankName){
             return true
           }
         })
         let customisedSendersArray = currentCreditCardInfo[0]['senders']
-        console.log(customisedSendersArray)
+
         let currentCreditPaymentInfoMap = customisedSendersArray.map(function(eachSavingsPayment,customSenderIndex){
           return (
-              <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}}>
+              <div style={{display:'flex',height:'77px',paddingTop:'15px',paddingRight:'14px'}} key={customSenderIndex}>
                 {
                     (editablePaymentRow==index) && customisedSendersArray.length-1==customSenderIndex?
                     <Dropdown  toggle={this.toggle.bind(this,index)}>
@@ -302,10 +339,11 @@ export default class Rel extends React.Component{
                       onClick={this.toggle.bind(this,index)}
                       data-toggle="dropdown"
                       aria-expanded={this.state.dropdownOpen}
-                    > 
+                    >
                       <div style={{display:'flex'}}>
                         <div className='img_credit_payout'><img src={'../../../../images/cards/debit/'+eachSavingsPayment.bankName+'.png'} /></div>
                         <div className=''>{eachSavingsPayment.bankName}<br/>
+
                             <div>
                               <b className=''>{eachSavingsPayment.interestRate} % AER</b><br/>
                             </div>
@@ -315,7 +353,9 @@ export default class Rel extends React.Component{
                     <DropdownMenu>
                       {allSavingsData.map(function(eachSavingsData,allSavingsindex){
                         return(
-                          <DropdownItem onClick={this.handleSelect.bind(this,allSavingsindex,customSenderIndex,index)}>
+                        <div key={allSavingsindex}>  {
+                            eachSavingsData.totalAvailableBalance!=0?
+                          <DropdownItem onClick={this.handleSelect.bind(this,allSavingsindex,customSenderIndex,index)} key={allSavingsindex}>
                             <div style={{display:'flex'}}>
                               <div className='img_credit_payout'><img src={'../../../../images/cards/debit/'+eachSavingsData.bankName+'.png'} /></div>
                               <div className='' >{eachSavingsData.bankName}<br/>
@@ -324,7 +364,7 @@ export default class Rel extends React.Component{
                                 </div>
                               </div>
                             </div>
-                          </DropdownItem>
+                          </DropdownItem>:null}</div>
                         )
                       }.bind(this))}
                     </DropdownMenu>
@@ -339,12 +379,24 @@ export default class Rel extends React.Component{
                   </div>
                   </div>
                 }
-                <div style={{padding:''}} className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span><span>{editablePaymentRow==index?<input style={{border:'none',width:'45px'}} defaultValue={0} value={customizedCreditDebitMatch[index]['senders'][customSenderIndex]['contributingAmount']} onChange={this.handleAmountEntered.bind(this,index,customSenderIndex)}/>:0}</span> </b></h5></div>
+                <div style={{padding:''}} className='amount_credit'>
+                  <h5>
+                      <b style={{color:'#ff5d64'}}>
+                        <span>&#163;</span>
+                        <span>{editablePaymentRow==index?<input style={{border:'none',width:'45px'}} defaultValue={0}
+                                    value={customizedCreditDebitMatch[index]['senders'][customSenderIndex]['contributingAmount']}
+                                    onChange={this.handleAmountEntered.bind(this,index,customSenderIndex)}/>:0}
+                        </span>
+                      </b>
+                </h5>
+                </div>
                 <div style={{display:'flex',alignItems:'center',justifyContent:'center',alignSelf:'center',marginLeft:'11px',marginTop:'-14px'}} className='amount_credit' >
-                  <i style = {{width: '26px',height: '18.3px',cursor:'pointer'}} className='fas fa-times-circle' onClick={this.handleEdit.bind(this,index)}></i>
+                  <i style = {{width: '26px',height: '18.3px',cursor:'pointer'}}  className='fas fa-edit'  onClick={this.handleEdit.bind(this,index,customSenderIndex)}></i>
+                    <i style = {{width: '26px',height: '18.3px',cursor:'pointer'}} className='fas fa-times-circle' onClick={this.handleRemoveSavingsCard.bind(this,index,customSenderIndex)}></i>
+
                 </div>
                 </div>
-                
+
           )
         }.bind(this))
         return (
@@ -359,7 +411,7 @@ export default class Rel extends React.Component{
                   null
                 }
               </div>
-             
+
             </div>
             <div className='col-4 ' id={"element-target"+index} style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
               <div style={{marginTop:'17px',marginLeft:'49px',borderRadius:'6px',backgroundColor:'#FFFFFF',boxShadow:' 0 5px 16px 0 rgba(0, 0, 0, 0.08)',minWidth:'310px'}}>
@@ -422,6 +474,7 @@ export default class Rel extends React.Component{
               </div>
             </div>
             <div className='main_section' style={{marginTop:'17px',marginLeft:'70px'}}>
+                <div className='error'>{this.state.errorMsg?<p>{this.state.errorMsg}</p>:''}</div>
               <div className='row' style={{marginTop:'33px',marginLeft:'48px',marginRight:'105px'}}>
                   <div className='col-4' style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
                     <p className='main_section_heading_text'>Pay from</p>
@@ -447,9 +500,9 @@ export default class Rel extends React.Component{
             </div>
           </div>
         </div>
-      </div>      
- 
+      </div>
+
       )
-           
+
     }
 }
