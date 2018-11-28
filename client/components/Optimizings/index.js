@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
-import { HashRouter as Router } from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
 import { Button, Icon, Modal, Radio} from 'semantic-ui-react'
 import Header from '../headernew'
 import Sidebar from '../sidebar'
@@ -37,6 +38,7 @@ export default class Rel extends React.Component{
      //  })
   }
   handleChange = (e, { value }) => this.setState({ value })
+
     render(){
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
@@ -48,9 +50,11 @@ export default class Rel extends React.Component{
                 <h1 style = {{fontWeight: '300',marginTop:'20PX'}}>My Accounts</h1>
                 </div>
                 <div className = 'optimizingsModal'>
-                    <div className = 'closeIcon'>
+                    <Link to='/wallet'>
+                    <div className = 'closeIcon' tabIndex = '1'>
                       <img src = {'images/optimizings/close-icon.png'} />
                     </div>
+                    </Link>
 
                     <div className = 'optimizingsModalHeader'>
                     What would you like OPTIMA to do?
