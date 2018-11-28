@@ -21,3 +21,19 @@
   line-height: 1.71;
   color: #181818;
 }
+.Rectangle-5 {
+  width: 233px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #00402e;
+  font-family: 'Open Sans';
+ font-size: 14px;
+ font-weight: bold;
+ letter-spacing: 1.5px;
+ color: #ffffff;
+ padding: 16px 29px;
+bottom: 45px;
+left: 47px;
+position: absolute;
+cursor: pointer;
+}
