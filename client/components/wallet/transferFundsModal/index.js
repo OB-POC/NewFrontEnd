@@ -6,13 +6,21 @@ export default class CustomModal extends React.Component{
     constructor(props){
       super(props);
       this.state = {
-        modalOpen: false
+        modalOpen: false,
+        showBanner:"none"
         }
     }
-    handleOpen = () => this.setState({ modalOpen: true })
-    handleClose = () => this.setState({ modalOpen: false })
+
+    handleOpen = () => this.setState({ modalOpen: true },function(){
+      console.log("handleopen");
+      setTimeout(function(){
+        console.log("handleopen,settimeout");
+        this.setState({showBanner:""})
+      }.bind(this),1000)
+    })
+    handleClose = () => this.setState({ modalOpen: false,showBanner:"none" })
       render(){
-        console.log(this.props.standingInstructions,'standingInstructions');
+        console.log(this.props.standingInstructions,'standingInstructionss');
         const { standingInstructions } = this.props
         const standingInstructionsTable = standingInstructions.map((val,ind) => {
            return ( <Table.Row error = {(ind==2)?true:false}>
@@ -25,7 +33,9 @@ export default class CustomModal extends React.Component{
             <Modal
             trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span>}
             size='small'
-            style = {{margin:'auto',height:'54.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px'}}
+            style = {{margin:'auto',height:'54.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px',overflow: 'visible',
+             position: 'absolute',
+    bottom: '123px'}}
               open={this.state.modalOpen}>
               <div><Icon name='close' onClick = {this.handleClose}/></div>
             <p className = 'Payment-instructions'>Payment instructions</p>
@@ -41,6 +51,13 @@ export default class CustomModal extends React.Component{
             {standingInstructionsTable}
           </Table.Body>
         </Table>
+        <div style = {{  width: '578px',
+          height: '250px',
+          objectFit: 'contain',backgroundImage : 'url("./images/img-transfer-funds.png")',backgroundRepeat:'round',display:this.state.showBanner,position: 'relative',animation: 'fadeIn 1s'}}>
+          <div className = 'Rectangle-5'>
+          TRANSFER FUNDS &nbsp;&nbsp;<i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
           </Modal>
           );
       }
