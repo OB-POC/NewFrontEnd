@@ -68,7 +68,7 @@ export default class CustomModal extends React.Component{
         console.log(this.props.standingInstructions,'standingInstructions');
         const { standingInstructions } = this.state
         const standingInstructionsTable = standingInstructions.map((val,ind) => {
-           return ( <Table.Row error = {!val.canClear} style = {{fontSize :'14px'}}>
+           return ( <Table.Row error = {!val.canClear} key={ind} style = {{fontSize :'14px'}}>
                          <Table.Cell style = {{paddingLeft:'42px'}} >{val.name}</Table.Cell>
                          <Table.Cell>{val.value}</Table.Cell>
                          <Table.Cell>{val.schdDate} {(ind==2)?<Icon name='attention' />:""}</Table.Cell>
@@ -76,7 +76,7 @@ export default class CustomModal extends React.Component{
          })
           return(
             <Modal
-            trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span>}
+            trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i className="fas fa-arrow-right"></i></span>}
             size='small'
             style = {{margin:'auto',height:'54.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px',overflow: 'visible',
              position: 'absolute',
@@ -90,13 +90,13 @@ export default class CustomModal extends React.Component{
                   <Table.HeaderCell style = {{paddingLeft:'42px'}}>Standing Instructions</Table.HeaderCell>
                   <Table.HeaderCell onClick = {this.sortByAmountClick.bind(this, 'value')}>
                   Amount Due (£) { this.state['value'] ?
-                  <i style = {{cursor:'pointer'}} class="fas fa-long-arrow-alt-up"></i> :
-                  <i style = {{cursor:'pointer'}} class="fas fa-long-arrow-alt-down"></i> }
+                  <i style = {{cursor:'pointer'}} className="fas fa-long-arrow-alt-up"></i> :
+                  <i style = {{cursor:'pointer'}} className="fas fa-long-arrow-alt-down"></i> }
                   </Table.HeaderCell>
                   <Table.HeaderCell onClick = {this.sortByAmountClick.bind(this, 'schdDate')}>
                   Date (mm-dd-yyyy) { this.state['schdDate'] ?
-                  <i style = {{cursor:'pointer'}} class="fas fa-long-arrow-alt-up"></i> :
-                  <i style = {{cursor:'pointer'}} class="fas fa-long-arrow-alt-down"></i> }
+                  <i style = {{cursor:'pointer'}} className="fas fa-long-arrow-alt-up"></i> :
+                  <i style = {{cursor:'pointer'}} className="fas fa-long-arrow-alt-down"></i> }
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>

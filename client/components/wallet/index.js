@@ -52,7 +52,7 @@ export default class Rel extends React.Component{
                 <CardDeck style={{margin:'0px'}}>
                 {this.state.debitData.map((account, i) => {
                   return(
-                    <Card accounts = {this.state.debitData[i]}/>
+                    <Card accounts = {this.state.debitData[i]} key={i}/>
                   )
                 }) }
                 </CardDeck>

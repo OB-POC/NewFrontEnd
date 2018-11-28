@@ -42,8 +42,8 @@ export default class GraphModal extends Component {
     mouseOverHandler = (d, e) => {
         this.setState({
           showToolTip: true,
-          top: `${e.offsetY - 10}px`,
-          left: `${e.offsetX + 10}px`,
+          top: `${e.layerY - 10}px`,
+          left: `${e.layerX + 10}px`,
           y: d.y,
           x: d.x,
           img: d.tooltext
