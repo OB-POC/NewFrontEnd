@@ -68,7 +68,7 @@ export default class CustomModal extends React.Component{
         console.log(this.props.standingInstructions,'standingInstructions');
         const { standingInstructions } = this.state
         const standingInstructionsTable = standingInstructions.map((val,ind) => {
-           return ( <Table.Row error = {!val.canClear}>
+           return ( <Table.Row error = {!val.canClear} style = {{fontSize :'14px'}}>
                          <Table.Cell style = {{paddingLeft:'42px'}} >{val.name}</Table.Cell>
                          <Table.Cell>{val.value}</Table.Cell>
                          <Table.Cell>{val.schdDate} {(ind==2)?<Icon name='attention' />:""}</Table.Cell>
