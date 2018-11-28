@@ -19,10 +19,7 @@ export default class Offerings extends React.Component{
             toastId: null
         }
     }
-
-
-
-
+    
     componentWillMount(){
         var context = this
             var token = sessionStorage.getItem("token");
