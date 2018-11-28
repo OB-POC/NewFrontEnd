@@ -114,7 +114,7 @@
 }
 
 .heading_text {
-  
+
   font-family: "Open Sans";
   font-size: 1.4vw;
   font-weight: normal;
@@ -134,7 +134,7 @@
 }
 
 .main_section_heading_text {
-  
+
   font-family: "Open Sans";
   font-size: 16px;
   font-weight: normal;
@@ -188,4 +188,19 @@
   background-color: #006a4d;
   margin: 40px 35px 20px 35px;
   border-radius: 4px;
+}
+
+
+.error{
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  margin-left: 30px;
+  margin-top: 30px;
+  letter-spacing: normal;
+  text-align: left;
+  color: #FF0000;
 }

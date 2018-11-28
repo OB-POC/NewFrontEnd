@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-import FusionCharts from 'fusioncharts';
-import Charts from 'fusioncharts/fusioncharts.charts';
-import ReactFC from 'react-fusioncharts';
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import BarChart from './BarChart';
+import ToolTip from './ToolTip';
 
-ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
+import './style.css';
 
 export default class GraphModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            showToolTip: false,
+            top: '0px',
+            left: `0px`,
+            y: 0,
+            x: 0,
+            img: ''
         }
     }
 
@@ -22,11 +26,12 @@ export default class GraphModal extends Component {
             nextProps.data.map(card => {
               if (card.accounts[0].accountType !== 'M') {     // filtering out Mortgage data
                 let temp = {};
-                temp['label'] = card.bankName;
+                temp['x'] = card.bankName;
                 nextProps.iscredit ?
-                temp['value'] = +(card.accounts[0].totalBalanceDue).replace(',', '') :
-                temp['value'] = +(card.accounts[0].availableBalance).replace(',', '');
-                temp['tooltext'] = `<img src="../../../../images/cards/${nextProps.iscredit?'Credit':'debit'}/${card.bankName}.png" />{br}Bank Name: ${card.bankName}{br}Balance ${nextProps.iscredit?'Due ':''}: ${temp.value}`;
+                temp['y'] = +(card.accounts[0].totalBalanceDue):
+                temp['y'] = +(card.accounts[0].availableBalance);
+                let path = `../../../../images/cards/${nextProps.iscredit?'Credit':'debit'}/${card.bankName}.png`;
+                temp['tooltext'] = `<img src=${path} />`;
                 data.push(temp);
               }
             });
@@ -34,31 +39,71 @@ export default class GraphModal extends Component {
         this.setState({data});
     }
 
+    mouseOverHandler = (d, e) => {
+        this.setState({
+          showToolTip: true,
+          top: `${e.offsetY - 10}px`,
+          left: `${e.offsetX + 10}px`,
+          y: d.y,
+          x: d.x,
+          img: d.tooltext
+        });
+    }
+    
+    mouseMoveHandler = (e) => {
+        if (this.state.showToolTip) {
+            this.setState({top: `${e.offsetY - 10}px`, left: `${e.offsetX + 10}px`});
+        }
+    }
+    
+    mouseOutHandler = () => {
+        this.setState({showToolTip: false});
+    }
+    
+    createTooltip() {
+        if (this.state.showToolTip) {
+            return (
+            <ToolTip
+                top={this.state.top}
+                left={this.state.left}
+            >
+                <div className="tooltip-wrapper">
+                    <div className='tooltip-img' dangerouslySetInnerHTML={{__html: this.state.img}}></div>
+                    <div className='tooltip-bank'>Bank: {this.state.x}</div> 
+                    <div className='tooltip-bal'>Balance: {this.state.y}</div> 
+                </div>
+            </ToolTip>
+            );
+        }
+        return false;
+    }
+
     render() {
-        const chartConfigs = {
-            type: 'column2d',
-            width: 780,
-            height: 400,
-            dataFormat: 'json',
-            dataSource: {
-                "chart": {
-                    "caption": `Graphical view of the ${!this.props.iscredit?'Debit':'Credit'} cards`,
-                    "subCaption": "Balances in £(sterling pounds)",
-                    "xAxisName": "Banks",
-                    "yAxisName": `${!this.props.iscredit?'Balance':'Balance due'}`,
-                    "theme": "fusion"
-                },
-                data: this.state.data
-            },
-        };
         return (
             <Modal
                 {...this.props}
                 bsSize="large"
                 aria-labelledby="contained-modal-title-lg"
             >
+                <Modal.Header>
+                    <Modal.Title>
+                        <div>Graphical view of the {!this.props.iscredit?'Debit':'Credit'} cards</div>
+                        <span className="sub-title">Balances in £(sterling pounds)</span>
+                    </Modal.Title>
+                </Modal.Header>
                 <Modal.Body>
-                    <ReactFC {...chartConfigs} />
+                    <BarChart
+                        axisLabels={{x: 'Banks', y: `${!this.props.iscredit?'Balance':'Balance due'}`}}
+                        axes
+                        colorBars
+                        height={400}
+                        width={780}
+                        data={this.state.data}
+                        mouseOverHandler={this.mouseOverHandler}
+                        mouseOutHandler={this.mouseOutHandler}
+                        mouseMoveHandler={this.mouseMoveHandler}
+                    />
+                    {this.createTooltip()}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={this.props.onHide}>Close</Button>
