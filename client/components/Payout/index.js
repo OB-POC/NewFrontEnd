@@ -14,7 +14,8 @@ export default class Rel extends React.Component{
       username: '',
       lines : [],
       load: true,
-      accSumary : {}
+      accSumary : {},
+      balanceType : ''
     }
   }
   componentWillMount() {
@@ -68,11 +69,14 @@ export default class Rel extends React.Component{
     render(){
 
       let senders1 = []
+     let context = this
+    
       console.log(this.state.payOutData)
       let bankleftOut = this.state.payOutData.bankleftOut
       console.log('bankleftOut',bankleftOut,this.state.payOutData.bankleftOut)
       let payFrom1  = this.state.payOutData.creditDebitMatch.map(function (data, i) {
         console.log(data)
+  
         senders1 = data.senders.map(function(data,i){
 
           return(
@@ -105,7 +109,7 @@ export default class Rel extends React.Component{
                         </div>
                       </div>
                   </div>
-                  <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span> {data.totalBalanceDue}</b></h5></div>
+                  <div className='amount_credit'><h5><b style={{color:'#ff5d64'}}><span>&#163;</span>{data.accountType =="M" ? data.minMonthlyPayment :  data.totalBalanceDue}</b></h5></div>
                 </div>
               </div>
             </div>
