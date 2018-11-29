@@ -14,7 +14,8 @@ export default class Rel extends React.Component{
       modalOpen: true,
       debitData : [],
       creditData : [],
-      accSumary: {}
+      accSumary: {},
+      value: ''
     }
   }
   componentWillMount() {
@@ -38,7 +39,19 @@ export default class Rel extends React.Component{
      //  })
   }
   handleChange = (e, { value }) => this.setState({ value })
-
+  onCancelClick = () => {
+    this.setState({
+      value: ''
+    })
+  }
+  onPreviousClick = () => {
+    this.setState({
+      value: ''
+    })
+  }
+  onNextClick = () => {
+    console.log('Next');
+  }
     render(){
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
@@ -59,7 +72,7 @@ export default class Rel extends React.Component{
                     <div className = 'optimizingsModalHeader'>
                     What would you like OPTIMA to do?
                     </div>
-                    <div className = 'option'>
+                    <div className = 'option' style = {{backgroundColor: (this.state.value === 'si') ? 'rgba(0, 106, 77, 0.14)' : 'rgba(196, 198, 205, 0.08)'}}>
                       <div className = 'optionHeader'>
                       Manage my Payment instructions
                       </div>
@@ -69,7 +82,7 @@ export default class Rel extends React.Component{
                       Manage my payment instructions
                       </div>
                     </div>
-                    <div className = 'option'>
+                    <div className = 'option' style = {{backgroundColor: (this.state.value === 'pool') ? 'rgba(0, 106, 77, 0.14)' : 'rgba(196, 198, 205, 0.08)'}}>
                       <div className = 'optionHeader'>
                       Pool my funds
                       </div>
@@ -79,7 +92,7 @@ export default class Rel extends React.Component{
                       Pool funds from one account to another
                       </div>
                     </div>
-                    <div className = 'option'>
+                    <div className = 'option' style = {{backgroundColor: (this.state.value === 'port') ? 'rgba(0, 106, 77, 0.14)' : 'rgba(196, 198, 205, 0.08)'}}>
                       <div className = 'optionHeader'>
                       Port my accounts
                       </div>
@@ -89,7 +102,7 @@ export default class Rel extends React.Component{
                       Move my accounts to a new LBG account
                       </div>
                     </div>
-                    <div className = 'option'>
+                    <div className = 'option' style = {{backgroundColor: (this.state.value === 'advice') ? 'rgba(0, 106, 77, 0.14)' : 'rgba(196, 198, 205, 0.08)'}}>
                       <div className = 'optionHeader'>
                       Financial Advisory
                       </div>
@@ -98,6 +111,12 @@ export default class Rel extends React.Component{
                       <div className = 'optionMeta'>
                       Use our Financial advisor tools to manage your funds better
                       </div>
+                    </div>
+                    <div className = "flex-container">
+                      <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
+                      <div className="flex-item1" onClick = {this.onPreviousClick}
+                      style = {{marginLeft: '310px', display: (this.state.value != '') ? '' : 'none'}}>Previous</div>
+                      <div className="flex-item1" onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>
               <div>
