@@ -88,7 +88,7 @@ export default class Offerings extends React.Component{
                     <div className='col-1'/>
                     <div className='col-6'>
                         <h5 className='classMsg' id="msg">{this.state.cardData.aer?<p>Are you hoping to get the best possible return on
-                            your hard earned
+                            your had earned
                             savings?
                             Switch to` <strong>LGB - Club
                             Lloyds Saver Account</strong> and
