@@ -40,6 +40,7 @@ export default class PoolingFromCard extends React.Component{
                 <h1 style = {{fontWeight: '300',marginTop:'20PX'}}>My Accounts</h1>
                 </div>
                 <div className = 'pool-funds-modal'>
+
                     <Link to='/wallet'>
                     <div className = 'closeIcon' tabIndex = '1'>
                       <img src = {'images/optimizings/close-icon.png'} />
@@ -51,6 +52,7 @@ export default class PoolingFromCard extends React.Component{
                     <div className='pool-subheader'>Select accounts to which you want to pool your funds</div>
 
                     <div className='pool-card'>
+                    <i className="fas fa-check-circle fa-lg float-right" style={{marginTop:'-5px',marginRight:'10px',color:'#2d8259'}}></i>
                           <div>
                             <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
                           </div>
@@ -87,7 +89,6 @@ export default class PoolingFromCard extends React.Component{
                       <div className="flex-item1" onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>
-
             </div>
             </div>
             </div>

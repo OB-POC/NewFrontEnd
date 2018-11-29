@@ -33,6 +33,7 @@
     width: 200px;
     height: 280px;
     border-radius: 9px;
+    border: 1px solid #c4c6cd;
     background-color: rgba(196, 198, 205, 0.08);
 }
 .pool-bankName{
