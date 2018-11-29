@@ -9,56 +9,36 @@ export default class CustomModal extends React.Component{
         modalOpen: false,
         linesArr : []
         }
-    //   this.refFromCard = React.createRef()
-    //   this.refToCard = React.createRef()
+  
     }
-    componentDidMount(){
-        
-    }
-
-    componentWillUnmount(){
-        // this.setState((prevState,props)=>{
-        //     let linesArr = prevState.linesArr
-        //     linesArr.map()
-        // })
-    }
+    
     handleOpen = () => {
-        
         this.setState((prevState,props)=>{
             return {
                 modalOpen: true,
             }
         },()=>{
-            
-                console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
             this.setState((prevState,props)=>{
                 let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a'})
-                console.log('lineVar',lineVar)
-
                 document.querySelector(".leader-line").style['z-index'] = '1000';
-
                 return {
                     linesArr : prevState.linesArr.push(lineVar)
                 }
             })
-            
-            
         })
     }
-    componentWillUnmount(){
-        // this.setState((prevState,props)=>({
-        //     linesArr : []
-        // }))
-    }
-
     handleClose = () => {
-
         this.setState((prevState,props)=>({
             modalOpen : false,
             linesArr : []
         }))
-
         document.querySelector(".leader-line").remove();
+    }
+
+    handleCloseParentModal = () => {
+        console.log('modal')    
+        document.querySelector(".leader-line").remove();
+        this.props.handleClose()
     }
       render(){
         console.log('refs',this.refFromCard)
@@ -74,7 +54,7 @@ export default class CustomModal extends React.Component{
             style = {{margin:'auto',height:'70.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px'}}
             open={this.state.modalOpen} 
         >
-            <div><Icon name='close' onClick = {this.props.handleClose}/></div>
+            <div><Icon name='close' onClick = {this.handleCloseParentModal}/></div>
             <p className = 'Payment-instructions'>Transfer Funds</p>
             <p className="transfer-funds-modal-message">Allow Optima to transfer £ 100 from Munzo account to RBS?</p>
             <div style={{display:'flex',justifyContent:'flex-start',marginTop:'20px',marginBottom:'30px'}}>
