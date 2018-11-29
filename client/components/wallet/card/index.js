@@ -2,8 +2,8 @@ import React from 'react';
 import './style.css';
 import {Link} from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom'
-// import StandingInstModal from '../transferFundsModal'
-import TransferFundsModal from '../transferModal'
+import StandingInstModal from '../transferFundsModal'
+//import TransferFundsModal from '../transferModal'
 
 export default class Rel extends React.Component{
   constructor(props){
