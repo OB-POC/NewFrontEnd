@@ -9,21 +9,56 @@ export default class CustomModal extends React.Component{
         modalOpen: false,
         linesArr : []
         }
-        let ref = React.createRef()
+    //   this.refFromCard = React.createRef()
+    //   this.refToCard = React.createRef()
     }
     componentDidMount(){
-        console.log(this.ref)
-        console.log(this.refs)
-        this.setState((prevState,props)=>{
 
-            let linesArr = prevState.linesVar
-            let lineVar = new LeaderLine(this.refs.fromRef.id,this.refs.toRef.id)
+    }
+
+    componentWillUnmount(){
+        // this.setState((prevState,props)=>{
+        //     let linesArr = prevState.linesArr
+        //     linesArr.map()
+        // })
+    }
+    handleOpen = () => {
+        
+        //let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a'})
+        this.setState((prevState,props)=>{
+            return {
+                modalOpen: true,
+               // linesArr : linesArr.push(lineVar)
+            }
+        },()=>{
+            // setTimeout((()=>{
+            //     console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
+            // this.setState((prevState,props)=>{
+            //     let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a',style:{z-index:'1000',color:"red"}})
+
+            //     return {
+            //         linesArr : prevState.linesArr.push(lineVar)
+            //     }
+            // })
+            // })(),2000)
+            
         })
     }
-    handleOpen = () => this.setState({ modalOpen: true })
-    handleClose = () => this.setState({ modalOpen: false })
+    componentWillUnmount(){
+        // this.setState((prevState,props)=>({
+        //     linesArr : []
+        // }))
+    }
+
+    handleClose = () => {
+
+        this.setState((prevState,props)=>({
+            modalOpen : false,
+            linesArr : []
+        }))
+    }
       render(){
-        
+        console.log('refs',this.refFromCard)
           return(
          <Modal
             trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span>}
@@ -34,18 +69,18 @@ export default class CustomModal extends React.Component{
             <p className = 'Payment-instructions'>Transfer Funds</p>
             
             <p className="transfer-funds-modal-message">Allow Optima to transfer £ 100 from Munzo account to RBS?</p>
-            <div ref={(node)=>{this.fromRef=node}} style={{display:'flex',justifyContent:'flex-start',marginTop:'20px',marginBottom:'30px'}}>
-                <div className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
+            <div   style={{display:'flex',justifyContent:'flex-start',marginTop:'20px',marginBottom:'30px'}}>
+                <div  id="fromCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
                     <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                     <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
                     <p className='amount-transfer'>£ 100</p>
                 </div>
-                <div className='to-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
+                <div id="toCard" className='to-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
                 <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                 <p className='bank-name'>Monzo</p>
                 </div>
             </div>
-            <div ref={this.ref} style={{display:'flex',justifyContent:'flex-start'}}>
+            <div  style={{display:'flex',justifyContent:'flex-start'}}>
                 <div className='yes-button' onClick={this.handleClose} style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'20px',cursor:'pointer'}}>
                 <p className='yes-text-style' style={{color:'#FFFFFF'}}>YES</p>
                 </div>

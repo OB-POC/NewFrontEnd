@@ -3,6 +3,7 @@ import './style.css';
 import {Link} from 'react-router-dom';
 import { HashRouter as Router } from 'react-router-dom'
 import StandingInstModal from '../transferFundsModal'
+import TransferFundsModal from '../transferModal'
 
 export default class Rel extends React.Component{
   constructor(props){
@@ -11,7 +12,7 @@ export default class Rel extends React.Component{
         }
   }
 componentDidMount(){
-  console.log(this.props, "DidMount");
+ // console.log(this.props, "DidMount");
 }
     render(){
       console.log(this.props.accounts, "Accounts");
@@ -50,7 +51,8 @@ componentDidMount(){
                                      <div className='money-font' style={{marginTop:'5px'}}>
                                          £ {this.props.accounts.accounts[0].standingInst}
                                      </div>
-                                     <StandingInstModal standingInstructions = {this.props.accounts.accounts[0].standingInstructions} />
+                                     {/* <StandingInstModal standingInstructions = {this.props.accounts.accounts[0].standingInstructions} /> */}
+                                     <TransferFundsModal />
                                  </div>
                              </div>
 
