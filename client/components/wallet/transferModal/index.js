@@ -13,7 +13,7 @@ export default class CustomModal extends React.Component{
     //   this.refToCard = React.createRef()
     }
     componentDidMount(){
-        
+
     }
 
     componentWillUnmount(){
@@ -23,13 +23,13 @@ export default class CustomModal extends React.Component{
         // })
     }
     handleOpen = () => {
-        
+
         this.setState((prevState,props)=>{
             return {
                 modalOpen: true,
             }
         },()=>{
-            
+
                 console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
             this.setState((prevState,props)=>{
                 let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a'})
@@ -41,8 +41,8 @@ export default class CustomModal extends React.Component{
                     linesArr : prevState.linesArr.push(lineVar)
                 }
             })
-            
-            
+
+
         })
     }
     componentWillUnmount(){
@@ -72,7 +72,7 @@ export default class CustomModal extends React.Component{
             onOpen = {this.handleOpen}
             size='small'
             style = {{margin:'auto',height:'70.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px'}}
-            open={this.state.modalOpen} 
+            open={this.state.modalOpen}
         >
             <div><Icon name='close' onClick = {this.props.handleClose}/></div>
             <p className = 'Payment-instructions'>Transfer Funds</p>
@@ -89,9 +89,7 @@ export default class CustomModal extends React.Component{
                 </div>
             </div>
             <div  style={{display:'flex',justifyContent:'flex-start'}}>
-                <div className='yes-button' onClick={this.handleClose} style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'20px',cursor:'pointer'}}>
-                <p className='yes-text-style' style={{color:'#FFFFFF'}}>YES</p>
-                </div>
+                <SuccessModal />
                 <div  onClick={this.handleClose} className='cancel-button' style={{display:'flex',justifyContent:'center',alignItems:'center',cursor:'pointer',border:'1px solid #4a4a4a'}}>
                 <p className='yes-text-style' style={{color:'#4a4a4a',}}>CANCEL</p>
                 </div>
