@@ -8,6 +8,7 @@ import Home from './components/home';
 import Login from './components/Login';
 import Payout from './components/Payout';
 import Wallet from './components/Wallet';
+import Advisory from './components/Wallet/advisory.js';
 
 
 render(

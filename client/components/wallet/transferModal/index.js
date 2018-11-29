@@ -13,7 +13,7 @@ export default class CustomModal extends React.Component{
     //   this.refToCard = React.createRef()
     }
     componentDidMount(){
-
+        
     }
 
     componentWillUnmount(){
@@ -24,23 +24,24 @@ export default class CustomModal extends React.Component{
     }
     handleOpen = () => {
         
-        //let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a'})
         this.setState((prevState,props)=>{
             return {
                 modalOpen: true,
-               // linesArr : linesArr.push(lineVar)
             }
         },()=>{
-            // setTimeout((()=>{
-            //     console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
-            // this.setState((prevState,props)=>{
-            //     let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a',style:{z-index:'1000',color:"red"}})
+            
+                console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
+            this.setState((prevState,props)=>{
+                let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a'})
+                console.log('lineVar',lineVar)
 
-            //     return {
-            //         linesArr : prevState.linesArr.push(lineVar)
-            //     }
-            // })
-            // })(),2000)
+                document.querySelector(".leader-line").style['z-index'] = '1000';
+
+                return {
+                    linesArr : prevState.linesArr.push(lineVar)
+                }
+            })
+            
             
         })
     }
@@ -56,12 +57,14 @@ export default class CustomModal extends React.Component{
             modalOpen : false,
             linesArr : []
         }))
+
+        document.querySelector(".leader-line").remove();
     }
       render(){
         console.log('refs',this.refFromCard)
           return(
          <Modal
-            trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i class="fas fa-arrow-right"></i></span>}
+            trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i className="fas fa-arrow-right"></i></span>}
             size='small'
             style = {{margin:'auto',height:'70.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px'}}
               open={this.state.modalOpen}>

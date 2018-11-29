@@ -69,7 +69,7 @@ export default class Balance extends React.Component{
                            <div className='bank'>Principal Due</div>
                            <div className='JP_Morgan_Chase'>£ {data1.totalBalanceDue}</div>
                            <div className='bank' style={{marginTop:'15px'}}>Due date</div>
-                           <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>{new Date(data1.dueDate).toDateString()}</div>
+                           <div className='JP_Morgan_Chase' style={{color:'#ff5d64'}}>{new Date(new Date().setDate(new Date().getDate()+5)).toDateString()}</div>
                        </div>
                    </div>
                </div>
@@ -110,7 +110,7 @@ export default class Balance extends React.Component{
             }
 
             <b className='credit'>{data1.apr||data1.interestRate} % APR</b>
-            <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> {new Date().getDate()} days</small>
+            <small className='credit' style={{color:'#ff5d64'}}><i className='fas fa-info-circle'></i> 5 days</small>
             </div>
           )
         })
@@ -230,16 +230,6 @@ export default class Balance extends React.Component{
                     </div>
                 </div>
                     {debitData}
-                    <center id = 'outer-layer'>
-                    <button className='btn payout-button optimize-btt optimizeBtn' onClick = {this.handleClick.bind(this)}>
-                      <div className="btn-text-wrapper">
-                        <div className="btn-text">OPTIMIZE SAVINGS</div>
-                        <div className="btn-arrow">
-                          <i className='fas fa-arrow-right'></i>
-                        </div>
-                      </div>
-                    </button>
-                  </center>
                 </Paper>
                 <Paper className='paper' zDepth={2} style = {{padding:'20px',width: '50%'}}>
                    <div className='row credit-accounts' style = {{paddingBotttom:'23px'}}>

@@ -24,16 +24,19 @@ export default class GraphModal extends Component {
         let data = [];
         if(nextProps.data instanceof Array) {
             nextProps.data.map(card => {
+              let temp = {};
               if (card.accounts[0].accountType !== 'M') {     // filtering out Mortgage data
-                let temp = {};
                 temp['x'] = card.bankName;
                 nextProps.iscredit ?
                 temp['y'] = +(card.accounts[0].totalBalanceDue):
                 temp['y'] = +(card.accounts[0].availableBalance);
-                let path = `../../../../images/cards/${nextProps.iscredit?'Credit':'debit'}/${card.bankName}.png`;
-                temp['tooltext'] = `<img src=${path} />`;
-                data.push(temp);
+              } else {
+                temp['x'] = card.bankName;
+                temp['y'] = +((card.accounts[0].totalBalanceDue/12).toFixed(2));
               }
+              let path = `../../../../images/cards/${nextProps.iscredit?'Credit':'debit'}/${card.bankName}.png`;
+              temp['tooltext'] = `<img src=${path} />`;
+              data.push(temp);
             });
         }
         this.setState({data});
@@ -42,8 +45,8 @@ export default class GraphModal extends Component {
     mouseOverHandler = (d, e) => {
         this.setState({
           showToolTip: true,
-          top: `${e.offsetY - 10}px`,
-          left: `${e.offsetX + 10}px`,
+          top: `${e.layerY - 10}px`,
+          left: `${e.layerX + 10}px`,
           y: d.y,
           x: d.x,
           img: d.tooltext
@@ -69,8 +72,8 @@ export default class GraphModal extends Component {
             >
                 <div className="tooltip-wrapper">
                     <div className='tooltip-img' dangerouslySetInnerHTML={{__html: this.state.img}}></div>
-                    <div className='tooltip-bank'>Bank: {this.state.x}</div> 
-                    <div className='tooltip-bal'>Balance: {this.state.y}</div> 
+                    <div className='tooltip-bank'>Bank name: {this.state.x}</div> 
+                    <div className='tooltip-bal'>{!this.props.iscredit?'Balance':'Balance due'}: {this.state.y}</div> 
                 </div>
             </ToolTip>
             );

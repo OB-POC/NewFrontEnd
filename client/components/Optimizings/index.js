@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
-import { HashRouter as Router } from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
 import { Button, Icon, Modal, Radio} from 'semantic-ui-react'
 import Header from '../headernew'
 import Sidebar from '../sidebar'
@@ -17,26 +18,27 @@ export default class Rel extends React.Component{
     }
   }
   componentWillMount() {
-      var token = sessionStorage.getItem("token");
-      Services.totalBalancesCall(token, function(data){
-          this.setState({accSumary : data});
-          console.log(data)
-     }.bind(this),function(err){
-         console.log(err);
-     })
-      Services.creditCall(token, function(data){
-          this.setState({creditData : data.banks});
-
-     }.bind(this),function(err){
-         console.log(err);
-     })
-      Services.debitCall(token,function(data){
-          this.setState({debitData : data.banks});
-      }.bind(this),function(err){
-          console.log(err);
-      })
+     //  var token = sessionStorage.getItem("token");
+     //  Services.totalBalancesCall(token, function(data){
+     //      this.setState({accSumary : data});
+     //      console.log(data)
+     // }.bind(this),function(err){
+     //     console.log(err);
+     // })
+     //  Services.creditCall(token, function(data){
+     //      this.setState({creditData : data.banks});
+     //
+     // }.bind(this),function(err){
+     //     console.log(err);
+     // })
+     //  Services.debitCall(token,function(data){
+     //      this.setState({debitData : data.banks});
+     //  }.bind(this),function(err){
+     //      console.log(err);
+     //  })
   }
-  handleClose = () => this.setState({ modalOpen: false })
+  handleChange = (e, { value }) => this.setState({ value })
+
     render(){
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
@@ -48,9 +50,11 @@ export default class Rel extends React.Component{
                 <h1 style = {{fontWeight: '300',marginTop:'20PX'}}>My Accounts</h1>
                 </div>
                 <div className = 'optimizingsModal'>
-                    <div className = 'closeIcon'>
+                    <Link to='/wallet'>
+                    <div className = 'closeIcon' tabIndex = '1'>
                       <img src = {'images/optimizings/close-icon.png'} />
                     </div>
+                    </Link>
 
                     <div className = 'optimizingsModalHeader'>
                     What would you like OPTIMA to do?
@@ -59,36 +63,40 @@ export default class Rel extends React.Component{
                       <div className = 'optionHeader'>
                       Manage my Payment instructions
                       </div>
-                        <Radio className = 'radioStyle'/>
+                        <Radio value = 'si' className = 'radioStyle' checked={this.state.value === 'si'}
+                          onChange={this.handleChange}/>
                       <div className = 'optionMeta'>
                       Manage my payment instructions
                       </div>
                     </div>
                     <div className = 'option'>
                       <div className = 'optionHeader'>
-                      Manage my Payment instructions
+                      Pool my funds
                       </div>
-                        <Radio className = 'radioStyle'/>
+                        <Radio value = 'pool' className = 'radioStyle' checked={this.state.value === 'pool'}
+                        onChange={this.handleChange} />
                       <div className = 'optionMeta'>
-                      Manage my payment instructions
+                      Pool funds from one account to another
                       </div>
                     </div>
                     <div className = 'option'>
                       <div className = 'optionHeader'>
-                      Manage my Payment instructions
+                      Port my accounts
                       </div>
-                        <Radio className = 'radioStyle'/>
+                        <Radio value = 'port' className = 'radioStyle' checked={this.state.value === 'port'}
+                        onChange={this.handleChange}/>
                       <div className = 'optionMeta'>
-                      Manage my payment instructions
+                      Move my accounts to a new LBG account
                       </div>
                     </div>
                     <div className = 'option'>
                       <div className = 'optionHeader'>
-                      Manage my Payment instructions
+                      Financial Advisory
                       </div>
-                        <Radio className = 'radioStyle'/>
+                        <Radio value = 'advice' className = 'radioStyle' checked={this.state.value === 'advice'}
+                        onChange={this.handleChange}/>
                       <div className = 'optionMeta'>
-                      Manage my payment instructions
+                      Use our Financial advisor tools to manage your funds better
                       </div>
                     </div>
                 </div>
