@@ -100,7 +100,7 @@ cardClick = (i) => {
                           </div>
                        </div>:
                        <div className='pool-card' tabIndex = "1" onClick = {this.cardClick.bind(this,i)} style={{ boxShadow: '0 14px 37px 0 rgba(0, 108, 77, 0.18)',backgroundColor:'rgba(0, 108, 77, 0.14)'}}>
-                      <i className="fas fa-check-circle fa-lg float-right" style={{marginTop:'-5px',marginRight:'10px',color:'#2d8259'}}></i>
+                      <i className="fas fa-check-circle fa-lg float-right" style={{marginTop:'-5px',marginRight:'30px',color:'#2d8259'}}></i>
                             <div>
                               <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
                             </div>
