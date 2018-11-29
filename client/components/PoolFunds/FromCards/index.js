@@ -55,8 +55,36 @@ export default class PoolingFromCard extends React.Component{
                          Pool my funds
                     </div>
                     <div className='pool-subheader'>Select accounts to which you want to pool your funds</div>
-                  
-                    <div className='pool-card'>
+                  <div className='row'>
+                    <div className='pool-card' style={{marginRight:'30px'}}>
+                        <div>
+                            <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
+                          </div>
+                         <div>
+                             <div className='row' style={{marginTop:'-20px'}}>
+                                 <div className='col-6'>
+                                 <div className='pool-bankName'>
+                                   bankName
+                                 </div>
+                                 <div className='pool-aer_subscript'>
+                                    0.3% AER
+                                 </div>
+                                 </div>
+                                 <div className='col-6'/>
+                             </div>
+                             <div className='row' style={{marginTop:'28px'}}>
+                                 <div className='col-6' >
+                                     <div className='pool-balance'>
+                                         Available Balance
+                                     </div>
+                                     <div className='pool-amount' style={{marginTop:'5px'}}>
+                                     balance
+                                     </div>
+                                 </div>
+                              </div>
+                        </div>
+                     </div>
+                     <div className='pool-card' style={{ boxShadow: '0 14px 37px 0 rgba(0, 106, 77, 0.16)',backgroundColor:'rgba(0, 106, 77, 0.14)'}}>
                     <i className="fas fa-check-circle fa-lg float-right" style={{marginTop:'-5px',marginRight:'10px',color:'#2d8259'}}></i>
                           <div>
                             <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
@@ -85,7 +113,7 @@ export default class PoolingFromCard extends React.Component{
                               </div>
                         </div>
  
-                     </div>
+                     </div></div>
                      <div className='pool-line'></div>
                      <div className = "flex-container">
                       <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
