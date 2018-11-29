@@ -22,11 +22,6 @@ export default class PoolingFromCard extends React.Component{
       value: ''
     })
   }
-  onPreviousClick = () => {
-    this.setState({
-      value: ''
-    })
-  }
   onNextClick = () => {
     if(this.state.value == 'pool'){
       this.props.history.push('/poolfrom');
@@ -54,7 +49,7 @@ export default class PoolingFromCard extends React.Component{
                          Pool my funds
                     </div>
                     <div className='pool-subheader'>Select accounts to which you want to pool your funds</div>
-                  
+
                     <div className='pool-card'>
                           <div>
                             <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
@@ -82,17 +77,17 @@ export default class PoolingFromCard extends React.Component{
                                  </div>
                               </div>
                         </div>
- 
+
                      </div>
                      <div className='pool-line'></div>
                      <div className = "flex-container">
                       <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
-                      <div className="flex-item1" onClick = {this.onPreviousClick}
-                      style = {{marginLeft: '310px', display: (this.state.value != '') ? '' : 'none'}}>Previous</div>
+                      <Link to='/optimizings'><div className="flex-item1" style = {{marginLeft: '310px',
+                      display: (this.state.value != '') ? '' : 'none'}}>Previous</div></Link>
                       <div className="flex-item1" onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>
-            
+
             </div>
             </div>
             </div>
