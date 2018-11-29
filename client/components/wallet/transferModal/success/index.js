@@ -21,8 +21,9 @@ export default class CustomModal extends React.Component{
 <p className='yes-text-style' style={{color:'#FFFFFF'}}>YES</p>
 </div>}
             size='small'
-            style = {{backgroundImage :'url("../../../../images/transferSuccess.png")',backgroundRepeat:'round',height:'29.2vh',margin:'auto',boxShadow: 'none',backgroundColor:'transparent'}}>
-
+            style = {{height:'50vh',margin:'auto',boxShadow: 'none',backgroundColor:'transparent',marginTop:'auto !important'}}>
+            <div style = {{backgroundImage :'url("../../../../images/transferSuccess.png")',backgroundRepeat:'round',height:"45%"}}></div>
+            <div style = {{backgroundImage :'url("../../../../images/transferSuccess.png")',backgroundRepeat:'round',height:"45%"}}></div>
           </Modal>
           );
       }

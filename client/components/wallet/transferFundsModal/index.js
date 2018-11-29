@@ -78,7 +78,7 @@ export default class CustomModal extends React.Component{
             <Modal
             trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i className="fas fa-arrow-right"></i></span>}
             size='small'
-            style = {{margin:'auto',height:'54.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px',overflow: 'visible',
+            style = {{margin:'auto',height:'61.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px',overflow: 'visible',
              position: 'absolute',
     bottom: '123px'}}
               open={this.state.modalOpen}>
