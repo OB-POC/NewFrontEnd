@@ -27,6 +27,7 @@ export default class Rel extends React.Component{
          console.log(err);
      })
       Services.payOutCall(token, function(data){
+        console.log('dtaa------------------------------',data)
           this.setState({payOutData : data});
           this.componentDidMount()
      }.bind(this),function(err){
@@ -70,13 +71,13 @@ export default class Rel extends React.Component{
 
       let senders1 = []
      let context = this
-    
+
       console.log(this.state.payOutData)
       let bankleftOut = this.state.payOutData.bankleftOut
       console.log('bankleftOut',bankleftOut,this.state.payOutData.bankleftOut)
       let payFrom1  = this.state.payOutData.creditDebitMatch.map(function (data, i) {
         console.log(data)
-  
+
         senders1 = data.senders.map(function(data,i){
 
           return(
@@ -143,7 +144,7 @@ export default class Rel extends React.Component{
                           Here are our "Smart
                           Recommendations" to
                           pay-off your credit dues !
-                          Choose this option to be
+                          Choose this option to save delta and be
                           free from any additional
                           charges on your Credit
                           Cards. '

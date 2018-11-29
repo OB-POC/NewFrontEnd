@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import { Button, Header, Icon, Modal, Table } from 'semantic-ui-react'
-
+import TransferModel from '../transferModal'
 export default class CustomModal extends React.Component{
     constructor(props){
       super(props);
@@ -107,10 +107,9 @@ export default class CustomModal extends React.Component{
         <div style = {{  width: '578px',
           height: '250px',
           objectFit: 'contain',backgroundImage : 'url("./images/img-transfer-funds.png")',backgroundRepeat:'round',display:this.state.showBanner,position: 'relative',animation: 'fadeIn 1s'}}>
-          <div className = 'Rectangle-5'>
-          TRANSFER FUNDS &nbsp;&nbsp;<i class="fas fa-arrow-right"></i>
+          <TransferModel handleClose={this.handleClose} />
+
           </div>
-        </div>
           </Modal>
           );
       }

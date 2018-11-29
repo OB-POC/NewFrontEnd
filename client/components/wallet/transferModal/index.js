@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import { Button, Header, Icon, Modal, Table, ListHeader } from 'semantic-ui-react'
-
+import SuccessModal from './success'
 export default class CustomModal extends React.Component{
     constructor(props){
       super(props);
@@ -63,16 +63,21 @@ export default class CustomModal extends React.Component{
       render(){
         console.log('refs',this.refFromCard)
           return(
-         <Modal
-            trigger={<span onClick={this.handleOpen} className = "View-details" style = {{cursor:'pointer'}}>View details  <i className="fas fa-arrow-right"></i></span>}
+        <Modal
+            trigger={
+            <div className = 'Rectangle-5'>
+            TRANSFER FUNDS &nbsp;&nbsp;<i className="fas fa-arrow-right"></i>
+            </div>
+            }
+            onOpen = {this.handleOpen}
             size='small'
             style = {{margin:'auto',height:'70.5vh',marginTop: 'auto',backgroundColor: '#f5f6fa',padding:'8.7vh 6.7vh',borderRadius:'14px'}}
-              open={this.state.modalOpen}>
-              <div><Icon name='close' onClick = {this.handleClose}/></div>
+            open={this.state.modalOpen} 
+        >
+            <div><Icon name='close' onClick = {this.props.handleClose}/></div>
             <p className = 'Payment-instructions'>Transfer Funds</p>
-            
             <p className="transfer-funds-modal-message">Allow Optima to transfer £ 100 from Munzo account to RBS?</p>
-            <div   style={{display:'flex',justifyContent:'flex-start',marginTop:'20px',marginBottom:'30px'}}>
+            <div style={{display:'flex',justifyContent:'flex-start',marginTop:'20px',marginBottom:'30px'}}>
                 <div  id="fromCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
                     <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                     <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
