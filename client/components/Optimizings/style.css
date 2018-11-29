@@ -6,6 +6,7 @@
   margin-left: 4%;
   margin-top: 20px;
   padding-left: 200px;
+  padding-right: 186px;
 }
 .optimizingsModalHeader{
   width: 413px;
@@ -55,4 +56,47 @@
   font-family: Open Sans;
   font-size: 14px;
   color: #6d6d6d;
+}
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.flex-item{
+  width: 139px;
+  height: 42px;
+  border-radius: 3px;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-align: left;
+  color: #4a4a4a;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.flex-item1{
+  width: 139px;
+  height: 42px;
+  border-radius: 3px;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-align: left;
+  color: #ffffff;
+  background-color: #00402e;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
 }
