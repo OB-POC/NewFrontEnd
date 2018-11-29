@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Payout from './components/Payout';
 import Wallet from './components/Wallet';
 import Advisory from './components/Wallet/advisory.js';
+import PoolingFromCard from './components/PoolFunds/FromCards/index';
 
 
 render(
@@ -21,6 +22,7 @@ render(
     <Route exact path='/offerings' component={Offerings} />
     <Route exact path='/wallet' component={Wallet} />
     <Route exact path='/optimizings' component={Optimizings} />
+    <Route exact path='/poolfrom' component={PoolingFromCard} />
     </div>
 </HashRouter>
 </MuiThemeProvider>, document.getElementById('root'));
