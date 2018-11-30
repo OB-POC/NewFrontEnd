@@ -28,9 +28,9 @@ export default class PoolingFromCard extends React.Component{
     })
   }
   onNextClick = () => {
-    if(this.state.value == 'pool'){
-      this.props.history.push('/poolfrom');
-    }
+  
+      this.props.history.push('/confirmPool');
+    
     console.log('Next');
   }
 
@@ -52,9 +52,9 @@ export default class PoolingFromCard extends React.Component{
                     </div>
                     </Link>
                     <div className ='pool-header'>
-                         Pool my funds
+                      Confirm
                     </div>
-                    <div className='pool-subheader'>Select accounts to which you want to pool your funds</div>
+                    <div className='pool-subheader'>Click ‘Next’ to port MONZO and TSB accounts to LBG</div>
                   <div className='row'>
                     <div className='pool-card' style={{marginRight:'30px'}}>
                         <div>
