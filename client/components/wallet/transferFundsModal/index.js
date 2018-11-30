@@ -106,7 +106,11 @@ export default class CustomModal extends React.Component{
         </Table>
         <div style = {{  width: '578px',
           height: '250px',
-          objectFit: 'contain',backgroundImage : 'url("./images/img-transfer-funds.png")',backgroundRepeat:'round',display:this.state.showBanner,position: 'relative',animation: 'fadeIn 1s'}}>
+          objectFit: 'contain',backgroundImage : 'url("./images/transferfunds.png")',backgroundRepeat:'round',display:this.state.showBanner,position: 'relative',animation: 'fadeIn 1s',paddingTop: '27px',
+    paddingLeft: '58px'}}>
+          <p className = 'insufficientText'>You have insufficient funds in the RBS account to pay off the upcoming Standing instruction.<br/><br/>
+
+Do yo want Optima to transfer funds from the Monzo account to RBS account?</p>
           <TransferModel handleClose={this.handleClose} />
 
           </div>

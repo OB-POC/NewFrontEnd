@@ -37,3 +37,13 @@ left: 47px;
 position: absolute;
 cursor: pointer;
 }
+.insufficientText{
+  width: 337px;
+ height: 116px;
+ font-family: 'Open Sans';
+ font-size: 14px;
+
+ line-height: 1.64;
+ text-align: left;
+ color: #ffffff;
+}
