@@ -29,14 +29,11 @@ export default class PoolingToCard extends React.Component{
   }
 
   onNextClick = () => {
-    console.log(this.state)
-    var sol = this.state.debitData.filter((val,ind)=> {return !this.state.cardData.includes(ind)})
-    console.log(sol,'sol')
     this.props.history.push({
-    pathname: '/poolto',
-    state : {cardData : sol}
+    pathname: '/confirmPool',
+    state : {fromCards : this.props.location.state.fromCards,
+             toCards : this.props.location.state.cardData   }
   }); 
-    console.log('Next');
   }
 
   cardClick = (i) => {

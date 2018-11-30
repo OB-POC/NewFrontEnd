@@ -71,7 +71,7 @@ export default class PoolingFromCard extends React.Component{
                     </div>
                     </Link>
                     <div className ='pool-header'>
-                         Pool my funds
+                      Confirm
                     </div>
                     <div className='pool-subheader'>Select accounts from which you want to pool your funds</div>
                   <div className='row'>
