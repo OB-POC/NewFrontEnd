@@ -1,9 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import ToolTip from 'react-portal-tooltip';
-
 import GraphModal from '../cards-graph';
-
 import './style.css';
 
 

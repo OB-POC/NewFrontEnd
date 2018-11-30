@@ -10,7 +10,9 @@ import Payout from './components/Payout';
 import Wallet from './components/Wallet';
 import Advisory from './components/Wallet/advisory.js';
 import PoolingFromCard from './components/PoolFunds/FromCards/index';
-
+import PoolingToCard from './components/PoolFunds/ToCards';
+import PortingFromCard from './components/PortFunds/FromCards';
+import PortingToCard from './components/PortFunds/ToCards';
 
 render(
 <MuiThemeProvider>
@@ -23,6 +25,9 @@ render(
     <Route exact path='/wallet' component={Wallet} />
     <Route exact path='/optimizings' component={Optimizings} />
     <Route exact path='/poolfrom' component={PoolingFromCard} />
+    <Route exact path='/poolto' component={PoolingToCard} />
+    <Route exact path='/portfrom' component={PortingFromCard} />
+    <Route exact path='/portto' component={PortingToCard} />
     </div>
 </HashRouter>
 </MuiThemeProvider>, document.getElementById('root'));

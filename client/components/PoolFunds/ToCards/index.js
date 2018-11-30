@@ -5,24 +5,22 @@ import Header from '../../headernew'
 import Sidebar from '../../sidebar'
 import Services from '../../../services'
 
-export default class PoolingFromCard extends React.Component{
+export default class PoolingToCard extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       modalOpen: true,
       debitData : [],
-      accSumary: {},
-      cardData : []
+      creditData : [],
+      accSumary: {}
     }
   }
   componentDidMount(){
-    var token = sessionStorage.getItem("token");
-    Services.debitCall(token,function(data){
-         this.setState({debitData : data.banks});
-     }.bind(this),function(err){
-         console.log(err);
-     })
+    console.log(this.props.location.state.cardData);
+     this.setState({debitData : this.props.location.state.cardData});
   }
+
+  handleChange = (e, { value }) => this.setState({ value })
 
   onCancelClick = () => {
     this.setState({
@@ -31,30 +29,24 @@ export default class PoolingFromCard extends React.Component{
   }
 
   onNextClick = () => {
-  console.log(this.state)
-    var notSelected = this.state.debitData.filter((val,ind)=> {return !this.state.cardData.includes(ind)})
-    var selected = this.state.debitData.filter((val,ind)=> {return this.state.cardData.includes(ind)})
+    console.log(this.state)
+    var sol = this.state.debitData.filter((val,ind)=> {return !this.state.cardData.includes(ind)})
+    console.log(sol,'sol')
     this.props.history.push({
     pathname: '/poolto',
-    state : {cardData : notSelected,
-    fromCards : selected}
+    state : {cardData : sol}
   }); 
+    console.log('Next');
   }
 
-  cardClick = (i,data) => { 
-    this.setState((prevState)=>{
-      if(prevState.cardData.includes(i))
-        prevState.cardData.splice(prevState.cardData.indexOf(i),1)
-       else{
-        prevState.cardData.push(i)
-       } 
-      return {
-    ['card'+i] : !this.state['card'+i],
-    cardData : prevState.cardData
-    }})
-  }
-
+  cardClick = (i) => {
+  console.log(i);
+  this.setState({
+    ['card'+i] : !this.state['card'+i]
+  })
+}
     render(){
+      console.log(this.props.location.state);
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -65,6 +57,7 @@ export default class PoolingFromCard extends React.Component{
                 <h1 style = {{fontWeight: '300',marginTop:'20PX'}}>My Accounts</h1>
                 </div>
                 <div className = 'pool-funds-modal'>
+
                     <Link to='/wallet'>
                     <div className = 'closeIcon' tabIndex = '1'>
                       <img src = {'images/optimizings/close-icon.png'} />
@@ -73,14 +66,14 @@ export default class PoolingFromCard extends React.Component{
                     <div className ='pool-header'>
                          Pool my funds
                     </div>
-                    <div className='pool-subheader'>Select accounts from which you want to pool your funds</div>
+                    <div className='pool-subheader'>Select accounts to which you want to pool your funds</div>
                   <div className='row'>
                   {this.state.debitData.map((val,i) =>{
 
                     return(
                       !this.state['card'+i] ?
 
-                      <div className='pool-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,i,val)}>
+                      <div className='pool-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,i)}>
                           <div>
                               <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
                             </div>
