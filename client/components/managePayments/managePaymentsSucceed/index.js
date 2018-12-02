@@ -29,8 +29,7 @@ export default class ConfirmManagePayment extends React.Component{
   }
   onNextClick = () => {
 
-
-
+    this.props.history.push('/wallet');
     console.log('Next');
   }
 
