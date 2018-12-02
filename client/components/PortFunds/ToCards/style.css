@@ -1,0 +1,86 @@
+.port-funds-modal{
+    width: 1145px;
+    height: 700px;
+    border-radius: 9px;
+    background-color: #ffffff;
+    margin-left: 4%;
+    margin-top: 20px;
+    padding-left: 200px;
+    padding-right: 186px;
+}
+
+.port-header{
+    width: 203px;
+    height: 36px;
+    font-family: Open Sans;
+    font-size: 26px;
+    font-weight: 300;
+    text-align: left;
+    color: #000000;
+}
+
+.port-subheader{
+    width: 429px;
+    height: 44px;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+    color: #ada5a5;
+}
+.port-card{
+    margin-top: 30px;
+    width: 200px;
+    height: 280px;
+    border-radius: 9px;
+    border: 1px solid #c4c6cd;
+    background-color: rgba(196, 198, 205, 0.08);
+}
+.port-bankName{
+    height: 27px;
+    font-family: Open Sans;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    color: #4a4a4a;
+    padding-left: 16px;
+}
+
+.port-aer_subscript{
+    height: 22px;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    color: #2d8259;
+    padding-left: 16px;
+}
+
+.port-balance{
+  width: 120px;
+  height: 19px;
+  font-family: Open Sans;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: left;
+  color: #ada5a5;
+  padding-left: 16px;
+}
+
+.port-amount{
+    height: 41px;
+    font-family: Open Sans;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+    color: #4a4a4a;
+    padding-left: 16px;
+}
+
+.port-line {
+    margin-top: 70px;
+    width: 761px;
+    height: 2px;
+    opacity: 0.4;
+    background-color: #ada5a5;
+  }

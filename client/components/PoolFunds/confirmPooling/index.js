@@ -54,8 +54,6 @@ export default class PoolingFromCard extends React.Component{
   onNextClick = () => {
     
       this.props.history.push('/poolingSucceed');
-    
-
   }
 
     render(){
@@ -76,9 +74,9 @@ export default class PoolingFromCard extends React.Component{
                     </div>
                     </Link>
                     <div className ='pool-header'>
-                         Pool my funds
+                        Confirm
                     </div>
-                    <div className='pool-subheader'>Select accounts to which you want to pool your funds</div>
+                    <div className='pool-subheader'>Click 'Next' to pool your funds from</div>
                     <div style={{display:'flex',justifyContent:'flex-start',alignItems:'center',marginTop:'20px',marginBottom:'30px'}}>
                         <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
                             <div id="fromCard1" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>

@@ -52,8 +52,11 @@ export default class Rel extends React.Component{
   onNextClick = () => {
     if(this.state.value == 'pool'){
       this.props.history.push('/poolfrom');
-    }
-    console.log('Next');
+    }else if(this.state.value == 'port'){
+      this.props.history.push('/portfrom');
+    }else{
+      console.log('Next');
+    } 
   }
     render(){
         return(
