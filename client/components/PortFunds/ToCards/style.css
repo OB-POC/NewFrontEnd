@@ -36,6 +36,26 @@
     border: 1px solid #c4c6cd;
     background-color: rgba(196, 198, 205, 0.08);
 }
+
+.lbg-card{
+    margin-top: 125px;
+    height: 80px;
+    width: 280px;
+    border-radius: 9px;
+    border: 1px solid #c4c6cd;
+    background-color: rgba(196, 198, 205, 0.08);
+}
+
+.lbg-text{
+    height: 27px;
+    font-family: Open Sans;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    color: #4a4a4a;
+    padding-left: 16px;
+}
+
 .port-bankName{
     height: 27px;
     font-family: Open Sans;
