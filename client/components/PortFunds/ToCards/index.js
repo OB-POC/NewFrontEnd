@@ -43,6 +43,10 @@ export default class PortingToCard extends React.Component{
     ['card'+i] : !this.state['card'+i]
   })
 }
+
+lbgCardClick = () => {
+this.props.history.push('/portingSucceed');
+}
   render(){
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
@@ -129,7 +133,13 @@ export default class PortingToCard extends React.Component{
                        </div>
 
                     )
-                  })}
+                  })} 
+                    <div className='lbg-card' style={{marginRight:'30px'}} onClick = {this.lbgCardClick.bind(this)}>
+                    <center className='lbg-text'>or</center>
+                         <div className='lbg-text'>
+                        Port to a new LBG Account
+                        </div>
+                       </div>
                      </div>
                      <div className='port-line'></div>
                      <div className = "flex-container">

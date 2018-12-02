@@ -27,9 +27,9 @@ export default class PoolingFromCard extends React.Component{
       value: ''
     })
   }
-  onNextClick = () => {
+  onDone = () => {
   
-      this.props.history.push('/confirmPool');
+      this.props.history.push('/wallet');
     
     console.log('Next');
   }
@@ -60,7 +60,7 @@ export default class PoolingFromCard extends React.Component{
                      </div>
                      <div className='pool-line'></div>
                      <div className = "flex-container-btn">
-                      <div className="flex-item-next-btn" onClick = {this.onNextClick}>DONE</div>
+                      <div className="flex-item-next-btn" onClick = {this.onDone}>DONE</div>
                     </div>
                 </div>            
             </div>
