@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.css';
+// import './style.css';
 import {Link} from 'react-router-dom';
 import Header from '../../headernew'
 import Sidebar from '../../sidebar'
 
-export default class ConfirmManagePayment extends React.Component{
+export default class PortingSucceed extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -22,16 +22,9 @@ export default class ConfirmManagePayment extends React.Component{
       value: ''
     })
   }
-  onPreviousClick = () => {
-    this.setState({
-      value: ''
-    })
-  }
-  onNextClick = () => {
-  
-   
-    
-    console.log('Next');
+ 
+  onDone = () => {
+    this.props.history.push('/wallet');
   }
 
     render(){
@@ -53,14 +46,17 @@ export default class ConfirmManagePayment extends React.Component{
                     </div>
                     </Link>
                      <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-                         <img src={'../../../images/hurray.png'} style={{height:'168px',width:'244px',marginTop:'100px'}}/>
+                         <img src={'../../../images/hurray.png'} style={{height:'168px',width:'244px'}}/>
                      </div>
                      <div>
-                         <div className='success-text' style={{marginTop:'60px'}}>£ 11,900 has been transferred successfully to your RBS account !</div>
+                     <div className='success-text' style={{ width:'761px',marginTop:'20px',fontFamily: 'Open Sans',fontSize: '26px',textAlign: 'center',color:' #ffffff'}}>
+                          Congratulations Alice</div>
+                         <div className='success-text'>Your accounts have been ported to new LBG account!</div>
                      </div>
-                     <div className='pool-line'></div>
+                     <img src={'../../../images/Banners/PortSuccessbanner.png'} style={{height:'240px',width:'720px'}}/>
+                     <div className='pool-line' style={{marginTop:'0px'}}></div>
                      <div className = "flex-container-btn">
-                      <div className="flex-item-next-btn" onClick = {this.onNextClick}>DONE</div>
+                      <div className="flex-item-next-btn" onClick = {this.onDone}>DONE</div>
                     </div>
                 </div>            
             </div>

@@ -74,7 +74,7 @@ export default class PortingFromCard extends React.Component{
                     <div className ='port-header'>
                          Port my funds
                     </div>
-                    <div className='port-subheader'>Select accounts from which you want to port your funds</div>
+                    <div className='port-subheader'>Select which account(s) you want to port</div>
                   <div className='row'>
                   {this.state.debitData.map((val,i) =>{
 
