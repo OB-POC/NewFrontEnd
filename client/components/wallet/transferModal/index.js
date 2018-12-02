@@ -20,9 +20,13 @@ export default class CustomModal extends React.Component{
         },()=>{
 
                 console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
+
                 this.props.siSuggest.senders.map(function(val,i){
                 this.setState((prevState,props)=>{
+                    console.log(document.getElementById('element-'+i))
                 let lineVar1 = new LeaderLine(document.getElementById('element-'+i),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
+                document.querySelector(".leader-line").style['z-index'] = '1000';
+                
                 // let lineVar2 = new LeaderLine(document.getElementById('fromCard2'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
 
                 let linesArr = []
@@ -69,7 +73,7 @@ export default class CustomModal extends React.Component{
             <div style={{display:'flex',justifyContent:'flex-start',alignItems:'center',marginTop:'20px',marginBottom:'30px'}}>
                 <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
                 {this.props.siSuggest.senders.map((val,i) =>{
-                    console.log(val);
+                    console.log(val,i);
                 return(
                     <div id={'element-'+i} className='from-card1' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
                         <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
