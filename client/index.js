@@ -13,6 +13,7 @@ import PoolingFromCard from './components/PoolFunds/FromCards/index';
 import PoolingToCard from './components/PoolFunds/ToCards';
 import PortingFromCard from './components/PortFunds/FromCards';
 import PortingToCard from './components/PortFunds/ToCards';
+import ConfirmPorting from './components/PortFunds/confirmPorting/index'
 import ConfirmPooling from './components/PoolFunds/confirmPooling/index'
 import PoolingSucceed from './components/PoolFunds/poolingSucceed/index'
 import ManagePayments from './components/managePayments/managedPayments/index'
@@ -33,6 +34,7 @@ render(
     <Route exact path='/portfrom' component={PortingFromCard} />
     <Route exact path='/portto' component={PortingToCard} />
     <Route exact path='/confirmPool' component={ConfirmPooling} />
+    <Route exact path='/confirmPort' component={ConfirmPorting} />
     <Route exact path='/poolingSucceed' component={PoolingSucceed} />
     <Route exact path='/si' component={ManagePayments} />
     <Route exact path='/managePaymentsSucceed' component={ManagePaymentsSucceed} />

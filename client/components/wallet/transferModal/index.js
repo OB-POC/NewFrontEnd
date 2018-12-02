@@ -7,7 +7,7 @@ export default class CustomModal extends React.Component{
     constructor(props){
       super(props);
       this.state = {
-
+        linesArr : []
         }
 
     }
@@ -20,20 +20,21 @@ export default class CustomModal extends React.Component{
         },()=>{
 
                 console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
+                this.props.siSuggest.senders.map(function(val,i){
                 this.setState((prevState,props)=>{
-                    let lineVar1 = new LeaderLine(document.getElementById('fromCard1'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
-                    let lineVar2 = new LeaderLine(document.getElementById('fromCard2'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
+                let lineVar1 = new LeaderLine(document.getElementById('element-'+i),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
+                // let lineVar2 = new LeaderLine(document.getElementById('fromCard2'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
 
-                    let linesArr = []
-                    linesArr.push(lineVar1)
-                    linesArr.push(lineVar2)
+                let linesArr = []
+                linesArr.push(lineVar1)
+                // linesArr.push(lineVar2)
 
-                    return {
-                        linesArr : linesArr
-                    }
-
-                })
+                return {
+                    linesArr : linesArr
+                }
+            })
         })
+      })
     }
     handleClose = () => {
         this.setState((prevState,props)=>({
@@ -67,22 +68,22 @@ export default class CustomModal extends React.Component{
             <p className="transfer-funds-modal-message">Allow Optima to transfer £ 100 from Munzo account to RBS?</p>
             <div style={{display:'flex',justifyContent:'flex-start',alignItems:'center',marginTop:'20px',marginBottom:'30px'}}>
                 <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
-                    <div id="fromCard1" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
+                {this.props.siSuggest.senders.map((val,i) =>{
+                    console.log(val);
+                return(
+                    <div id={'element-'+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
                         <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
-                        <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
-                        <p className='amount-transfer'>£ 100</p>
+                        <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{val.senderBank}</p>
+                        <p className='amount-transfer'>£ {val.amount}</p>
                     </div>
-                    <div id="fromCard2" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
+                    )}
+                )}
+                </div>
+                    <div  id="toCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
                         <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
-                        <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
-                        <p className='amount-transfer'>£ 100</p>
+                        <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{this.props.siSuggest.receiver.receiverBank}</p>
                     </div>
-                </div>
-                <div  id="toCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
-                    <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
-                    <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
-                    <p className='amount-transfer'>£ 100</p>
-                </div>
+
             </div>
             <div  style={{display:'flex',justifyContent:'flex-start'}}>
                 <SuccessModal />

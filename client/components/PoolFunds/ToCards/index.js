@@ -32,8 +32,8 @@ export default class PoolingToCard extends React.Component{
     this.props.history.push({
     pathname: '/confirmPool',
     state : {fromCards : this.props.location.state.fromCards,
-             toCards : this.props.location.state.cardData   }
-  }); 
+             toCards : this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]})   }
+  });
   }
 
   cardClick = (i) => {

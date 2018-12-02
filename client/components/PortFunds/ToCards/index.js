@@ -15,7 +15,7 @@ export default class PortingToCard extends React.Component{
       accSumary: {}
     }
   }
-  
+
   componentDidMount(){
     console.log(this.props.location.state.cardData);
      this.setState({debitData : this.props.location.state.cardData});
@@ -31,10 +31,10 @@ export default class PortingToCard extends React.Component{
 
   onNextClick = () => {
     this.props.history.push({
-    pathname: '/confirmPool',
+    pathname: '/confirmPort',
     state : {fromCards : this.props.location.state.fromCards,
-             toCards : this.props.location.state.cardData   }
-  }); 
+             toCards : this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]})   }
+  });
   }
 
   cardClick = (i) => {
