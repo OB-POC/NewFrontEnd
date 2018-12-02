@@ -29,7 +29,7 @@ export default class PoolingFromCard extends React.Component{
   }
   onNextClick = () => {
   
-      this.props.history.push('/confirmPool');
+   
     
     console.log('Next');
   }
