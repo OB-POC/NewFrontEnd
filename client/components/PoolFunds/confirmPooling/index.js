@@ -17,11 +17,19 @@ export default class PoolingFromCard extends React.Component{
   }
 
   componentDidMount(){
+  
+    this.setState((prevState,props)=>{
+      return {
+        fromCards:this.props.location.state.fromCards,
+        toCards : this.props.location.state.toCards
+      }
+    },()=>{
       this.state.fromCards.map(function(val,i){
         this.setState((prevState,props)=>{
         let lineVar1 = new LeaderLine(document.getElementById('element-'+i),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
         // let lineVar2 = new LeaderLine(document.getElementById('fromCard2'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
-
+        document.querySelector(".leader-line").style['z-index'] = '1000';
+        
         let linesArr = []
         linesArr.push(lineVar1)
         // linesArr.push(lineVar2)
@@ -30,6 +38,7 @@ export default class PoolingFromCard extends React.Component{
             linesArr : linesArr
         }
     })
+    }.bind(this))
     })
   }
 
@@ -38,8 +47,8 @@ export default class PoolingFromCard extends React.Component{
     lines.map(function(data,i){
         data.remove()
     })
-    this.setState({fromCards : this.props.location.state.fromCards});
-    this.setState({toCards : this.props.location.state.toCards});
+    document.querySelector(".leader-line").remove();
+   
   }
 
   onCancelClick = () => {
@@ -93,7 +102,7 @@ export default class PoolingFromCard extends React.Component{
                         {this.props.location.state.toCards.map((bank, i) => {
                           const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].availableBalance + acc),0) + bank.accounts[0].availableBalance
                           return(
-                            <div  id={"toCard"+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
+                            <div  id="toCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
                                 <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{bank.bankName}</p>
                                 <p className='amount-transfer'>£ {amount}</p>
