@@ -26,7 +26,7 @@ export default class CustomModal extends React.Component{
     width: '93%',
     margin: 'auto'}}>
             <p className = 'successfullText'>Funds transferred successfully!</p>
-            <div></div>
+            <div style = {{}}>OK</div>
             </div>
             <div style = {{backgroundImage :'url("../../../../images/hazzle.png")',backgroundRepeat:'round',    height: '54%',
     width: '726px'}}>
