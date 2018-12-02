@@ -33,7 +33,7 @@ export default class CustomModal extends React.Component{
                     linesArr : linesArr
                 }
             })
-        })
+        }.bind(this))
       })
     }
     handleClose = () => {
@@ -71,7 +71,7 @@ export default class CustomModal extends React.Component{
                 {this.props.siSuggest.senders.map((val,i) =>{
                     console.log(val);
                 return(
-                    <div id={'element-'+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
+                    <div id={'element-'+i} className='from-card1' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
                         <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                         <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{val.senderBank}</p>
                         <p className='amount-transfer'>£ {val.amount}</p>
@@ -79,7 +79,7 @@ export default class CustomModal extends React.Component{
                     )}
                 )}
                 </div>
-                    <div  id="toCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
+                    <div  id="toCard" className='to-card1' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
                         <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                         <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{this.props.siSuggest.receiver.receiverBank}</p>
                     </div>

@@ -5,9 +5,9 @@
     text-align: left;
     color: #000000;
   }
-  
+
   .transfer-funds-modal-message {
-    
+
     font-family: "Open Sans";
     font-size: 15px;
     font-weight: bold;
@@ -27,7 +27,7 @@
         background-color: #00402e;
   }
   .yes-text-style {
-    
+
     font-family: "Open Sans";
     font-size: 14px;
     font-weight: bold;
@@ -36,7 +36,7 @@
     line-height: normal;
     letter-spacing: 1.5px;
     text-align: left;
-    
+
   }
 
   .cancel-button {
@@ -45,14 +45,14 @@
     border-radius: 3px;
   }
 
-  .from-card {
-    width: 310px;
+  .from-card1 {
+    width: 260px;
     height: 77px;
     border-radius: 6px;
     background-color: #ffffff;
   }
 
-  .to-card {
+  .to-card1 {
     width: 206px;
     height: 77px;
     border-radius: 6px;
@@ -60,7 +60,7 @@
   }
 
   .bank-name {
-    
+
     font-family: "Open Sans";
     font-size: 20px;
     font-weight: bold;
@@ -73,7 +73,7 @@
   }
 
   .amount-transfer {
-    
+
     font-family: "Open Sans";
     font-size: 20px;
     font-weight: bold;
