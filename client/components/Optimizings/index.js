@@ -19,7 +19,7 @@ export default class Rel extends React.Component{
     }
   }
   componentWillMount() {
-     //  var token = sessionStorage.getItem("token");
+      var token = sessionStorage.getItem("token");
      //  Services.totalBalancesCall(token, function(data){
      //      this.setState({accSumary : data});
      //      console.log(data)
@@ -32,11 +32,12 @@ export default class Rel extends React.Component{
      // }.bind(this),function(err){
      //     console.log(err);
      // })
-     //  Services.debitCall(token,function(data){
-     //      this.setState({debitData : data.banks});
-     //  }.bind(this),function(err){
-     //      console.log(err);
-     //  })
+     Services.getSISuggestions(token, function(data){
+         this.setState({siSuggest : data});
+         console.log(data, "getSI")
+    }.bind(this),function(err){
+        console.log(err);
+    })
   }
   handleChange = (e, { value }) => this.setState({ value })
   onCancelClick = () => {
@@ -58,7 +59,7 @@ export default class Rel extends React.Component{
     else if(this.state.value == 'advice'){
       this.props.history.push('/financialAdvice');
     }else if(this.state.value == 'si'){
-      this.props.history.push('/si')
+      this.props.history.push({pathname: '/si', state: this.state.siSuggest})
     }else{
       console.log('Next');
     }
