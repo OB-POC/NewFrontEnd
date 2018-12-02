@@ -53,7 +53,7 @@ export default class PoolingFromCard extends React.Component{
     })
   }
   onNextClick = () => {
-      this.props.history.push('/poolingSucceed');
+      this.props.history.push('/portingSucceed');
   }
 
     render(){
