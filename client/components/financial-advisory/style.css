@@ -1,0 +1,245 @@
+.financialAdvisory{
+  width: 1145px;
+  height: 788.3px;
+  border-radius: 9px;
+  margin-left: 4%;
+  margin-top: 20px;
+  padding-left: 200px;
+  padding-right: 186px;
+  width: 1145px;
+  height: 788.3px;
+  border-radius: 9px;
+  background-color: #2178b0;
+}
+.optimizingsModalHeader{
+  width: 413px;
+  height: 36px;
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin-bottom: 10px;
+}
+.closeIcon{
+  margin-left: 858px;
+  padding-top: 35px;
+  color: white;
+}
+.option{
+  width: 760px;
+  height: 90px;
+  border-radius: 9px;
+  background-color: rgba(196, 198, 205, 0.08);
+  margin-top: 20px;
+}
+.optionHeader{
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  padding-top: 20px;
+  padding-left: 100px;
+}
+.radioStyle{
+  margin-left: 44px;
+  margin-top: -8px;
+}
+.optionMeta{
+  padding-left: 100px;
+  margin-top: -25px;
+  font-family: Open Sans;
+  font-size: 14px;
+  color: #6d6d6d;
+}
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.flex-item{
+  width: 139px;
+  height: 42px;
+  border-radius: 3px;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-align: left;
+  color: #4a4a4a;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.flex-item1{
+  width: 139px;
+  height: 42px;
+  border-radius: 3px;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-align: left;
+  color: #ffffff;
+  background-color: #00402e;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cardFinacialDetail {
+  width: 989px;
+  height: 189px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  position: relative;
+  left: -120px;
+  margin-top: 100px;
+}
+
+.cardDetails {
+  width: 518px;
+  height: 149px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  position: relative;
+  float: right;
+  top: -27%;
+  right: 2%;
+}
+
+.adviseImg
+{
+  position: relative;
+  left: -172px;
+}
+
+.advisoryMsg {
+  width: 447px;
+  height: 108px;
+  font-family: OpenSans;
+  font-size: 26px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+  top: -34%;
+  left: -10%;
+  position: relative;
+}
+.text-style-1 {
+  font-weight: 600;
+}
+
+.weeklysaving {
+  width: 380px;
+  height: 72px;
+  font-family: OpenSans;
+  font-size: 26px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  position: relative;
+  left: 3%;
+  top: 33%;
+}
+
+.seehow {
+  width: 154px;
+  height: 42px;
+  border-radius: 3px;
+  background-color: #0f5d90;
+  position: relative;
+  top: -34%;
+}
+
+.SEE-HOW {
+  width: 76px;
+  height: 19px;
+  font-family: OpenSans;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-align: left;
+  color: #ffffff;
+  position: relative;
+  left: 47px;
+  top: 10px;
+}
+
+.cashtype {
+  width: 154px;
+  height: 44px;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
+
+#income{
+  top: -35%;
+  left: 77%;
+  width: 18%;
+  position: relative;
+}
+
+#expenses{
+  top: -5%;
+  left: 43%;
+  width: 18%;
+  position: relative;
+}
+
+#availableCash{
+  top: 25%;
+  left: 11%;
+  width: 18%;
+  position: relative;
+}
+
+.amount {
+  width: 99px;
+  height: 33px;
+  font-family: OpenSans;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+}
