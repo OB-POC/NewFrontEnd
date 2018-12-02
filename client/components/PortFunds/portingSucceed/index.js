@@ -22,12 +22,14 @@ export default class PortingSucceed extends React.Component{
       value: ''
     })
   }
- 
+
   onDone = () => {
     this.props.history.push('/wallet');
   }
 
     render(){
+      const { bankName } = this.props.location.state
+
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -39,7 +41,7 @@ export default class PortingSucceed extends React.Component{
                 </div>
                 <div className = 'pool-funds-modal' style={{backgroundColor:'#2d8259'}}>
                 {/* style={{objectFit: 'contain',backgroundImage : 'url("./images/hurray.png")',backgroundRepeat:'round'}} */}
-               
+
                     <Link to='/wallet'>
                     <div className = 'closeIcon' tabIndex = '1'>
                       <img src = {'images/optimizings/close-icon.png'} style={{backgroundColor:'#2d8259'}} />
@@ -51,14 +53,14 @@ export default class PortingSucceed extends React.Component{
                      <div>
                      <div className='success-text' style={{ width:'761px',marginTop:'20px',fontFamily: 'Open Sans',fontSize: '26px',textAlign: 'center',color:' #ffffff'}}>
                           Congratulations Alice</div>
-                         <div className='success-text'>Your accounts have been ported to new LBG account!</div>
+                         <div className='success-text'>Your accounts have been ported to {bankName} account!</div>
                      </div>
                      <img src={'../../../images/Banners/PortSuccessbanner.png'} style={{height:'240px',width:'720px'}}/>
                      <div className='pool-line' style={{marginTop:'0px'}}></div>
                      <div className = "flex-container-btn">
                       <div className="flex-item-next-btn" onClick = {this.onDone}>DONE</div>
                     </div>
-                </div>            
+                </div>
             </div>
             </div>
             </div>

@@ -28,13 +28,14 @@ export default class PoolingFromCard extends React.Component{
     })
   }
   onDone = () => {
-  
+
       this.props.history.push('/wallet');
-    
+
     console.log('Next');
   }
 
     render(){
+      const { amount,bankName } = this.props.location.state
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -46,7 +47,7 @@ export default class PoolingFromCard extends React.Component{
                 </div>
                 <div className = 'pool-funds-modal' style={{backgroundColor:'#2d8259'}}>
                 {/* style={{objectFit: 'contain',backgroundImage : 'url("./images/hurray.png")',backgroundRepeat:'round'}} */}
-               
+
                     <Link to='/wallet'>
                     <div className = 'closeIcon' tabIndex = '1'>
                       <img src = {'images/optimizings/close-icon.png'} style={{backgroundColor:'#2d8259'}} />
@@ -56,13 +57,13 @@ export default class PoolingFromCard extends React.Component{
                          <img src={'../../../images/hurray.png'} style={{height:'168px',width:'244px',marginTop:'100px'}}/>
                      </div>
                      <div>
-                         <div className='success-text' style={{marginTop:'60px'}}>£ 11,900 has been transferred successfully to your RBS account !</div>
+                         <div className='success-text' style={{marginTop:'60px'}}>£ {amount} has been transferred successfully to your {bankName} account !</div>
                      </div>
                      <div className='pool-line'></div>
                      <div className = "flex-container-btn">
                       <div className="flex-item-next-btn" onClick = {this.onDone}>DONE</div>
                     </div>
-                </div>            
+                </div>
             </div>
             </div>
             </div>

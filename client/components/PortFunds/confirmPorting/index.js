@@ -17,7 +17,7 @@ export default class PoolingFromCard extends React.Component{
   }
 
   componentDidMount(){
-    
+
     this.setState((prevState,props)=>{
       return {
         fromCards:this.props.location.state.fromCards,
@@ -29,7 +29,7 @@ export default class PoolingFromCard extends React.Component{
         let lineVar1 = new LeaderLine(document.getElementById('element-'+i),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
         // let lineVar2 = new LeaderLine(document.getElementById('fromCard2'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
         document.querySelector(".leader-line").style['z-index'] = '1000';
-        
+
         let linesArr = []
         linesArr.push(lineVar1)
         // linesArr.push(lineVar2)
@@ -48,7 +48,7 @@ export default class PoolingFromCard extends React.Component{
         data.remove()
     })
     document.querySelector(".leader-line").remove();
-    
+
   }
 
   onCancelClick = () => {
@@ -62,7 +62,8 @@ export default class PoolingFromCard extends React.Component{
     })
   }
   onNextClick = () => {
-      this.props.history.push('/portingSucceed');
+      const bankName = this.props.location.state.toCards[0].bankName
+      this.props.history.push({pathname:'/portingSucceed',state:{bankName}});
   }
 
     render(){
@@ -85,14 +86,14 @@ export default class PoolingFromCard extends React.Component{
                     <div className ='pool-header'>
                         Confirm
                     </div>
-                    <div className='pool-subheader'>Click 'Next' to pool your funds from</div>
+                    <div className='pool-subheader'>Click 'Next' to port your Accounts </div>
                     <div style={{display:'flex',justifyContent:'flex-start',alignItems:'center',marginTop:'20px',marginBottom:'30px'}}>
                         <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
                         {this.props.location.state.fromCards.map((val,i) =>{
                             console.log(val);
                         return(
                             <div id={'element-'+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
-                                <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
+                                <img src = {"./images/cards/debit/"+val.bankName+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{val.bankName}</p>
                                 <p className='amount-transfer'>£ {val.accounts[0].availableBalance}</p>
                             </div>
@@ -100,11 +101,12 @@ export default class PoolingFromCard extends React.Component{
                         )}
                         </div>
                         {this.props.location.state.toCards.map((bank, i) => {
+                          const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].availableBalance + acc),0) + bank.accounts[0].availableBalance
                           return(
                             <div  id={"toCard"} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
-                                <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
+                                <img src = {"./images/cards/debit/"+bank.bankName+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{bank.bankName}</p>
-                                <p className='amount-transfer'>£ {bank.accounts[0].availableBalance}</p>
+                                <p className='amount-transfer'>£ {amount}</p>
                             </div>
                           )
                         })}
