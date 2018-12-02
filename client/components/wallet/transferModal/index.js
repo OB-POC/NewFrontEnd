@@ -1,17 +1,17 @@
 import React from 'react';
 import './style.css';
 import { Button, Header, Icon, Modal, Table, ListHeader } from 'semantic-ui-react'
+import Services from '../../../services'
 import SuccessModal from './success'
 export default class CustomModal extends React.Component{
     constructor(props){
       super(props);
       this.state = {
-        modalOpen: false,
-        linesArr : []
+
         }
-  
+
     }
-    
+
     handleOpen = () => {
         this.setState((prevState,props)=>{
             return {
@@ -20,13 +20,19 @@ export default class CustomModal extends React.Component{
         },()=>{
 
                 console.log('docs',document.getElementById('fromCard'),document.getElementById('toCard'))
-            this.setState((prevState,props)=>{
-                let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a'})
-                document.querySelector(".leader-line").style['z-index'] = '1000';
-                return {
-                    linesArr : prevState.linesArr.push(lineVar)
-                }
-            })
+                this.setState((prevState,props)=>{
+                    let lineVar1 = new LeaderLine(document.getElementById('fromCard1'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
+                    let lineVar2 = new LeaderLine(document.getElementById('fromCard2'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
+
+                    let linesArr = []
+                    linesArr.push(lineVar1)
+                    linesArr.push(lineVar2)
+
+                    return {
+                        linesArr : linesArr
+                    }
+
+                })
         })
     }
     handleClose = () => {
@@ -38,12 +44,12 @@ export default class CustomModal extends React.Component{
     }
 
     handleCloseParentModal = () => {
-        console.log('modal')    
+        console.log('modal')
         document.querySelector(".leader-line").remove();
         this.props.handleClose()
     }
       render(){
-        console.log('refs',this.refFromCard)
+        console.log(this.state, "state")
           return(
         <Modal
             trigger={
@@ -59,15 +65,23 @@ export default class CustomModal extends React.Component{
             <div><Icon name='close' onClick = {this.handleCloseParentModal}/></div>
             <p className = 'Payment-instructions'>Transfer Funds</p>
             <p className="transfer-funds-modal-message">Allow Optima to transfer £ 100 from Munzo account to RBS?</p>
-            <div style={{display:'flex',justifyContent:'flex-start',marginTop:'20px',marginBottom:'30px'}}>
-                <div  id="fromCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
+            <div style={{display:'flex',justifyContent:'flex-start',alignItems:'center',marginTop:'20px',marginBottom:'30px'}}>
+                <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
+                    <div id="fromCard1" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
+                        <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
+                        <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
+                        <p className='amount-transfer'>£ 100</p>
+                    </div>
+                    <div id="fromCard2" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
+                        <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
+                        <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
+                        <p className='amount-transfer'>£ 100</p>
+                    </div>
+                </div>
+                <div  id="toCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
                     <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                     <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>Monzo</p>
                     <p className='amount-transfer'>£ 100</p>
-                </div>
-                <div id="toCard" className='to-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
-                <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
-                <p className='bank-name'>Monzo</p>
                 </div>
             </div>
             <div  style={{display:'flex',justifyContent:'flex-start'}}>

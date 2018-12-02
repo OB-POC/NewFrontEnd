@@ -8,7 +8,7 @@ import Home from './components/home';
 import Login from './components/Login';
 import Payout from './components/Payout';
 import Wallet from './components/Wallet';
-import Advisory from './components/Wallet/advisory.js';
+import FinancialAdvice from './components/financial-advisory';
 import PoolingFromCard from './components/PoolFunds/FromCards/index';
 import PoolingToCard from './components/PoolFunds/ToCards';
 import PortingFromCard from './components/PortFunds/FromCards';
@@ -32,6 +32,7 @@ render(
     <Route exact path='/portto' component={PortingToCard} />
     <Route exact path='/confirmPool' component={ConfirmPooling} />
     <Route exact path='/poolingSucceed' component={PoolingSucceed} />
+    <Route exact path='/financialAdvice' component={FinancialAdvice} />
     </div>
 </HashRouter>
 </MuiThemeProvider>, document.getElementById('root'));

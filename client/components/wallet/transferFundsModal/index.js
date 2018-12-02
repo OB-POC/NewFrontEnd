@@ -111,7 +111,7 @@ export default class CustomModal extends React.Component{
           <p className = 'insufficientText'>You have insufficient funds in the RBS account to pay off the upcoming Standing instruction.<br/><br/>
 
 Do yo want Optima to transfer funds from the Monzo account to RBS account?</p>
-          <TransferModel handleClose={this.handleClose} />
+          <TransferModel handleClose={this.handleClose} siSuggest = {this.props.siSuggest}/>
 
           </div>
           </Modal>

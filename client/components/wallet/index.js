@@ -14,7 +14,8 @@ export default class Rel extends React.Component{
     this.state = {
       debitData : [],
       creditData : [],
-      accSumary: {}
+      accSumary: {},
+      siSuggest: {}
     }
   }
   componentWillMount() {
@@ -36,6 +37,12 @@ export default class Rel extends React.Component{
       }.bind(this),function(err){
           console.log(err);
       })
+      Services.getSISuggestions(token, function(data){
+          this.setState({siSuggest : data});
+          console.log(data, "getSI")
+     }.bind(this),function(err){
+         console.log(err);
+     })
   }
     render(){
       console.log(this.state.debitData, "Wallet");
@@ -52,7 +59,7 @@ export default class Rel extends React.Component{
                 <CardDeck style={{margin:'0px'}}>
                 {this.state.debitData.map((account, i) => {
                   return(
-                    <Card accounts = {this.state.debitData[i]} key={i}/>
+                    <Card siSuggest = {this.state.siSuggest} accounts = {this.state.debitData[i]} key={i}/>
                   )
                 }) }
                 </CardDeck>

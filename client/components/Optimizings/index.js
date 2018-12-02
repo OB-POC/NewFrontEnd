@@ -54,9 +54,12 @@ export default class Rel extends React.Component{
       this.props.history.push('/poolfrom');
     }else if(this.state.value == 'port'){
       this.props.history.push('/portfrom');
+    }
+    else if(this.state.value == 'advice'){
+      this.props.history.push('/financialAdvice');
     }else{
       console.log('Next');
-    } 
+    }
   }
     render(){
         return(
@@ -120,7 +123,7 @@ export default class Rel extends React.Component{
                     </div>
                     <div className = "flex-container">
                       <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
-                      <div className="flex-item1" style = {{marginLeft: '310px', display: (this.state.value != '') ? '' : 'none'}} 
+                      <div className="flex-item1" style = {{marginLeft: '310px', display: (this.state.value != '') ? '' : 'none'}}
                       onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>

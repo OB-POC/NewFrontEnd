@@ -73,6 +73,49 @@ totalBalancesCall: function(queryData,successCb,errorCb) {
     error : errorCb
   })
 },
+getSISuggestions: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"GET",
+    url : config.savingsUrl+"/si/suggestions",
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
+},
+postSISuggestions: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"POST",
+    url : config.savingsUrl+"/si/suggestions",
+    data: queryData.data,
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
+},
+poolFunds: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"POST",
+    url : config.savingsUrl+"/mergeFunds",
+    data: queryData.data,
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
+},
+portFunds: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"POST",
+    url : config.savingsUrl+"/mergeAccounts",
+    data: queryData.data,
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
+},
 
 // poolToCardsCall : function(queryData,successCb,errorCb){
 //   console.log(JSON.stringify(queryData.fromCard));

@@ -51,8 +51,8 @@ componentDidMount(){
                                      <div className='money-font' style={{marginTop:'5px'}}>
                                          £ {this.props.accounts.accounts[0].standingInst}
                                      </div>
-                                     <StandingInstModal standingInstructions = {this.props.accounts.accounts[0].standingInstructions} />
-                                     
+                                     <StandingInstModal siSuggest = {this.props.siSuggest} standingInstructions = {this.props.accounts.accounts[0].standingInstructions} />
+
                                  </div>
                              </div>
 
