@@ -52,7 +52,12 @@ export default class PoolingFromCard extends React.Component{
                       <img src = {'images/optimizings/close-icon.png'} />
                     </div>
                     </Link>
-
+                     <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+                         <img src={'../../../images/hurray.png'} style={{height:'168px',width:'244px',marginTop:'100px'}}/>
+                     </div>
+                     <div>
+                         <div className='success-text'>£ 11,900 has been transferred successfully to your RBS account !</div>
+                     </div>
                      <div className='pool-line'></div>
                      <div className = "flex-container-btn">
                       <div className="flex-item-next-btn" onClick = {this.onNextClick}>NEXT</div>
