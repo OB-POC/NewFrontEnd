@@ -1,7 +1,42 @@
 .successfullText {
   font-family: 'Open Sans';
-  font-size: 14px;
+  font-size: 29px;
   font-weight: 300;
   text-align: left;
   color: #efedea;
+}
+.transferOkButton{
+  width: 115px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #00402e;
+  font-family: 'Open Sans';
+ font-size: 14px;
+ letter-spacing: 1.5px;
+ text-align: left;
+ color: #ffffff;
+ text-align: center;
+ padding-top: 13px;
+ cursor: pointer;
+}
+.hazzleFreeText{
+font-family: 'Open Sans';
+font-size: 16px;
+line-height: 1.24;
+color: #ffffff;
+}
+
+.showMeHowButton {
+  width: 173px;
+  height: 34px;
+  padding: 12px 0 0 24px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  font-family: 'Open Sans';
+font-size: 12px;
+font-weight: bold;
+letter-spacing: 1.5px;
+color: #2d8259;
+cursor: pointer;
+
 }

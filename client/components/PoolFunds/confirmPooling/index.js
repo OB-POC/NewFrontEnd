@@ -53,7 +53,7 @@ export default class PoolingFromCard extends React.Component{
     })
   }
   onNextClick = () => {
-      this.props.history.push('/poolingSucceed');
+      this.props.history.push({pathname:'/poolingSucceed',state:this.props.location.state});
   }
 
     render(){
@@ -91,11 +91,12 @@ export default class PoolingFromCard extends React.Component{
                         )}
                         </div>
                         {this.props.location.state.toCards.map((bank, i) => {
+                          const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].availableBalance + acc),0) + bank.accounts[0].availableBalance
                           return(
                             <div  id={"toCard"+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
                                 <img src = {"./images/img-mozo.png"||"./images/cards/debit/"+{}+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{bank.bankName}</p>
-                                <p className='amount-transfer'>£ {bank.accounts[0].availableBalance}</p>
+                                <p className='amount-transfer'>£ {amount}</p>
                             </div>
                           )
                         })}
