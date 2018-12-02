@@ -15,33 +15,34 @@ export default class PortingToCard extends React.Component{
       accSumary: {}
     }
   }
+  
   componentDidMount(){
-    var token = sessionStorage.getItem("token");
-    Services.debitCall(token,function(data){
-         this.setState({debitData : data.banks});
-         console.log(data.banks);
-     }.bind(this),function(err){
-         console.log(err);
-     })
+    console.log(this.props.location.state.cardData);
+     this.setState({debitData : this.props.location.state.cardData});
   }
+
+  handleChange = (e, { value }) => this.setState({ value })
 
   onCancelClick = () => {
     this.setState({
       value: ''
     })
   }
-  
+
   onNextClick = () => {
-    console.log('Next');
+    this.props.history.push({
+    pathname: '/confirmPool',
+    state : {fromCards : this.props.location.state.fromCards,
+             toCards : this.props.location.state.cardData   }
+  }); 
   }
 
   cardClick = (i) => {
-    console.log(i);
-    this.setState({
+  console.log(i);
+  this.setState({
     ['card'+i] : !this.state['card'+i]
-    })
-  }
-
+  })
+}
   render(){
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>

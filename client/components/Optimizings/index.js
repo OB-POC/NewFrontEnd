@@ -57,6 +57,8 @@ export default class Rel extends React.Component{
     }
     else if(this.state.value == 'advice'){
       this.props.history.push('/financialAdvice');
+    }else if(this.state.value == 'si'){
+      this.props.history.push('/si')
     }else{
       console.log('Next');
     }

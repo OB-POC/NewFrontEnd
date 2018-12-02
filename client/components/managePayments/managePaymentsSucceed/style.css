@@ -23,10 +23,10 @@
     text-align: left;
     color: #ffffff;
     background-color: #00402e;
-    border: 1px solid #e1e1e1;
     text-align: center;
     padding: 10px;
     cursor: pointer;
+    border : none
   }
 
   .flex-container-btn{

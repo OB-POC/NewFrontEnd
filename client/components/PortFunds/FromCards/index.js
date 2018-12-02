@@ -11,7 +11,7 @@ export default class PortingFromCard extends React.Component{
     this.state = {
       modalOpen: true,
       debitData : [],
-      creditData : [],
+      cardData : [],
       accSumary: {}
     }
   }
@@ -33,15 +33,28 @@ export default class PortingFromCard extends React.Component{
     })
   }
   onNextClick = () => {
-      this.props.history.push('/portto');
-   
-  }
-cardClick = (i) => {
-  console.log(i);
-  this.setState({
-    ['card'+i] : !this.state['card'+i]
-  })
-}
+    console.log(this.state)
+      var notSelected = this.state.debitData.filter((val,ind)=> {return !this.state.cardData.includes(ind)})
+      var selected = this.state.debitData.filter((val,ind)=> {return this.state.cardData.includes(ind)})
+      this.props.history.push({
+      pathname: '/portto',
+      state : {cardData : notSelected,
+      fromCards : selected}
+    }); 
+    }
+  
+    cardClick = (i) => { 
+      this.setState((prevState)=>{
+        if(prevState.cardData.includes(i))
+          prevState.cardData.splice(prevState.cardData.indexOf(i),1)
+         else{
+          prevState.cardData.push(i)
+         } 
+        return {
+      ['card'+i] : !this.state['card'+i],
+      cardData : prevState.cardData
+      }})
+    }
     render(){
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
