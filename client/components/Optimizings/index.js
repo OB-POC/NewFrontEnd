@@ -54,6 +54,8 @@ export default class Rel extends React.Component{
       this.props.history.push('/poolfrom');
     }else if(this.state.value == 'port'){
       this.props.history.push('/portfrom');
+    }else if(this.state.value == 'si'){
+      this.props.history.push('/si')
     }else{
       console.log('Next');
     } 
