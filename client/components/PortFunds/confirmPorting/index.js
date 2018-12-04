@@ -3,6 +3,7 @@ import './style.css';
 import {Link} from 'react-router-dom';
 import Header from '../../headernew'
 import Sidebar from '../../sidebar'
+import Services from '../../../services'
 
 export default class PoolingFromCard extends React.Component{
   constructor(props){
@@ -63,6 +64,20 @@ export default class PoolingFromCard extends React.Component{
   }
   onNextClick = () => {
       const bankName = this.props.location.state.toCards[0].bankName
+      var token = sessionStorage.getItem("token");
+      var obj = {senders: [], receiver: {}}
+      this.props.location.state.fromCards.forEach((bank)=>{
+        obj['senders'].push({senderBank: bank.bankName})
+      })
+      obj['receiver'] = {receiverBank: this.props.location.state.toCards[0].bankName}
+      var qData = {token: token,
+        data: obj
+      }
+      Services.portFunds(qData, function(data){
+          console.log(data)
+     }.bind(this),function(err){
+         console.log(err);
+     })
       this.props.history.push({pathname:'/portingSucceed',state:{bankName}});
   }
 

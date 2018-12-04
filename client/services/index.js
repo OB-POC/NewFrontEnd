@@ -84,11 +84,12 @@ getSISuggestions: function(queryData,successCb,errorCb) {
   })
 },
 postSISuggestions: function(queryData,successCb,errorCb) {
+  console.log(queryData.data, "data..s");
   $.ajax({
     type :"POST",
     url : config.savingsUrl+"/si/suggestions",
-    data: queryData.data,
-    headers: {"x-access-token": queryData},
+    data: JSON.stringify(queryData.data),
+    headers: {"x-access-token": queryData.token},
     contentType : "application/json",
     success : successCb,
     error : errorCb
@@ -98,8 +99,8 @@ poolFunds: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"POST",
     url : config.savingsUrl+"/mergeFunds",
-    data: queryData.data,
-    headers: {"x-access-token": queryData},
+    data: JSON.stringify(queryData.data),
+    headers: {"x-access-token": queryData.token},
     contentType : "application/json",
     success : successCb,
     error : errorCb
@@ -109,8 +110,8 @@ portFunds: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"POST",
     url : config.savingsUrl+"/mergeAccounts",
-    data: queryData.data,
-    headers: {"x-access-token": queryData},
+    data: JSON.stringify(queryData.data),
+    headers: {"x-access-token": queryData.token},
     contentType : "application/json",
     success : successCb,
     error : errorCb

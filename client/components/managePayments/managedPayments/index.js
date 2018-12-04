@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import {Link} from 'react-router-dom';
-
+import Services from '../../../services'
 import { Button, Icon, Modal, Radio} from 'semantic-ui-react'
 import Header from '../../headernew'
 import Sidebar from '../../sidebar'
@@ -18,40 +18,6 @@ export default class Rel extends React.Component{
       linesArr : []
     }
   }
-  componentWillMount() {
-     //  var token = sessionStorage.getItem("token");
-     //  Services.totalBalancesCall(token, function(data){
-     //      this.setState({accSumary : data});
-     //      console.log(data)
-     // }.bind(this),function(err){
-     //     console.log(err);
-     // })
-     //  Services.creditCall(token, function(data){
-     //      this.setState({creditData : data.banks});
-     //
-     // }.bind(this),function(err){
-     //     console.log(err);
-     // })
-     //  Services.debitCall(token,function(data){
-     //      this.setState({debitData : data.banks});
-     //  }.bind(this),function(err){
-     //      console.log(err);
-     //  })
-  }
-
-  // componentCleanUp = () => {
-
-  //   console.log('component clean up called')
-  //   var lines = this.state.linesArr
-  //   console.log('state1',this.state)
-  //   lines.map(function(data,i){
-  //       data.remove()
-  //   })
-  //   this.setState((prevState,props)=>({
-  //     linesArr:[]
-  //   }))
-  // }
-
   componentDidMount(){
     // window.addEventListener('beforeunload', this.componentCleanup);
     let lineVar = new LeaderLine(document.getElementById("fromCard"),document.getElementById("toCard"),{path:'straight',color:'#4a4a4a'})
@@ -92,11 +58,20 @@ export default class Rel extends React.Component{
     })
   }
   onNextClick = () => {
+    var token = sessionStorage.getItem("token");
+    var qData = {token: token,
+      data: this.props.location.state
+    }
+    Services.postSISuggestions(qData, function(data){
+        console.log(data)
+   }.bind(this),function(err){
+       console.log(err);
+   })
     this.props.history.push({pathname:'/managePaymentsSucceed',state:this.props.location.state})
   }
   handleChange = (e, { value }) => this.setState({ value })
     render(){
-      console.log(this.props.location.state);
+      console.log(this.props.location.state, "locProp");
           const {senders, receiver} = this.props.location.state
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
@@ -119,7 +94,7 @@ export default class Rel extends React.Component{
                     </div>
 
                     <div className='manage-funds-advice-text'>
-                    We’ve found that you have insufficient funds in the {receiver.receiverBank} account to pay off the upcoming Standing instruction. 
+                    We’ve found that you have insufficient funds in the {receiver.receiverBank} account to pay off the upcoming Standing instruction.
                                       <br/>
                     <br/>
                     We recommend transferring £ {senders[0].amount} from {senders[0].senderBank} acoount to {receiver.receiverBank} account.
