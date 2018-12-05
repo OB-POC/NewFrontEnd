@@ -55,7 +55,9 @@ export default class PortingSucceed extends React.Component{
                           Congratulations Alice</div>
                          <div className='success-text'>Your accounts have been ported to {bankName} account!</div>
                      </div>
+                     <Link to ="/financialAdvice">
                      <img src={'../../../images/Banners/PortSuccessbanner.png'} style={{height:'240px',width:'720px'}}/>
+                     </Link>
                      <div className='pool-line' style={{marginTop:'0px'}}></div>
                      <div className = "flex-container-btn">
                       <div className="flex-item-next-btn" onClick = {this.onDone}>DONE</div>

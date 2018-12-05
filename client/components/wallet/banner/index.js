@@ -21,11 +21,11 @@ export default class Rel extends React.Component{
             <div className = 'ill_accounts row' style={{backgroundImage : 'url("../../../../images/Banners/ill-accounts.png")',backgroundRepeat:'round',padding:'47px 18px',marginLeft:'0px'}}>
               <div className = 'col-4'>
               <p className = 'Total-Balance'>Total Balance</p>
-              <p className = 'amount'>£ {this.props.accSumary.totalAvailableDebitBalance}</p>
+              <p className = 'amount'>£ {this.props.amount}</p>
               </div>
               <div className = 'col-4'>
               <p className = 'Total-Balance'>Total Accounts</p>
-              <p className = 'amount'>{this.props.accSumary.noOfDebitAccounts}</p>
+              <p className = 'amount'>{this.props.accounts}</p>
               </div>
             </div>
         );

@@ -18,13 +18,13 @@ export default class Rel extends React.Component{
             <div className = 'banner-1' style={{display:'flex' ,backgroundImage: 'url("../../../../images/Banners/img-banner.png")',backgroundRepeat:'no-repeat'}}>
                 <div className="banner-col">
                   <span className = 'Savings-accounts' style ={{whiteSpace: 'nowrap',display: 'block'}}>Debit Accounts</span>
-                  <span className = 'layer'>{this.props.accSumary.noOfDebitAccounts}</span>
+                  <span className = 'layer'>{this.props.accounts}</span>
                   <span className = 'Credit-Accounts' style ={{whiteSpace: 'nowrap'}}>Credit Accounts</span>
                   <span className = 'layer'>{this.props.accSumary.noOfCreditAccounts}</span>
                 </div>
                 <div  style = {{display:'flex',flexDirection:'column'}}>
                 <span className = 'Savings-accounts'  style ={{whiteSpace: 'nowrap'}}>Debit Balance</span>
-                <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableDebitBalance}</span>
+                <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.amount}</span>
                 <span className = 'Credit-Accounts'  style ={{whiteSpace: 'nowrap'}}>Credit outstanding</span>
                 <span className = 'layer' style ={{whiteSpace: 'nowrap'}}>£ {this.props.accSumary.totalAvailableCreditBalance}</span>
                 </div>

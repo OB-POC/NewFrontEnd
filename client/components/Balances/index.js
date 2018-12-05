@@ -172,7 +172,8 @@ export default class Balance extends React.Component{
                    <div style={{display:'flex',flexDirection:'row'}}>
                        <div style={{display:'flex',flexDirection:'column'}}>
                            <div className='bank'>Available Balance</div>
-                           <div className='JP_Morgan_Chase'>£ {data1.availableBalance}</div>
+                           <div className='JP_Morgan_Chase'>£ {data1.balance - data1.standingInst - data1.minBalance > 0 ?
+                           data1.balance - data1.standingInst - data1.minBalance: 0}</div>
                        </div>
                    </div>
                </div>

@@ -26,12 +26,6 @@ export default class Rel extends React.Component{
      }.bind(this),function(err){
          console.log(err);
      })
-      Services.creditCall(token, function(data){
-          this.setState({creditData : data.banks});
-
-     }.bind(this),function(err){
-         console.log(err);
-     })
       Services.debitCall(token,function(data){
           this.setState({debitData : data.banks});
       }.bind(this),function(err){
@@ -45,7 +39,11 @@ export default class Rel extends React.Component{
      })
   }
     render(){
-      console.log(this.state.debitData, "Wallet");
+      let amount = 0
+      this.state.debitData.forEach((bank) => {
+        if(bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst > 0)
+        amount = amount + bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst
+      })
         return(
             <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -54,7 +52,7 @@ export default class Rel extends React.Component{
               <div className='main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%",paddingBottom:'20px'}}>
                 <div>
                 <h1 style = {{fontWeight: '300',marginTop:'20PX'}}>My Accounts</h1>
-                <Banner accSumary = {this.state.accSumary} totalAccounts = {this}/>
+                <Banner accounts = {this.state.debitData.length} amount = {amount} accSumary = {this.state.accSumary} totalAccounts = {this}/>
                 <center>
                 <CardDeck style={{margin:'0px'}}>
                 {this.state.debitData.map((account, i) => {

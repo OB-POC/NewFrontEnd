@@ -38,6 +38,11 @@ export default class Rel extends React.Component{
   }
     render(){
         console.log(this.state.debitData, "home")
+        let amount = 0
+        this.state.debitData.forEach((bank) => {
+          if(bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst > 0)
+          amount = amount + bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst
+        })
         return(
             <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -45,7 +50,7 @@ export default class Rel extends React.Component{
                 <Sidebar activeComponent = "home"/>
               <div className='row main-content' style = {{backgroundColor:"#f5f6fa",width:"94.5%"}}>
                 <div className='col-9' >
-                <Banner accSumary = {this.state.accSumary} history = {this.props.history}/>
+                <Banner accounts = {this.state.debitData.length} amount = {amount} accSumary = {this.state.accSumary} history = {this.props.history}/>
                 <Balance creditData = {this.state.creditData} history = {this.props.history}
                 debitData = {this.state.debitData}/>
                 </div>
