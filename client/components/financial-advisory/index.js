@@ -19,24 +19,24 @@ export default class FinancialAdvisory extends React.Component{
     }
   }
   componentWillMount() {
-     //  var token = sessionStorage.getItem("token");
-     //  Services.totalBalancesCall(token, function(data){
-     //      this.setState({accSumary : data});
-     //      console.log(data)
-     // }.bind(this),function(err){
-     //     console.log(err);
-     // })
+      var token = sessionStorage.getItem("token");
+      Services.totalBalancesCall(token, function(data){
+          this.setState({accSumary : data});
+          console.log(data)
+     }.bind(this),function(err){
+         console.log(err);
+     })
      //  Services.creditCall(token, function(data){
      //      this.setState({creditData : data.banks});
      //
      // }.bind(this),function(err){
      //     console.log(err);
      // })
-     //  Services.debitCall(token,function(data){
-     //      this.setState({debitData : data.banks});
-     //  }.bind(this),function(err){
-     //      console.log(err);
-     //  })
+      Services.debitCall(token,function(data){
+          this.setState({debitData : data.banks});
+      }.bind(this),function(err){
+          console.log(err);
+      })
   }
   handleChange = (e, { value }) => this.setState({ value })
   onCancelClick = () => {
@@ -56,6 +56,10 @@ export default class FinancialAdvisory extends React.Component{
     console.log('Next');
   }
     render(){
+      let amount = 0
+      this.state.debitData.forEach((bank) => {
+        amount = amount + bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst
+     });
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
             <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -78,7 +82,7 @@ export default class FinancialAdvisory extends React.Component{
                       <div className='cardDetails'>
                       <div id='availableCash' className='cashtype'>
                         Avaliable Cash
-                        <label className='amount'>£ 100</label>
+                        <label className='amount'>£ {amount}</label>
                       </div>
                       <div id='expenses' className='cashtype'>
                         Forecasted Expenses
