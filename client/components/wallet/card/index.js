@@ -19,7 +19,7 @@ componentDidMount(){
       console.log(this.props.accounts.accounts[0].standingInstructions, "interestRate");
       let account = this.props.accounts.accounts[0]
         return(
-          <div className='card-style' style = {{ backgroundColor:this.props.accounts.accounts[0].standingInstructions.find(val => !val.canClear)?'rgba(255, 93, 100, 0.18)':""}}>
+          <div className='card-style' style = {{ backgroundColor: account.balance - account.minBalance - account.standingInst < 0 ?'rgba(255, 93, 100, 0.18)':""}}>
                           <div>
                             <img src = {"./images/img-card.png"||"./images/cards/debit/"+this.props.accounts.bankName+"@3x.png"}style = {{ width: '314px',height: '194px',marginTop:'30px'}}/>
                           </div>

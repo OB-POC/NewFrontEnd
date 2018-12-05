@@ -117,7 +117,8 @@ lbgCardClick = () => {
                                            Available Balance
                                        </div>
                                        <div className='port-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst > 0 ?
+                                       val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst: 0}
                                        </div>
                                    </div>
                                 </div>
@@ -146,7 +147,8 @@ lbgCardClick = () => {
                                            Available Balance
                                        </div>
                                        <div className='port-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst > 0 ?
+                                       val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst: 0}
                                        </div>
                                    </div>
                                 </div>
@@ -194,7 +196,7 @@ lbgCardClick = () => {
                            <div className='row' style={{marginTop:'-20px',marginLeft:'0px',marginRight:'0px'}}>
                                <div className='col-8'>
                                <div className='port-bankName'>
-                                 Llyods (NEW) !!
+                                 Llyods
                                </div>
                                <div className='port-aer_subscript'>
                                   0.5 % AER

@@ -103,7 +103,8 @@ export default class PoolingFromCard extends React.Component{
                                            Available Balance
                                        </div>
                                        <div className='pool-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst > 0 ?
+                                          val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst: 0}
                                        </div>
                                    </div>
                                 </div>
@@ -132,7 +133,8 @@ export default class PoolingFromCard extends React.Component{
                                            Available Balance
                                        </div>
                                        <div className='pool-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst > 0 ?
+                                          val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst: 0}
                                        </div>
                                    </div>
                                 </div>
