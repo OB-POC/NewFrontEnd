@@ -48,6 +48,7 @@ export default class PoolingFromCard extends React.Component{
     lines.map(function(data,i){
         data.remove()
     })
+    if(document.querySelector(".leader-line"))
     document.querySelector(".leader-line").remove();
 
   }
@@ -63,7 +64,9 @@ export default class PoolingFromCard extends React.Component{
     })
   }
   onNextClick = () => {
-      const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].availableBalance + acc),0) + this.props.location.state.toCards[0].accounts[0].availableBalance
+      let account = this.props.location.state.toCards[0].accounts[0]
+      const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].balance - cur.accounts[0].minBalance - cur.accounts[0].standingInst + acc),0) +
+      account.balance - account.standingInst - account.minBalance
       const bankName = this.props.location.state.toCards[0].bankName
 
       var token = sessionStorage.getItem("token");
@@ -113,13 +116,14 @@ export default class PoolingFromCard extends React.Component{
                             <div id={'element-'+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
                                 <img src = {"./images/cards/debit/"+val.bankName+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{val.bankName}</p>
-                                <p className='amount-transfer'>£ {val.accounts[0].availableBalance}</p>
+                                <p className='amount-transfer'>£  {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}</p>
                             </div>
                             )}
                         )}
                         </div>
                         {this.props.location.state.toCards.map((bank, i) => {
-                          const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].availableBalance + acc),0) + bank.accounts[0].availableBalance
+                          const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].balance - cur.accounts[0].minBalance - cur.accounts[0].standingInst + acc),0) +
+                          bank.accounts[0].balance -  bank.accounts[0].minBalance -  bank.accounts[0].standingInst
                           return(
                             <div  id="toCard" className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
                                 <img src = {"./images/cards/debit/"+bank.bankName+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>

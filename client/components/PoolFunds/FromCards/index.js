@@ -38,16 +38,16 @@ export default class PoolingFromCard extends React.Component{
     pathname: '/poolto',
     state : {cardData : notSelected,
     fromCards : selected}
-  }); 
+  });
   }
 
-  cardClick = (i,data) => { 
+  cardClick = (i,data) => {
     this.setState((prevState)=>{
       if(prevState.cardData.includes(i))
         prevState.cardData.splice(prevState.cardData.indexOf(i),1)
        else{
         prevState.cardData.push(i)
-       } 
+       }
       return {
     ['card'+i] : !this.state['card'+i],
     cardData : prevState.cardData
@@ -55,6 +55,7 @@ export default class PoolingFromCard extends React.Component{
   }
 
     render(){
+      console.log(this.state.debitData,"debitData");
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
               <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -102,7 +103,7 @@ export default class PoolingFromCard extends React.Component{
                                            Available Balance
                                        </div>
                                        <div className='pool-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].availableBalance}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
                                        </div>
                                    </div>
                                 </div>
@@ -131,7 +132,7 @@ export default class PoolingFromCard extends React.Component{
                                            Available Balance
                                        </div>
                                        <div className='pool-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].availableBalance}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
                                        </div>
                                    </div>
                                 </div>

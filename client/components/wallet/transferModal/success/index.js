@@ -1,5 +1,8 @@
 import React from 'react';
 import './style.css';
+import Services from '../../../../services'
+import { Link } from 'react-router-dom'
+
 import { Button, Header, Icon, Modal, Table, ListHeader } from 'semantic-ui-react'
 
 export default class CustomModal extends React.Component{
@@ -14,11 +17,23 @@ export default class CustomModal extends React.Component{
     handleOkClick = () => this.setState({ showHazzleFreeModal: true })
     handleOpen = () => this.setState({ modalOpen: true })
     handleClose = () => this.setState({ modalOpen: false })
+    yesClick(){
+      var token = sessionStorage.getItem("token");
+      var dataObj = {
+        token: token,
+        data: this.props.siSuggest
+      }
+      Services.postSISuggestions(dataObj, function(data){
+          console.log(data, "postSI")
+     }.bind(this),function(err){
+         console.log(err);
+     })
+    }
       render(){
         console.log(this.props.transferFundsButton,"transferFundsButton...",this.props.children);
           return(
          <Modal
-            trigger={<div className='yes-button' style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'20px',cursor:'pointer'}}>
+            trigger={<div className='yes-button' tabIndex = '1' onClick = {this.yesClick.bind(this)} style={{display:'flex',justifyContent:'center',alignItems:'center',marginRight:'20px',cursor:'pointer'}}>
 <p className='yes-text-style' style={{color:'#FFFFFF'}}>YES</p>
 </div>}
             size='small'
@@ -39,7 +54,7 @@ export default class CustomModal extends React.Component{
                 <br/>
                 Let <strong> OPTIMA </strong> do it for you.
               </p>
-              <div className = 'showMeHowButton'> SHOW ME HOW <i className="fas fa-arrow-right"></i></div>
+              <Link to = '/home'><div className = 'showMeHowButton'> SHOW ME HOW <i className="fas fa-arrow-right"></i></div></Link>
               </div>
           </Modal>
           );

@@ -30,10 +30,31 @@ export default class PortingToCard extends React.Component{
   }
 
   onNextClick = () => {
+    let toCardss = this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]})
+    if(toCardss.length == 0){
+      toCardss = [{
+        "bankName": "LBG",
+        "bankId": "LLBBGG",
+        "accounts": [
+          {
+            "accountType": "SB",
+            "accountNumber": "XXXXXX XXXX2222",
+            "accountTitle": "Easy Saver",
+            "standingInst": 0,
+            "balance": 0,
+            "minBalance": 200,
+            "interestRate": 0.5,
+            "availableBalance": 0,
+            "automatedSITransations": false,
+            "standingInstructions": []
+          }
+        ]
+      }]
+    }
     this.props.history.push({
     pathname: '/confirmPort',
     state : {fromCards : this.props.location.state.fromCards,
-             toCards : this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]})   }
+             toCards : toCardss}
   });
   }
 
@@ -45,7 +66,7 @@ export default class PortingToCard extends React.Component{
 }
 
 lbgCardClick = () => {
-this.props.history.push('/portingSucceed');
+// this.props.history.push('/portingSucceed');
 }
   render(){
         return(
@@ -96,7 +117,7 @@ this.props.history.push('/portingSucceed');
                                            Available Balance
                                        </div>
                                        <div className='port-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].availableBalance}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
                                        </div>
                                    </div>
                                 </div>
@@ -125,7 +146,7 @@ this.props.history.push('/portingSucceed');
                                            Available Balance
                                        </div>
                                        <div className='port-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].availableBalance}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
                                        </div>
                                    </div>
                                 </div>
@@ -133,13 +154,67 @@ this.props.history.push('/portingSucceed');
                        </div>
 
                     )
-                  })} 
-                    <div className='lbg-card' style={{marginRight:'30px'}} onClick = {this.lbgCardClick.bind(this)}>
-                    <center className='lbg-text'>or</center>
-                         <div className='lbg-text'>
-                        Port to a new LBG Account
+                  })}
+                  {!this.state['card'+ this.state.debitData.length] ?
+
+                  <div className='port-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,this.state.debitData.length)}>
+                      <div>
+                          <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
                         </div>
-                       </div>
+                       <div>
+                           <div className='row' style={{marginTop:'-20px',marginLeft:'0px',marginRight:'0px'}}>
+                               <div className='col-8'>
+                               <div className='port-bankName'>
+                                 Llyods
+                               </div>
+                               <div className='port-aer_subscript'>
+                                 0.5 % AER
+                               </div>
+                               </div>
+                               <div className='col-8'/>
+                           </div>
+                           <div className='row' style={{marginTop:'28px',marginLeft:'0px',marginRight:'0px'}}>
+                               <div className='col-8' >
+                                   <div className='port-balance'>
+                                       Available Balance
+                                   </div>
+                                   <div className='port-amount' style={{marginTop:'5px'}}>
+                                   £ 0
+                                   </div>
+                               </div>
+                            </div>
+                      </div>
+                   </div>:
+                   <div className='port-card' tabIndex = "1" onClick = {this.cardClick.bind(this,this.state.debitData.length)} style={{ boxShadow: '0 14px 37px 0 rgba(0, 108, 77, 0.18)',backgroundColor:'rgba(0, 108, 77, 0.14)',marginRight:'30px'}}>
+                  <i className="fas fa-check-circle fa-lg float-right" style={{marginTop:'-5px',marginRight:'30px',color:'#2d8259'}}></i>
+                        <div>
+                          <img src = {"./images/img-card.png"} style = {{ width: '151px',height: '93px',margin:'23px'}}/>
+                        </div>
+                       <div>
+                           <div className='row' style={{marginTop:'-20px',marginLeft:'0px',marginRight:'0px'}}>
+                               <div className='col-8'>
+                               <div className='port-bankName'>
+                                 Llyods (NEW) !!
+                               </div>
+                               <div className='port-aer_subscript'>
+                                  0.5 % AER
+                               </div>
+                               </div>
+                               <div className='col-8'/>
+                           </div>
+                           <div className='row' style={{marginTop:'28px',marginLeft:'0px',marginRight:'0px'}}>
+                               <div className='col-8' >
+                                   <div className='port-balance'>
+                                       Available Balance
+                                   </div>
+                                   <div className='port-amount' style={{marginTop:'5px'}}>
+                                   £ 0
+                                   </div>
+                               </div>
+                            </div>
+                      </div>
+                   </div>
+                      }
                      </div>
                      <div className='port-line'></div>
                      <div className = "flex-container">

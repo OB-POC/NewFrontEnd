@@ -17,6 +17,7 @@ componentDidMount(){
     render(){
       console.log(this.props.accounts, "Accounts");
       console.log(this.props.accounts.accounts[0].standingInstructions, "interestRate");
+      let account = this.props.accounts.accounts[0]
         return(
           <div className='card-style' style = {{ backgroundColor:this.props.accounts.accounts[0].standingInstructions.find(val => !val.canClear)?'rgba(255, 93, 100, 0.18)':""}}>
                           <div>
@@ -70,7 +71,7 @@ componentDidMount(){
                                          Unutilized balance
                                      </div>
                                      <div className='money-font' style={{marginTop:'5px'}}>
-                                         £ {this.props.accounts.accounts[0].availableBalance > 0 ? this.props.accounts.accounts[0].availableBalance : 0}
+                                         £ {account.balance - account.minBalance - account.standingInst > 0 ? account.balance - account.minBalance - account.standingInst : 0}
                                      </div>
                                  </div>
                              </div>

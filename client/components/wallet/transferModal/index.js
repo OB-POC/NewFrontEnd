@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.css';
 import { Button, Header, Icon, Modal, Table, ListHeader } from 'semantic-ui-react'
-import Services from '../../../services'
 import SuccessModal from './success'
 export default class CustomModal extends React.Component{
     constructor(props){
@@ -26,7 +25,7 @@ export default class CustomModal extends React.Component{
                     console.log(document.getElementById('element-'+i))
                 let lineVar1 = new LeaderLine(document.getElementById('element-'+i),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
                 document.querySelector(".leader-line").style['z-index'] = '1000';
-                
+
                 // let lineVar2 = new LeaderLine(document.getElementById('fromCard2'),document.getElementById('toCard'),{path:'grid',color:'#4a4a4a'})
 
                 let linesArr = []
@@ -69,7 +68,7 @@ export default class CustomModal extends React.Component{
         >
             <div><Icon name='close' onClick = {this.handleCloseParentModal}/></div>
             <p className = 'Payment-instructions'>Transfer Funds</p>
-            <p className="transfer-funds-modal-message">Allow Optima to transfer £ 100 from Munzo account to RBS?</p>
+            <p className="transfer-funds-modal-message">Allow Optima to transfer £ {this.props.siSuggest.senders[0].amount} from {this.props.siSuggest.senders[0].senderBank} account to {this.props.siSuggest.receiver.receiverBank}?</p>
             <div style={{display:'flex',justifyContent:'flex-start',alignItems:'center',marginTop:'20px',marginBottom:'30px'}}>
                 <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
                 {this.props.siSuggest.senders.map((val,i) =>{
@@ -90,7 +89,7 @@ export default class CustomModal extends React.Component{
 
             </div>
             <div  style={{display:'flex',justifyContent:'flex-start'}}>
-                <SuccessModal />
+                <SuccessModal siSuggest = {this.props.siSuggest}/>
                 <div  onClick={this.handleClose} className='cancel-button' style={{display:'flex',justifyContent:'center',alignItems:'center',cursor:'pointer',border:'1px solid #4a4a4a'}}>
                 <p className='yes-text-style' style={{color:'#4a4a4a',}}>CANCEL</p>
                 </div>

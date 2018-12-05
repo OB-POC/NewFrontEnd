@@ -40,16 +40,16 @@ export default class PortingFromCard extends React.Component{
       pathname: '/portto',
       state : {cardData : notSelected,
       fromCards : selected}
-    }); 
+    });
     }
-  
-    cardClick = (i) => { 
+
+    cardClick = (i) => {
       this.setState((prevState)=>{
         if(prevState.cardData.includes(i))
           prevState.cardData.splice(prevState.cardData.indexOf(i),1)
          else{
           prevState.cardData.push(i)
-         } 
+         }
         return {
       ['card'+i] : !this.state['card'+i],
       cardData : prevState.cardData
@@ -103,7 +103,7 @@ export default class PortingFromCard extends React.Component{
                                            Available Balance
                                        </div>
                                        <div className='port-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].availableBalance}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
                                        </div>
                                    </div>
                                 </div>
@@ -132,7 +132,7 @@ export default class PortingFromCard extends React.Component{
                                            Available Balance
                                        </div>
                                        <div className='port-amount' style={{marginTop:'5px'}}>
-                                       £ {val.accounts[0].availableBalance}
+                                       £ {val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst}
                                        </div>
                                    </div>
                                 </div>
