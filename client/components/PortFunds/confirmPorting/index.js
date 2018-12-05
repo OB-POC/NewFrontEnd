@@ -109,7 +109,7 @@ export default class PoolingFromCard extends React.Component{
                             console.log(val);
                         return(
                             <div id={'element-'+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
-                                <img src = {"./images/cards/debit/"+val.bankName+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
+                                <img src = {"./images/cards/debit/"+val.bankName+"@3x.png"} alt = 'Llyods' style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{val.bankName}</p>
                                 <p className='amount-transfer'>£ {val.accounts[0].balance - val.accounts[0].standingInst - val.accounts[0].minBalance}</p>
                             </div>
@@ -121,7 +121,7 @@ export default class PoolingFromCard extends React.Component{
                            bank.accounts[0].balance - bank.accounts[0].standingInst - bank.accounts[0].minBalance
                           return(
                             <div  id={"toCard"} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
-                                <img src = {"./images/cards/debit/"+bank.bankName+"@3x.png"} style={{width:'81px',height:'51px',marginRight:'14px'}}/>
+                                <img src = {"./images/cards/debit/"+bank.bankName+"@3x.png"} alt = 'Llyods' style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{bank.bankName}</p>
                                 <p className='amount-transfer'>£ {amount}</p>
                             </div>

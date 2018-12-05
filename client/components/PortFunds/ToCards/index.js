@@ -223,7 +223,7 @@ lbgCardClick = () => {
                       <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
                       <Link to='/optimizings'><div className="flex-item1" style = {{marginLeft: '310px',
                       display: (this.state.value != '') ? '' : 'none'}}>Previous</div></Link>
-                      <div className="flex-item1" onClick = {this.onNextClick}>NEXT</div>
+                      <div className="flex-item1" style = {{display: (this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]}).length > 0) || this.state['card'+this.state.debitData.length] ? "" : "none"}}onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>
             </div>

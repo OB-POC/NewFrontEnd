@@ -23,6 +23,8 @@ export default class CustomModal extends React.Component{
         token: token,
         data: this.props.siSuggest
       }
+      document.querySelector(".leader-line").remove();
+      
       Services.postSISuggestions(dataObj, function(data){
           console.log(data, "postSI")
      }.bind(this),function(err){
