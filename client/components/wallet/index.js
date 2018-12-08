@@ -41,8 +41,7 @@ export default class Rel extends React.Component{
     render(){
       let amount = 0
       this.state.debitData.forEach((bank) => {
-        if(bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst > 0)
-        amount = amount + bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst
+        amount = amount + bank.accounts[0].balance
       })
         return(
             <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>

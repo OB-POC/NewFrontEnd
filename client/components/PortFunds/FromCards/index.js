@@ -71,8 +71,8 @@ export default class PortingFromCard extends React.Component{
                       <img src = {'images/optimizings/close-icon.png'} />
                     </div>
                     </Link>
-                    <div className ='port-header'>
-                         Port my funds
+                    <div className ='port-from-header'>
+                         Port my funds from ?
                     </div>
                     <div className='port-subheader'>Select which account(s) you want to port</div>
                   <div className='row'>

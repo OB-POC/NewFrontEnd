@@ -7,16 +7,19 @@ import Services from '../../../services'
 
 export default class PoolingToCard extends React.Component{
   constructor(props){
+    console.log(props,"props");
     super(props);
     this.state = {
       modalOpen: true,
       debitData : [],
       creditData : [],
-      accSumary: {}
+      accSumary: {},
+      activeCards: -1,
+
     }
   }
   componentDidMount(){
-    console.log(this.props.location.state.cardData);
+    if(this.props.location.state)
      this.setState({debitData : this.props.location.state.cardData});
   }
 
@@ -32,16 +35,26 @@ export default class PoolingToCard extends React.Component{
     this.props.history.push({
     pathname: '/confirmPool',
     state : {fromCards : this.props.location.state.fromCards,
-             toCards : this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]})   }
+             toCards : this.props.location.state.cardData.filter((val,ind)=> {return this.state['activeCards'] == ind})   }
   });
   }
 
   cardClick = (i) => {
-  console.log(i);
-  this.setState({
-    ['card'+i] : !this.state['card'+i]
+  if(i != this.state.activeCards)
+  {
+    this.setState({
+    'activeCards' : i
   })
+  }
+  else{
+    this.setState({
+    'activeCards' : -1
+  })
+  }
 }
+
+
+
     render(){
       console.log(this.props.location.state);
         return(
@@ -68,7 +81,7 @@ export default class PoolingToCard extends React.Component{
                   {this.state.debitData.map((val,i) =>{
 
                     return(
-                      !this.state['card'+i] ?
+                      this.state['activeCards'] != i ?
 
                       <div className='pool-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,i)}>
                           <div>
@@ -135,10 +148,10 @@ export default class PoolingToCard extends React.Component{
                      </div>
                      <div className='pool-line'></div>
                      <div className = "flex-container">
-                      <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
-                      <Link to='/optimizings'><div className="flex-item1" style = {{marginLeft: '310px',
-                      display: (this.state.value != '') ? '' : 'none'}}>Previous</div></Link>
-                      <div className="flex-item1" style = {{display: (this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]}).length > 0) ? "": "none" }}onClick = {this.onNextClick}>NEXT</div>
+                      <Link to='/wallet'><button className="flex-item" onClick = {this.onCancelClick}>CANCEL</button></Link>
+                      <Link to='/poolfrom'><button className="flex-item1" style = {{marginLeft: '310px',
+                      display: (this.state.value != '') ? '' : 'none'}}>Previous</button></Link>
+                      <button className="flex-item1" style = {{display: (this.state.activeCards == -1) ? "none": "" }}onClick = {this.onNextClick}>NEXT</button>
                     </div>
                 </div>
             </div>

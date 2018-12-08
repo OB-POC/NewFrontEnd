@@ -71,13 +71,14 @@ export default class PoolingFromCard extends React.Component{
                       <img src = {'images/optimizings/close-icon.png'} />
                     </div>
                     </Link>
-                    <div className ='pool-header'>
-                      Confirm
+                    <div className ='pool-from-header'>
+                      Pool my funds from ?
                     </div>
                     <div className='pool-subheader'>Select accounts from which you want to pool your funds</div>
                   <div className='row'>
                   {this.state.debitData.map((val,i) =>{
 
+                    if(val.accounts[0].balance - val.accounts[0].minBalance - val.accounts[0].standingInst > 0)
                     return(
                       !this.state['card'+i] ?
 
@@ -146,9 +147,9 @@ export default class PoolingFromCard extends React.Component{
                      </div>
                      <div className='pool-line'></div>
                      <div className = "flex-container">
-                      <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
-                      <Link to='/optimizings'><div className="flex-item1" style = {{marginLeft: '310px',
-                      display: (this.state.value != '') ? '' : 'none'}}>Previous</div></Link>
+                      <Link to='/wallet'><button className="flex-item" onClick = {this.onCancelClick}>CANCEL</button></Link>
+                      <Link to='/optimizings'><button className="flex-item1" style = {{marginLeft: '310px',
+                      display: (this.state.value != '') ? '' : 'none'}}>Previous</button></Link>
                       <div className="flex-item1" style = {{ display: (this.state.cardData.length > 0) ? '' : 'none'}} onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>

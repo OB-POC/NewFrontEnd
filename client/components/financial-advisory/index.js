@@ -58,6 +58,7 @@ export default class FinancialAdvisory extends React.Component{
     render(){
       let amount = 0
       this.state.debitData.forEach((bank) => {
+        if(bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst > 0)
         amount = amount + bank.accounts[0].balance - bank.accounts[0].minBalance - bank.accounts[0].standingInst
      });
         return(

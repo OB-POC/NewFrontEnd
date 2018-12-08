@@ -12,7 +12,8 @@ export default class PortingToCard extends React.Component{
       modalOpen: true,
       debitData : [],
       creditData : [],
-      accSumary: {}
+      accSumary: {},
+      activeCard: -1
     }
   }
 
@@ -30,7 +31,7 @@ export default class PortingToCard extends React.Component{
   }
 
   onNextClick = () => {
-    let toCardss = this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]})
+    let toCardss = this.props.location.state.cardData.filter((val,ind)=> {return this.state['activeCard'] == ind})
     if(toCardss.length == 0){
       toCardss = [{
         "bankName": "LBG",
@@ -59,15 +60,20 @@ export default class PortingToCard extends React.Component{
   }
 
   cardClick = (i) => {
-  console.log(i);
-  this.setState({
-    ['card'+i] : !this.state['card'+i]
+  console.log(i,"ii");
+  if(this.state.activeCard != i)
+  {
+    this.setState({
+    activeCard : i
   })
+  }
+  else{
+    this.setState({
+      activeCard: -1
+    })
+  }
 }
 
-lbgCardClick = () => {
-// this.props.history.push('/portingSucceed');
-}
   render(){
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
@@ -93,7 +99,7 @@ lbgCardClick = () => {
                   {this.state.debitData.map((val,i) =>{
 
                     return(
-                      !this.state['card'+i] ?
+                      this.state.activeCard != i ?
 
                       <div className='port-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,i)}>
                           <div>
@@ -157,7 +163,7 @@ lbgCardClick = () => {
 
                     )
                   })}
-                  {!this.state['card'+ this.state.debitData.length] ?
+                  {this.state.activeCard != this.state.debitData.length ?
 
                   <div className='port-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,this.state.debitData.length)}>
                       <div>
@@ -220,10 +226,10 @@ lbgCardClick = () => {
                      </div>
                      <div className='port-line'></div>
                      <div className = "flex-container">
-                      <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
-                      <Link to='/optimizings'><div className="flex-item1" style = {{marginLeft: '310px',
+                      <Link to='/wallet'><div className="flex-item">CANCEL</div></Link>
+                      <Link to='/portfrom'><div className="flex-item1" style = {{marginLeft: '310px',
                       display: (this.state.value != '') ? '' : 'none'}}>Previous</div></Link>
-                      <div className="flex-item1" style = {{display: (this.props.location.state.cardData.filter((val,ind)=> {return this.state['card'+ind]}).length > 0) || this.state['card'+this.state.debitData.length] ? "" : "none"}}onClick = {this.onNextClick}>NEXT</div>
+                      <div className="flex-item1" style = {{display: (this.state.activeCard != -1) || this.state['card'+this.state.debitData.length] ? "" : "none"}}onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>
             </div>

@@ -38,16 +38,7 @@
     background-color: #ada5a5;
   }
 
-  .from-card {
-    width: 310px;
-    height: 77px;
-    border-radius: 6px;
-    background-color: #ffffff;
-    border : 1px solid #c4c6cd
-  }
-
-  .to-card {
-    width: 206px;
+  .pool-from-card {
     height: 77px;
     border-radius: 6px;
     background-color: #ffffff;

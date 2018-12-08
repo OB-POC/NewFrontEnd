@@ -53,16 +53,6 @@ export default class PoolingFromCard extends React.Component{
 
   }
 
-  onCancelClick = () => {
-    this.setState({
-      value: ''
-    })
-  }
-  onPreviousClick = () => {
-    this.setState({
-      value: ''
-    })
-  }
   onNextClick = () => {
       const bankName = this.props.location.state.toCards[0].bankName
       var token = sessionStorage.getItem("token");
@@ -106,34 +96,28 @@ export default class PoolingFromCard extends React.Component{
                     <div style={{display:'flex',justifyContent:'flex-start',alignItems:'center',marginTop:'20px',marginBottom:'30px'}}>
                         <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginRight:'151px',padding:'10px'}}>
                         {this.props.location.state.fromCards.map((val,i) =>{
-                            console.log(val);
                         return(
-                            <div id={'element-'+i} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
+                            <div id={'element-'+i} className='port-from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px',marginTop:'10px',marginBottom:'10px'}}>
                                 <img src = {"./images/cards/debit/"+val.bankName+"@3x.png"} alt = 'Llyods' style={{width:'81px',height:'51px',marginRight:'14px'}}/>
                                 <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{val.bankName}</p>
-                                <p className='amount-transfer'>£ {val.accounts[0].balance - val.accounts[0].standingInst - val.accounts[0].minBalance}</p>
+                                <p className='amount-transfer'>£ {val.accounts[0].balance}</p>
                             </div>
                             )}
                         )}
                         </div>
-                        {this.props.location.state.toCards.map((bank, i) => {
-                          const amount = this.props.location.state.fromCards.reduce((acc,cur) => (cur.accounts[0].balance - cur.accounts[0].minBalance - cur.accounts[0].standingInst + acc),0) +
-                           bank.accounts[0].balance - bank.accounts[0].standingInst - bank.accounts[0].minBalance
-                          return(
-                            <div  id={"toCard"} className='from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
-                                <img src = {"./images/cards/debit/"+bank.bankName+"@3x.png"} alt = 'Llyods' style={{width:'81px',height:'51px',marginRight:'14px'}}/>
-                                <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{bank.bankName}</p>
-                                <p className='amount-transfer'>£ {amount}</p>
+                            <div  id={"toCard"} className='port-from-card' style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px'}}>
+                                <img src = {"./images/cards/debit/"+this.props.location.state.toCards[0].bankName+"@3x.png"} alt = 'Llyods' style={{width:'81px',height:'51px',marginRight:'14px'}}/>
+                                <p className='bank-name' style={{marginRight:'40px',marginBottom:'0px'}}>{this.props.location.state.toCards[0].bankName}</p>
+                                <p className='amount-transfer'>£ {this.props.location.state.toCards[0].accounts[0].balance}</p>
                             </div>
-                          )
-                        })}
+
 
                     </div>
                      <div className='pool-line'></div>
                      <div className = "flex-container">
                       <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
-                      <div className="flex-item1" onClick = {this.onPreviousClick}
-                      style = {{marginLeft: '310px', display: (this.state.value != '') ? '' : 'none'}}>Previous</div>
+                      <Link to='/portfrom'><div className="flex-item1" style = {{marginLeft: '310px',
+                      display: (this.state.value != '') ? '' : 'none'}}>Edit ?</div></Link>
                       <div className="flex-item1" onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>

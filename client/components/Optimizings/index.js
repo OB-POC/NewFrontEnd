@@ -125,9 +125,9 @@ export default class Rel extends React.Component{
                       </div>
                     </div>
                     <div className = "flex-container">
-                      <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
-                      <div className="flex-item1" style = {{marginLeft: '310px', display: (this.state.value != '') ? '' : 'none'}}
-                      onClick = {this.onNextClick}>NEXT</div>
+                      <Link to='/wallet'><button className="flex-item" onClick = {this.onCancelClick}>CANCEL</button></Link>
+                      <button className="flex-item1" style = {{marginLeft: '310px', display: (this.state.value != '') ? '' : 'none'}}
+                      onClick = {this.onNextClick}>NEXT</button>
                     </div>
                 </div>
               <div>
