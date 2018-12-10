@@ -13,13 +13,21 @@ export default class PortingToCard extends React.Component{
       debitData : [],
       creditData : [],
       accSumary: {},
-      activeCard: -1
-    }
+      activeCard: -1,
+      newLBG: true
+      }
   }
 
   componentDidMount(){
-    console.log(this.props.location.state.cardData);
+    this.props.location.state.cardData.forEach((bank) => {
+      if(bank.bankName == 'LBG'){
+        this.setState({
+          newLBG: false
+        })
+      }
+    })
      this.setState({debitData : this.props.location.state.cardData});
+
   }
 
   handleChange = (e, { value }) => this.setState({ value })
@@ -75,6 +83,7 @@ export default class PortingToCard extends React.Component{
 }
 
   render(){
+    console.log(this.state.newLBG, "NewLBG");
         return(
           <div className='container-fluid' style={{paddingLeft:'0px',paddingRight:'0px'}}>
             <Header username = {this.state.accSumary.username} history = {this.props.history}/>
@@ -97,7 +106,6 @@ export default class PortingToCard extends React.Component{
                     <div className='port-subheader'>Select to which account you want all your accounts to be ported</div>
                   <div className='row'>
                   {this.state.debitData.map((val,i) =>{
-
                     return(
                       this.state.activeCard != i ?
 
@@ -163,7 +171,9 @@ export default class PortingToCard extends React.Component{
 
                     )
                   })}
-                  {this.state.activeCard != this.state.debitData.length ?
+                  {
+                    this.state.newLBG == true ?
+                    this.state.activeCard != this.state.debitData.length ?
 
                   <div className='port-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,this.state.debitData.length)}>
                       <div>
@@ -221,7 +231,7 @@ export default class PortingToCard extends React.Component{
                                </div>
                             </div>
                       </div>
-                   </div>
+                   </div>:null
                       }
                      </div>
                      <div className='port-line'></div>
