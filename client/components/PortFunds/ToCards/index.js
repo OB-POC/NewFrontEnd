@@ -14,15 +14,15 @@ export default class PortingToCard extends React.Component{
       creditData : [],
       accSumary: {},
       activeCard: -1,
-      newLBG: true
+      newLBG: false
       }
   }
 
   componentDidMount(){
-    this.props.location.state.cardData.forEach((bank) => {
+    this.props.location.state.allCards.forEach((bank) => {
       if(bank.bankName == 'LBG'){
         this.setState({
-          newLBG: false
+          newLBG: true
         })
       }
     })
@@ -172,7 +172,7 @@ export default class PortingToCard extends React.Component{
                     )
                   })}
                   {
-                    this.state.newLBG == true ?
+                    this.state.newLBG == false ?
                     this.state.activeCard != this.state.debitData.length ?
 
                   <div className='port-card' style={{marginRight:'30px'}} tabIndex = "1" onClick = {this.cardClick.bind(this,this.state.debitData.length)}>
