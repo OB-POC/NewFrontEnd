@@ -84,7 +84,7 @@ export default class CustomModal extends React.Component{
               open={this.state.modalOpen}>
               <div><Icon name='close' onClick = {this.handleClose}/></div>
             <p className = 'Payment-instructions'>Payment instructions</p>
-            <Table className='standingInstTable'>
+            <Table className='standingInstTable' style = {{marginBottom:'0px'}}>
               <Table.Header>
                 <Table.Row style = {{backgroundColor : '#c6cbd4'}}>
                   <Table.HeaderCell style = {{paddingLeft:'42px'}}>Standing Instructions</Table.HeaderCell>
@@ -100,10 +100,14 @@ export default class CustomModal extends React.Component{
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
-            <Table.Body>
-            {standingInstructionsTable}
-          </Table.Body>
-        </Table>
+              </Table>
+              <div style = {{height : '178px','overflow-y':'auto'}}>
+              <Table className='standingInstTable'>
+                <Table.Body>
+                {standingInstructionsTable}
+              </Table.Body>
+            </Table>
+        </div>
         <div style = {{  width: '578px',
           height: '250px',
           objectFit: 'contain',backgroundImage : 'url("./images/transferfunds.png")',backgroundRepeat:'round',display:this.state.showBanner,position: 'relative',animation: 'fadeIn 1s',paddingTop: '27px',
