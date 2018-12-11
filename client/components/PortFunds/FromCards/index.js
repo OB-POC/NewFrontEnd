@@ -39,7 +39,9 @@ export default class PortingFromCard extends React.Component{
       this.props.history.push({
       pathname: '/portto',
       state : {cardData : notSelected,
-      fromCards : selected}
+      fromCards : selected,
+      allCards: this.state.debitData
+    }
     });
     }
 
