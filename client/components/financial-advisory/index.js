@@ -15,7 +15,8 @@ export default class FinancialAdvisory extends React.Component{
       debitData : [],
       creditData : [],
       accSumary: {},
-      value: ''
+      value: '',
+      advisory: {}
     }
   }
   componentWillMount() {
@@ -34,6 +35,12 @@ export default class FinancialAdvisory extends React.Component{
      // })
       Services.debitCall(token,function(data){
           this.setState({debitData : data.banks});
+      }.bind(this),function(err){
+          console.log(err);
+      })
+      Services.getFinancialAdvisory(token, function(data){
+          this.setState({advisory : data});
+          console.log(data, "advisory")
       }.bind(this),function(err){
           console.log(err);
       })
@@ -78,27 +85,27 @@ export default class FinancialAdvisory extends React.Component{
                     </Link>
                     <div className='cardFinacialDetail'>
                       <div className='weeklysaving text-style-1'>
-                        Based on our forecasts, you can safely spend £ 310 this week
+                        Based on our forecasts, you can safely spend £ {this.state.advisory.safeExpenditure} this week
                       </div>
                       <div className='cardDetails'>
                       <div id='availableCash' className='cashtype'>
                         Avaliable Cash
-                        <label className='amount'>£ {amount}</label>
+                        <label className='amount'>£ {this.state.advisory.availableCash}</label>
                       </div>
                       <div id='expenses' className='cashtype'>
                         Forecasted Expenses
-                        <label className='amount'>£ 200</label>
+                        <label className='amount'>£ {this.state.advisory.forcastedExpense}</label>
                       </div>
                       <div id='income' className='cashtype'>
                         Forecasted Income
-                        <label className='amount'>£ 300</label>
+                        <label className='amount'>£ {this.state.advisory.forcastedIncome}</label>
                       </div>
                       </div>
                     </div>
                     <img src='images/financialAdvisory/img-banner.png' className='adviseImg'>
                     </img>
                     <div className ='advisoryMsg text-style-1'>
-                      Hey Alice!,  You can invest £100 for the next 6 months and earn £ 20,331!
+                      Hey Alice!,  You can invest £{this.state.advisory.investableAmount} for the next 6 months and earn £ {this.state.advisory.earnableAmount}!
                     </div>
                     <div className='seehow'>
                     <lable className='SEE-HOW'>See How</lable>

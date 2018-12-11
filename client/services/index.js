@@ -117,6 +117,16 @@ portFunds: function(queryData,successCb,errorCb) {
     error : errorCb
   })
 },
+getFinancialAdvisory: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"GET",
+    url : config.offeringsUrl+"/advisory",
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
+}
 
 // poolToCardsCall : function(queryData,successCb,errorCb){
 //   console.log(JSON.stringify(queryData.fromCard));
