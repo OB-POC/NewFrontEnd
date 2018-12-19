@@ -72,6 +72,12 @@ export default class PoolingFromCard extends React.Component{
       this.props.history.push({pathname:'/portingSucceed',state:{bankName}});
   }
 
+
+  // onCancelClick = () => {
+  //   document.querySelector(".leader-line").remove();
+  //
+  // }
+
     render(){
         console.log(this.props.location.state, "props.state");
         return(
@@ -117,7 +123,7 @@ export default class PoolingFromCard extends React.Component{
                      <div className = "flex-container">
                       <Link to='/wallet'><div className="flex-item" onClick = {this.onCancelClick}>CANCEL</div></Link>
                       <Link to='/portfrom'><div className="flex-item1" style = {{marginLeft: '310px',
-                      display: (this.state.value != '') ? '' : 'none'}}>Edit ?</div></Link>
+                      display: (this.state.value != '') ? '' : 'none'}} onClick = {this.onCancelClick}>Edit ?</div></Link>
                       <div className="flex-item1" onClick = {this.onNextClick}>NEXT</div>
                     </div>
                 </div>

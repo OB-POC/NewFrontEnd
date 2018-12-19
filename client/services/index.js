@@ -76,7 +76,7 @@ totalBalancesCall: function(queryData,successCb,errorCb) {
 getSISuggestions: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"GET",
-    url : config.savingsUrl+"/si/suggestions",
+    url : config.manageSIUrl+"/si/suggestions",
     headers: {"x-access-token": queryData},
     contentType : "application/json",
     success : successCb,
@@ -87,7 +87,7 @@ postSISuggestions: function(queryData,successCb,errorCb) {
   console.log(queryData.data, "data..s");
   $.ajax({
     type :"POST",
-    url : config.savingsUrl+"/si/suggestions",
+    url : config.manageSIUrl+"/si/suggestions",
     data: JSON.stringify(queryData.data),
     headers: {"x-access-token": queryData.token},
     contentType : "application/json",
@@ -98,7 +98,7 @@ postSISuggestions: function(queryData,successCb,errorCb) {
 poolFunds: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"POST",
-    url : config.savingsUrl+"/mergeFunds",
+    url : config.poolingUrl+"/mergeFunds",
     data: JSON.stringify(queryData.data),
     headers: {"x-access-token": queryData.token},
     contentType : "application/json",
@@ -109,7 +109,7 @@ poolFunds: function(queryData,successCb,errorCb) {
 portFunds: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"POST",
-    url : config.savingsUrl+"/mergeAccounts",
+    url : config.portingUrl+"/mergeAccounts",
     data: JSON.stringify(queryData.data),
     headers: {"x-access-token": queryData.token},
     contentType : "application/json",
@@ -127,20 +127,5 @@ getFinancialAdvisory: function(queryData,successCb,errorCb) {
     error : errorCb
   })
 }
-
-// poolToCardsCall : function(queryData,successCb,errorCb){
-//   console.log(JSON.stringify(queryData.fromCard));
-//   console.log(JSON.stringify(queryData.fromCard.accounts));
-//   $.ajax({
-//   type: "POST",
-//   url: config.savingsUrl+"/si/suggestions",
-//   datatype: "json",
-//   headers: {"x-access-token": queryData.token},
-//   data : queryData.fromCard,
-//    success:successCb,
-//    error:errorCb
-//  })
-// }
-
 
 }
